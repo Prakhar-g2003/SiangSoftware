@@ -73,11 +73,11 @@ let filterProject1=()=>{
 }
 let filterProject2=()=>{
  if(inputCourses){
-  let colcoursess=inputCourses.filter((project)=>project.college===true);
+  let colcoursess=inputCourses.filter((project)=>project.online===false);
   setNewCourse(colcoursess);
   }
   if(!inputValue){
-    let colcoursess=courses.filter((project)=>project.college===true);
+    let colcoursess=courses.filter((project)=>project.online===false);
   setNewCourse(colcoursess);
   }
   setValue('');
