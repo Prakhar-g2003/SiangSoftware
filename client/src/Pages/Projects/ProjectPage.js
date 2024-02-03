@@ -13,15 +13,10 @@ import './Project.css'
 
 
 export default function ProjectPage({projects}){
-
-
-
-
-
 let techUsed=[];
 let projectType=[];
-projects.map((project)=>projectType.push(project.projectType));
-projects.map((project)=>project.techUsed.map((item)=>techUsed.push(item)));
+projects.map((project)=>techUsed.push(project.projecttype));
+// projects.map((project)=>project.techstack.map((item)=>techUsed.push(item)));
 techUsed=[...new Set(techUsed)];
 projectType=[... new Set(projectType)];
 
@@ -93,11 +88,11 @@ let handleSubmit=(e)=>{
 
 let filterProject1=()=>{
   if(inputProjects){
-  let collProjects=inputProjects.filter((project)=>project.collaboration===true);
+  let collProjects=inputProjects.filter((project)=>project.completed===false);
   setNewProject(collProjects);
   }
   if(!inputValue){
-    let collProjects=projects.filter((project)=>project.collaboration===true);
+    let collProjects=projects.filter((project)=>project.completed===false);
   setNewProject(collProjects);
   }
   setValue('');

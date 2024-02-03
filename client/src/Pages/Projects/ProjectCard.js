@@ -13,19 +13,20 @@ export default function ProjectCard({project}) {
         <CardMedia
           component="img"
           height="140"
-          image={project.image}
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmIuZAa1eqmXHBRqOzUHeEwWYN8TGenwtX-w&usqp=CAU"
           alt="project Image"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {project.projectName}
+            {project.name}
           </Typography>
           <Typography variant="body2" color="text.primary">
-            {project.projectInfo}
+            {project.description}
           </Typography>
           <p><b>Total reviews</b>  {project.reviews}</p>
           <div variant="body2" className='projectTechused' color="text.secondary">
-            {project.techUsed.map((tech)=><p key={Math.random()}>&#x2022;  {tech}</p>)}
+            {/* {project.techstack.map((tech)=><p key={Math.random()}>&#x2022;  {tech}</p>)} */}
+            {/* {project.docref.id} */}
           </div>
           
         </CardContent>
