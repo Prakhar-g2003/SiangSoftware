@@ -1,0 +1,69 @@
+/* Add this style to your ProjectSlider.css file */
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    /* Adjust alignment as needed */
+    align-items: center;
+    overflow: hidden;
+}
+
+.slider {
+    display: inline-flex;
+    flex: 1;
+    /* Allow the container to grow or shrink */
+    flex-shrink: 0;
+    /* Ensure slider doesn't shrink below its initial size */
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.projectCard {
+    flex: 0 0 auto;
+    /* Make each card have a fixed width */
+    margin-right: 20px;
+    /* Add margin between cards */
+    transition: transform 300ms ease-in-out;
+    /* Apply hover effect */
+}
+
+
+
+.left {
+    opacity: 1;
+    /* Set opacity to 1 for full visibility */
+    cursor: pointer;
+    color: #000;
+    /* Set a color for the icons, adjust as needed */
+}
+
+.right {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.button-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 40px;
+    /* Set the font size to match the icon size */
+    color: #000;
+    /* Set the color of the icon */
+}
+
+.button-icon:hover {
+    opacity: 0.7;
+    /* Add a hover effect if desired */
+}

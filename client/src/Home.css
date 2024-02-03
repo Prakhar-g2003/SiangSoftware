@@ -1,0 +1,26 @@
+/* Add this to your existing CSS file or create a new one */
+
+img {
+    width: 100%;
+    max-height: 450px;
+    /* Adjust the maximum height as needed */
+    object-fit: cover;
+    /* Preserve aspect ratio while covering the container */
+
+
+
+}
+
+.text{
+    position:absolute;
+    top:30%;
+    left:45%;
+    color:white;
+}
+
+.para{
+    position: absolute;
+        top: 40%;
+        left: 30%;
+        color: white;
+}

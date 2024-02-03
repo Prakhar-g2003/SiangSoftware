@@ -15,6 +15,10 @@ nav {
     /* Set the width to 100% */
     box-sizing: border-box;
     /* Include padding and border in the total width */
+    border: 2px solid white;
+    /* White border */
+    border-radius: 15px;
+    /* Border-radius for circular corners */
 }
 
 .navbar {
