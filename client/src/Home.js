@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Navbar from "./Components/ProfilePage/Navbar";
 
 function Home() {
     useEffect(() => {
@@ -21,11 +22,13 @@ function Home() {
         getUserinfo();
     }, [])
     return (
+        
         <div>
-        <h1>Welcome to the Microsoft Authentication Library For React Tutorial</h1>
+        <Navbar/>
+        
         <p>
-            This sample app demonstrates how to use the Microsoft Authentication Library for React to sign in and sign out users.
-            {localStorage.getItem("authToken")};
+            
+            {localStorage.getItem("authToken")}
         </p>
         </div>
     );

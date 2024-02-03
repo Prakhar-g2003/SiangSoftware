@@ -1,12 +1,20 @@
 /* Navbar.css */
 
+body {
+    margin: 0;
+    /* Remove default body margin */
+}
+
 nav {
-    background-color: #333;
+    background-color: #040101;
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    /* Updated to space-between to separate "My Website" and navbar items */
     align-items: center;
+    width: 100%;
+    /* Set the width to 100% */
+    box-sizing: border-box;
+    /* Include padding and border in the total width */
 }
 
 .navbar {
@@ -16,7 +24,10 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* Align items to the right */
+    width: 100%;
+    /* Set the width to 100% */
+    box-sizing: border-box;
+    /* Include padding and border in the total width */
 }
 
 .navbar-brand {
@@ -24,16 +35,16 @@ nav {
     font-size: 28px;
     display: flex;
     align-items: center;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
 }
 
 .navbarList {
     margin-left: 15px;
-    /* Adjust the spacing between navbar items */
 }
 
 .navbarList:first-child {
     margin-left: 0;
-    /* Remove left margin for the first child */
 }
 
 .navbarList a {
@@ -46,4 +57,4 @@ nav {
 
 .navbarList a:hover {
     color: darkgray;
-}   
+}
