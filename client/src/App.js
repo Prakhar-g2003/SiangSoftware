@@ -7,6 +7,7 @@ import {
   UnauthenticatedTemplate,
 } from "@azure/msal-react";
 import Home from "./Home";
+import ProfilePage from './Components/ProfilePage/Profilepage';
 import Login from "./Pages/landing/Login";
 import Callback from "./Callback";
 import ProjectPage from './Pages/Projects/ProjectPage'
@@ -17,6 +18,7 @@ import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 function App() {
   const [projects, setProjects] = React.useState([]);
   const [courses, setCourses] = React.useState([]);
+  const [userinfo, setUserInfor] = React.useState([]);
   React.useEffect(() => {
       const allprojects = async() => {
           var response = await fetch("http://localhost:3001/api/projects", {
@@ -54,6 +56,7 @@ function App() {
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
             <Route path="/home" element={<Home />} />
+            <Route exact path='/myprofile' element={<ProfilePage userinfo={userinfo} courses={courses} projects={projects}/>}></Route>
             <Route exact path='/projects' element={<ProjectPage projects={projects}/>}></Route>
             <Route exact path='/courses' element={<CoursePage courses={courses}/>}></Route>
             <Route
