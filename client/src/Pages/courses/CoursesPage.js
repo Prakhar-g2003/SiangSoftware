@@ -73,11 +73,11 @@ let filterProject1=()=>{
 }
 let filterProject2=()=>{
  if(inputCourses){
-  let colcoursess=inputCourses.filter((project)=>project.online===false);
+  let colcoursess=inputCourses.filter((project)=>project.college===true);
   setNewCourse(colcoursess);
   }
   if(!inputValue){
-    let colcoursess=courses.filter((project)=>project.online===false);
+    let colcoursess=courses.filter((project)=>project.college===true);
   setNewCourse(colcoursess);
   }
   setValue('');
@@ -90,9 +90,9 @@ React.useEffect(()=>{
 },[inputValue])
     
     return(
-
-      <div >
-      <div className="searchcourse">
+      
+      <div style={{backgroundColor: "#F7F9FB",padding:"0",marginTop:"-20px",height:"100%"}}>
+        <h1>Navbar</h1>
           <form className="Searchform" onSubmit={handleSubmit}>
             <Autocomplete
               disablePortal
@@ -108,17 +108,20 @@ React.useEffect(()=>{
                   </div>
                 )}
             />
-            <Button className="searchButton" color="primary" type="submit">Search</Button> 
-          </form>
-          <div className="filtercourse">
+            <div >
+            <button style={{fontSize:"1rem"}}>Search</button>
+            </div>
+            <div className="filtercourse">
           <button onClick={filterProject1}>Online Courses</button>
           <button onClick={filterProject2} >College Courses</button>
 
         </div>
-        </div>
+          </form>
+          
+        
           <Box >
-            <FormControl fullWidth sx={{backgroundColor:"white", maxWidth: 140 ,marginLeft:"30px",marginTop:"130px",borderRadius:"6px"}}>
-              <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
+            <FormControl fullWidth sx={{backgroundColor:"white", maxWidth: 120 ,marginLeft:"15%",marginTop:"30px",borderRadius:"6px"}}>
+              <InputLabel sx={{height:"20px"}} id="demo-simple-select-label">Sort By</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
@@ -135,4 +138,5 @@ React.useEffect(()=>{
       </div>
     )
 }
+
 
