@@ -2,7 +2,7 @@ import React from "react";
 import './Sidebar.css';
 
  
-const Sidebar = () => {
+const Sidebar = ({user}) => {
     return (
         <div className="sidebar">
             <div className="sidebar_profile">
@@ -10,12 +10,12 @@ const Sidebar = () => {
               
                    <div className="profile_details">
                   
-                     <h4>Satvik Tyagi</h4>
-                     <p>Web Developer</p>
+                     <h4>{user.name}</h4>
+                     <p>Contact me: {user.email}</p>
                    </div>
 
                   <div className="profile_stats">
-                      <span>Who viewed your profile</span>
+                      <span>Contributions</span>
                       <span className="stat_number">20</span>
                   </div>
 
