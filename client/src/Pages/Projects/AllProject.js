@@ -7,7 +7,7 @@ export default function AllProjects({projects}){
     )
     return(
         
-        <div style={{display:"flex",flexWrap:"wrap",padding:"10px", margin:"0 15px 0 15px"}}>
+        <div style={{display:"flex",flexDirection:"column",marginLeft:"15%"}}>
             {ProjectList}
         </div>
     )

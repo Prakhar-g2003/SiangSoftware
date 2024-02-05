@@ -14,12 +14,12 @@ export default function ProjectCard({project}) {
     navigate('/ProjectDisplay', {state: {project: project}});
   }
   return (
-    <Card sx={{maxWidth: 345}} className='projectCard' onClick = {handleClick}>
+    <Card  className='projectCard' onClick = {handleClick}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmIuZAa1eqmXHBRqOzUHeEwWYN8TGenwtX-w&usqp=CAU"
+          image={project.image}
           alt="project Image"
         />
         <CardContent>
@@ -29,10 +29,9 @@ export default function ProjectCard({project}) {
           <Typography variant="body2" color="text.primary">
             {project.description}
           </Typography>
-          <p><b>Total reviews</b>  {project.reviews}</p>
+          <h3 style={{textAlign:"end",color:"purple"}}>{project.reviews} reviews</h3>
           <div variant="body2" className='projectTechused' color="text.secondary">
-            {/* {project.techstack.map((tech)=><p key={Math.random()}>&#x2022;  {tech}</p>)} */}
-            {/* {project.docref.id} */}
+            {project.techUsed.map((tech)=><p key={Math.random()}>&#x2022;  {tech}</p>)}
           </div>
           
         </CardContent>
