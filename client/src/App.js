@@ -54,7 +54,7 @@ function App() {
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Home projects ={projects}/>} />
             <Route exact path='/projects' element={<ProjectPage projects={projects}/>}></Route>
             <Route exact path='/courses' element={<CoursePage courses={courses}/>}></Route>
             <Route

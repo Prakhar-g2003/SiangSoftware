@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
+import TopContributors from "./Components/TopContributors/TopContributors";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Feed from "./Components/Feed/Feed";
+import "./Home.css"
 
-function Home() {
+function Home({projects}) {
     useEffect(() => {
         const getUserinfo = async() => {
             try{
@@ -21,12 +25,10 @@ function Home() {
         getUserinfo();
     }, [])
     return (
-        <div>
-        <h1>Welcome to the Microsoft Authentication Library For React Tutorial</h1>
-        <p>
-            This sample app demonstrates how to use the Microsoft Authentication Library for React to sign in and sign out users.
-            {localStorage.getItem("authToken")};
-        </p>
+        <div className="home_body">
+            <TopContributors className = "TopContributors"></TopContributors>
+            <Feed className = "feed" projects = {projects}/>
+            <Sidebar className =  "sidebar"/>
         </div>
     );
     }
