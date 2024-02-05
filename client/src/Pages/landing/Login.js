@@ -15,10 +15,10 @@ export default function Login({course}){
     };
   
     return(
-        <div onClick={initializeSignIn}>
-            <div class="background-image"></div>
+        <div className='body_login' onClick={initializeSignIn}>
+            <div class="background-image_login"></div>
  
-            <button class="microsoft-button">
+            <button class="microsoft-button_login">
             <img src={ require('./Microsoft_logo.png') } />     
 Sign in with microsoft
             </button>

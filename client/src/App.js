@@ -8,6 +8,7 @@ import {
 } from "@azure/msal-react";
 import Home from "./Home";
 import Login from "./Pages/landing/Login";
+// import Login from "./Login";
 import Callback from "./Callback";
 import ProjectPage from './Pages/Projects/ProjectPage'
 import CoursePage from './Pages/courses/CoursesPage';
