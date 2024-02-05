@@ -16,7 +16,10 @@ export default function ProjectPage({projects}){
 let techUsed=[];
 let projectType=[];
 projects.map((project)=>techUsed.push(project.projecttype));
-// projects.map((project)=>project.techstack.map((item)=>techUsed.push(item)));
+// console.log(projects.teckstacks);
+// projects.map((project)=>console.log(project.techstacks));
+projects.map((project)=>project.techstacks.map((item)=>techUsed.push(item)));
+// console.log(techUsed);
 techUsed=[...new Set(techUsed)];
 projectType=[... new Set(projectType)];
 
