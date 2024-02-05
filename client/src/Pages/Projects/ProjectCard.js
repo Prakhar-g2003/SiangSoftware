@@ -19,7 +19,7 @@ export default function ProjectCard({project}) {
         <CardMedia
           component="img"
           height="140"
-          image={project.image}
+          image=""
           alt="project Image"
         />
         <CardContent>
@@ -31,7 +31,7 @@ export default function ProjectCard({project}) {
           </Typography>
           <h3 style={{textAlign:"end",color:"purple"}}>{project.reviews} reviews</h3>
           <div variant="body2" className='projectTechused' color="text.secondary">
-            {project.techUsed.map((tech)=><p key={Math.random()}>&#x2022;  {tech}</p>)}
+            {project.techstacks.map((tech)=><p key={Math.random()}>&#x2022;  {tech}</p>)}
           </div>
           
         </CardContent>
