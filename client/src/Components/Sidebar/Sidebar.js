@@ -10,8 +10,8 @@ const Sidebar = ({user}) => {
               
                    <div className="profile_details">
                   
-                     <h4>{user.name}</h4>
-                     <p>Contact me: {user.email}</p>
+                     <h4>Prakhar</h4>
+                     <p>Contact me: </p>
                    </div>
 
                   <div className="profile_stats">

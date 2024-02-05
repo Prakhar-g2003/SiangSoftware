@@ -19,7 +19,27 @@ import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 function App() {
   const [projects, setProjects] = React.useState([]);
   const [courses, setCourses] = React.useState([]);
-  const [userinfo, setUserInfor] = React.useState([]);
+  const [user, setUser] = React.useState();
+  React.useEffect(() => {
+        const getUserinfo = async() => {
+            try{
+                const token = localStorage.getItem("token");
+                var response = await fetch("http://localhost:3001/api/user-info", {
+                    method: 'GET',
+                    headers:{
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                }); 
+                response = await response.json();
+                setUser(response);
+                // console.log(user);
+            } catch(error){
+                console.log(error);
+            }
+        }
+        getUserinfo();
+    }, [])
   React.useEffect(() => {
       const allprojects = async() => {
           var response = await fetch("http://localhost:3001/api/projects", {
@@ -56,8 +76,8 @@ function App() {
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
-            <Route exact path='/myprofile' element={<ProfilePage userinfo={userinfo} courses={courses} projects={projects}/>}></Route>
-            <Route path="/home" element={<Home projects ={projects}/>} />
+            <Route exact path='/myprofile' element={<ProfilePage userinfo={user} courses={courses} projects={projects}/>}></Route>
+            <Route path="/home" element={<Home projects ={projects} user={user}/>} />
             <Route exact path='/projects' element={<ProjectPage projects={projects}/>}></Route>
             <Route exact path='/courses' element={<CoursePage courses={courses}/>}></Route>
             <Route
