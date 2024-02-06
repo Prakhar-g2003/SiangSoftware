@@ -7,15 +7,14 @@ import {
   UnauthenticatedTemplate,
 } from "@azure/msal-react";
 import Home from "./Home";
-import ProfilePage from './Components/ProfilePage/Profilepage';
+import ProfilePage from "./Components/ProfilePage/Profilepage";
 import Login from "./Pages/landing/Login";
 // import Login from "./Login";
 import Callback from "./Callback";
-import ProjectPage from './Pages/Projects/ProjectPage'
-import CoursePage from './Pages/courses/CoursesPage';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import {jwtDecode} from 'jwt-decode';
-
+import ProjectPage from "./Pages/Projects/ProjectPage";
+import CoursePage from "./Pages/courses/CoursesPage";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import FinalAskHelperMain from "./Components/AskHelper/FinalAskHelper";
 import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 function App() {
   const user = {
@@ -33,34 +32,34 @@ function App() {
   const [projects, setProjects] = React.useState([]);
   const [courses, setCourses] = React.useState([]);
   React.useEffect(() => {
-      const allprojects = async() => {
-          var response = await fetch("http://localhost:3001/api/projects", {
-              method: 'POST', 
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          }); 
-          response = await response.json();
-          setProjects(response);
-      }
-      allprojects();
-  },[])
+    const allprojects = async () => {
+      var response = await fetch("http://localhost:3001/api/projects", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      response = await response.json();
+      setProjects(response);
+    };
+    allprojects();
+  }, []);
   React.useEffect(() => {
-      const allcourses = async() => {
-          var response = await fetch("http://localhost:3001/api/courses", {
-              method: 'POST', 
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          }); 
-          response = await response.json();
-          
-          setCourses(response);
-          console.log(response);
-          // setProjects(response);
-      }
-      allcourses();
-  },[])
+    const allcourses = async () => {
+      var response = await fetch("http://localhost:3001/api/courses", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      response = await response.json();
+
+      setCourses(response);
+      console.log(response);
+      // setProjects(response);
+    };
+    allcourses();
+  }, []);
   return (
     <React.Fragment>
       <AuthenticatedTemplate>
@@ -75,8 +74,9 @@ function App() {
             <Route
               exact
               path="/ProjectDisplay"
-              element={<ProjectDisplay/>}
+              element={<ProjectDisplay />}
             ></Route>
+            <Route path="/AskHelper" element={<FinalAskHelperMain />} />
             {/* <Route path="about" element={<About />} /> */}
           </Routes>
         </Router>
@@ -85,8 +85,6 @@ function App() {
         <Login />
       </UnauthenticatedTemplate>
     </React.Fragment>
-      
-
   );
 }
 
