@@ -1,0 +1,36 @@
+.askHelperLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #fdfffc;
+}
+.overlayHelper {
+  height: 100%;
+  width: 100%;
+  background-color: #eff6fd;
+  display: flex;
+  padding: 6% 2% 2% 25%;
+  gap: 3vh;
+}
+
+.askHelpMain {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  background-color: #eff6fd;
+  height: 100%;
+}
+
+.doubtMain {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.askHelpProfile {
+  background-color: #fcfdfd;
+  width: 22vh;
+  height: 25vh;
+}
