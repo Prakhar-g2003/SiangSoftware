@@ -16,6 +16,7 @@ import CoursePage from "./Pages/courses/CoursesPage";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import FinalAskHelperMain from "./Components/AskHelper/FinalAskHelper";
 import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
+import ProfileForm from "./Components/ProfilePage/ProfileForm";
 function App() {
   const user = {
     name: "Shobhit",
@@ -76,6 +77,7 @@ function App() {
               path="/ProjectDisplay"
               element={<ProjectDisplay />}
             ></Route>
+            <Route exact path='/ProfileForm' element={<ProfileForm />}></Route>
             <Route path="/AskHelper" element={<FinalAskHelperMain />} />
             {/* <Route path="about" element={<About />} /> */}
           </Routes>

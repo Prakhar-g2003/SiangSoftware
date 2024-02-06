@@ -14,6 +14,10 @@ const Maincontent = ({ userinfo, courses, projects }) => {
         console.log('clicked ' + project.id);
         navigate('/ProjectDisplay', {state: {project: project}});
     }
+    function handleEdit(){
+        // console.log('clicked ' + project.id);
+        navigate('/ProfileForm');
+    }
     const slideLeft = () => {
         var slider = document.getElementById('slider');
         slider.scrollLeft = slider.scrollLeft - 500;
@@ -33,7 +37,7 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                             <h2>{userinfo.name}</h2>
                             <p>{userinfo.branch}</p>
                         </div>
-                        <div className='edit-profile'>
+                        <div className='edit-profile' onClick={handleEdit}>
                             <img src={pencil_image} alt="edit-profile-image" className='edit-profile-image'/>
                             <div className='edit-profile-text'>Edit Profile</div>
                         </div>
