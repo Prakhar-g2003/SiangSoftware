@@ -1,12 +1,19 @@
 // Maincontent.js
+import {useNavigate}  from 'react-router-dom';
 import React from 'react';
 import './profilepage.css';
 import blank_profile_pic from './blank_profile_pic.webp';
 import pencil_image from './pencil_image.jpg';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useState } from 'react';
 // import 'react-multi-carousel/lib/styles.css';
 
 const Maincontent = ({ userinfo, courses, projects }) => {
+    let navigate = useNavigate();
+    function handleClick(project){
+        console.log('clicked ' + project.id);
+        navigate('/ProjectDisplay', {state: {project: project}});
+    }
     const slideLeft = () => {
         var slider = document.getElementById('slider');
         slider.scrollLeft = slider.scrollLeft - 500;
@@ -23,8 +30,8 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                 <div className='card profile-info'>
                         <img src={blank_profile_pic} alt="Profile Picture" className="profile-picture" />
                         <div className='text-info'>
-                            <h2>Shobhit Gupta</h2>
-                            <p>Btech computer science and engineering</p>
+                            <h2>{userinfo.name}</h2>
+                            <p>{userinfo.branch}</p>
                         </div>
                         <div className='edit-profile'>
                             <img src={pencil_image} alt="edit-profile-image" className='edit-profile-image'/>
@@ -55,9 +62,9 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                                 </div>
 
                                 <div className='card-content'>
-                                    <h2 className='project-name'>{project.projName}</h2>
+                                    <h2 className='project-name'>{project.name}</h2>
                                     
-                                    <button className='button'>View More</button>
+                                    <button className='button' onClick={() => handleClick(project)}>View More</button>
                                 </div>
                             </div>
 

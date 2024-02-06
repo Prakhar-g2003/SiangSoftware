@@ -16,6 +16,20 @@ router.post('/projects', async(req, res) => {
     alldocs.forEach((doc) => {
         dataArray.push(doc.data());
     });
+    // console.log(dataArray);
+    res.send(dataArray);
+})
+
+router.post('/my-projects', async(req, res) => {
+    const id = req.body.user_id;
+    const dataArray = [];
+    const alldocs = await getDocs(usersCollection);
+    alldocs.forEach((doc) => {
+        if(doc.data().userId === id){
+            dataArray.push(doc.data());
+        }
+    });
+
     console.log(dataArray);
     res.send(dataArray);
 })

@@ -14,32 +14,24 @@ import Callback from "./Callback";
 import ProjectPage from './Pages/Projects/ProjectPage'
 import CoursePage from './Pages/courses/CoursesPage';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import {jwtDecode} from 'jwt-decode';
 
 import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 function App() {
+  const user = {
+    name: "Shobhit",
+    branch: "Coumputer Science and Engineering",
+    course: "Btech Engineering",
+    yearofgrad: "2026",
+    email: "shobhit25gupta@gmail.com",
+    phone_no: "9873187481",
+    linkedInprofile: "https://www.linkedin.com/in/shobhit-gupta25/",
+    instaprofile: "https://www.instagram.com/shobyy.25/",
+    githubprofile: "https://github.com/shobyy25",
+    aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod mauris vel urna ultrices, ac congue lacus condimentum. Integer nec elit eu metus ullamcorper bibendum. Nullam ullamcorper, urna eget condimentum fermentum, elit felis ultricies orci, vitae malesuada nulla dui in lacus."
+  }
   const [projects, setProjects] = React.useState([]);
   const [courses, setCourses] = React.useState([]);
-  const [user, setUser] = React.useState();
-  React.useEffect(() => {
-        const getUserinfo = async() => {
-            try{
-                const token = localStorage.getItem("token");
-                var response = await fetch("http://localhost:3001/api/user-info", {
-                    method: 'GET',
-                    headers:{
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    }
-                }); 
-                response = await response.json();
-                setUser(response);
-                // console.log(user);
-            } catch(error){
-                console.log(error);
-            }
-        }
-        getUserinfo();
-    }, [])
   React.useEffect(() => {
       const allprojects = async() => {
           var response = await fetch("http://localhost:3001/api/projects", {
@@ -76,8 +68,8 @@ function App() {
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
-            <Route exact path='/myprofile' element={<ProfilePage userinfo={user} courses={courses} projects={projects}/>}></Route>
-            <Route path="/home" element={<Home projects ={projects} user={user}/>} />
+            <Route exact path='/myprofile' element={<ProfilePage courses={courses} projects={projects}/>}></Route>
+            <Route path="/home" element={<Home projects ={projects}/>} />
             <Route exact path='/projects' element={<ProjectPage projects={projects}/>}></Route>
             <Route exact path='/courses' element={<CoursePage courses={courses}/>}></Route>
             <Route

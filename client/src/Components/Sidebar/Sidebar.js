@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import './Sidebar.css';
 
  
 const Sidebar = ({user}) => {
+    // const [user, setUser] = useState();
     return (
         <div className="sidebar">
             <div className="sidebar_profile">
@@ -10,19 +11,19 @@ const Sidebar = ({user}) => {
               
                    <div className="profile_details">
                   
-                     <h4>Prakhar</h4>
-                     <p>Contact me: </p>
+                     <h4>{user.name}</h4>
+                     {/* <p>Contact me: </p> */}
                    </div>
 
                   <div className="profile_stats">
                       <span>Contributions</span>
-                      <span className="stat_number">20</span>
+                      <span className="stat_number">{user.contributions}</span>
                   </div>
 
-                  <div className="profile_stats">
+                  {/* <div className="profile_stats">
                       <span>Connection<br/> <b>Grow Your Network</b></span>
                       <span className="stat_number">150</span>
-                  </div>
+                  </div> */}
             </div>
 
             <div className="sidebar_recent">
