@@ -1,12 +1,28 @@
 // Maincontent.js
+import {useNavigate}  from 'react-router-dom';
 import React from 'react';
 import './profilepage.css';
 import blank_profile_pic from './blank_profile_pic.webp';
 import pencil_image from './pencil_image.jpg';
+import add_image from './add.png';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useState } from 'react';
 // import 'react-multi-carousel/lib/styles.css';
 
 const Maincontent = ({ userinfo, courses, projects }) => {
+    let navigate = useNavigate();
+    function handleClick(project){
+        console.log('clicked ' + project.id);
+        navigate('/ProjectDisplay', {state: {project: project}});
+    }
+    function handleEdit(){
+        // console.log('clicked ' + project.id);
+        navigate('/ProfileForm');
+    }
+    function handleAddProject(){
+        // console.log('clicked ' + project.id);
+        navigate('/AddProjectForm');
+    }
     const slideLeft = () => {
         var slider = document.getElementById('slider');
         slider.scrollLeft = slider.scrollLeft - 500;
@@ -23,10 +39,10 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                 <div className='card profile-info'>
                         <img src={blank_profile_pic} alt="Profile Picture" className="profile-picture" />
                         <div className='text-info'>
-                            <h2>Shobhit Gupta</h2>
-                            <p>Btech computer science and engineering</p>
+                            <h2>{userinfo.name}</h2>
+                            <p>{userinfo.branch}</p>
                         </div>
-                        <div className='edit-profile'>
+                        <div className='edit-profile' onClick={handleEdit}>
                             <img src={pencil_image} alt="edit-profile-image" className='edit-profile-image'/>
                             <div className='edit-profile-text'>Edit Profile</div>
                         </div>
@@ -39,6 +55,10 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                 </div>
                 <div className='card'>
                     <div className='card-heading'>Projects</div>
+                    <div className='edit-profile' onClick={handleAddProject}>
+                            <img src={add_image} alt="edit-profile-image" className='add-project-image'/>
+                            <div className='edit-profile-text'>Add Project</div>
+                    </div>
                     <hr/>
                     <div className='slide-container'>
                         <MdChevronLeft className='left' onClick={slideLeft} size={40} />
@@ -55,9 +75,9 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                                 </div>
 
                                 <div className='card-content'>
-                                    <h2 className='project-name'>{project.projName}</h2>
+                                    <h2 className='project-name'>{project.name}</h2>
                                     
-                                    <button className='button'>View More</button>
+                                    <button className='button' onClick={() => handleClick(project)}>View More</button>
                                 </div>
                             </div>
 

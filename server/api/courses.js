@@ -12,14 +12,14 @@ router.post('/addcourse', async(req, res) => {
         id: docRef.id
     }
 })
-router.post('/courses', async(req, res) => {
+router.get('/courses', async(req, res) => {
     const dataArray = [];
     const alldocs = await getDocs(usersCollection);
     alldocs.forEach((doc) => {
 
         dataArray.push(doc.data());
     });
-    console.log(dataArray);
+    // console.log(dataArray);
     res.send(dataArray);
 })
 module.exports = router;

@@ -18,7 +18,7 @@ function Callback() {
             response = await response.json();
             console.log(response.token);
             localStorage.setItem('token', response.token);
-            navigate('/home')
+            navigate('/home');
         }
         sendData();
     }, []);

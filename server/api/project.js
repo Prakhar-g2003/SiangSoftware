@@ -7,15 +7,29 @@ const usersCollection = collection(db, 'projects');
 
 router.post('/addproject', async(req, res) => {
     const data = req.body;
-    const docRef = await addDoc(usersCollection, data);
+    await addDoc(usersCollection, data);
 })
 
-router.post('/projects', async(req, res) => {
+router.get('/projects', async(req, res) => {
     const dataArray = [];
     const alldocs = await getDocs(usersCollection);
     alldocs.forEach((doc) => {
         dataArray.push(doc.data());
     });
+    // console.log(dataArray);
+    res.send(dataArray);
+})
+
+router.post('/my-projects', async(req, res) => {
+    const id = req.body.user_id;
+    const dataArray = [];
+    const alldocs = await getDocs(usersCollection);
+    alldocs.forEach((doc) => {
+        if(doc.data().userId === id){
+            dataArray.push(doc.data());
+        }
+    });
+
     console.log(dataArray);
     res.send(dataArray);
 })

@@ -19,7 +19,7 @@ export default function ProjectCard({project}) {
         <CardMedia
           component="img"
           height="140"
-          image=""
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkmZB67e6esDKyxIUTnQhNmOvexujNJ3pccQ&usqp=CAU"
           alt="project Image"
         />
         <CardContent>

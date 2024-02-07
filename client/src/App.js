@@ -7,48 +7,19 @@ import {
   UnauthenticatedTemplate,
 } from "@azure/msal-react";
 import Home from "./Home";
-import ProfilePage from './Components/ProfilePage/Profilepage';
+import ProfilePage from "./Components/ProfilePage/Profilepage";
 import Login from "./Pages/landing/Login";
 // import Login from "./Login";
 import Callback from "./Callback";
-import ProjectPage from './Pages/Projects/ProjectPage'
-import CoursePage from './Pages/courses/CoursesPage';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-
+import FinalProject from "./Pages/Projects/FinalProject";
+import CoursePage from "./Pages/courses/CoursesPage";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import FinalAskHelperMain from "./Components/AskHelper/FinalAskHelper";
 import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
+import ProfileForm from "./Components/ProfilePage/ProfileForm";
+import AddProjectForm from "./Components/AddProjectForm/AddProjectForm";
+import CollabForm from "./Pages/collabForm/CollabForm";
 function App() {
-  const [projects, setProjects] = React.useState([]);
-  const [courses, setCourses] = React.useState([]);
-  const [userinfo, setUserInfor] = React.useState([]);
-  React.useEffect(() => {
-      const allprojects = async() => {
-          var response = await fetch("http://localhost:3001/api/projects", {
-              method: 'POST', 
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          }); 
-          response = await response.json();
-          setProjects(response);
-      }
-      allprojects();
-  },[])
-  React.useEffect(() => {
-      const allcourses = async() => {
-          var response = await fetch("http://localhost:3001/api/courses", {
-              method: 'POST', 
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          }); 
-          response = await response.json();
-          
-          setCourses(response);
-          console.log(response);
-          // setProjects(response);
-      }
-      allcourses();
-  },[])
   return (
     <React.Fragment>
       <AuthenticatedTemplate>
@@ -56,15 +27,19 @@ function App() {
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
-            <Route exact path='/myprofile' element={<ProfilePage userinfo={userinfo} courses={courses} projects={projects}/>}></Route>
-            <Route path="/home" element={<Home projects ={projects}/>} />
-            <Route exact path='/projects' element={<ProjectPage projects={projects}/>}></Route>
-            <Route exact path='/courses' element={<CoursePage courses={courses}/>}></Route>
+            <Route exact path='/myprofile' element={<ProfilePage/>}></Route>
+            <Route path="/home" element={<Home/>} />
+            <Route exact path='/projects' element={<FinalProject/>}></Route>
+            <Route exact path='/courses' element={<CoursePage />}></Route>
             <Route
               exact
               path="/ProjectDisplay"
-              element={<ProjectDisplay/>}
+              element={<ProjectDisplay />}
             ></Route>
+            <Route exact path='/ProfileForm' element={<ProfileForm />}></Route>
+            <Route exact path='/AddProjectForm' element={<AddProjectForm />}></Route>
+            <Route path="/AskHelper" element={<FinalAskHelperMain />} />
+            <Route path="/collabForm" element={<CollabForm />} />
             {/* <Route path="about" element={<About />} /> */}
           </Routes>
         </Router>
@@ -73,8 +48,6 @@ function App() {
         <Login />
       </UnauthenticatedTemplate>
     </React.Fragment>
-      
-
   );
 }
 

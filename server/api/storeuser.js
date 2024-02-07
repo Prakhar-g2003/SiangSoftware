@@ -25,10 +25,20 @@ router.post('/storeuser', async (req, res) => {
         }
       });
     if(!found){
+        dataFromFrontend.contributions = 0;
+        dataFromFrontend.branch = "";
+        dataFromFrontend.course = "";
+        dataFromFrontend.yearofgrad = "";
+        dataFromFrontend.phone_no = "";
+        dataFromFrontend.aboutme = "";
+        dataFromFrontend.linkedInprofile = "";
+        dataFromFrontend.instaprofile = "";
+        dataFromFrontend.githubprofile = "";
+
         const docRef = await addDoc(usersCollection, dataFromFrontend);
         doc_id = docRef.id;
     }
-    console.log(doc_id);
+    // console.log(doc_id);
     const data = {
         user:{
             id: doc_id
@@ -36,7 +46,7 @@ router.post('/storeuser', async (req, res) => {
       }
     // console.log(data);
     const token = jwt.sign(data, jwtSecret, { expiresIn: '1h' });
-    console.log('Data received:', dataFromFrontend);
+    // console.log('Data received:', dataFromFrontend);
     // console.log(token);
     res.json({token});
 })
