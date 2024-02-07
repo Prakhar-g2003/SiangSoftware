@@ -9,7 +9,7 @@ import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { useState } from 'react';
 // import 'react-multi-carousel/lib/styles.css';
 
-const Maincontent = ({ userinfo, courses, projects }) => {
+const Maincontent = ({ userinfo, courses, projects, collabs}) => {
     let navigate = useNavigate();
     function handleClick(project){
         console.log('clicked ' + project.id);
@@ -40,7 +40,9 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                         <img src={blank_profile_pic} alt="Profile Picture" className="profile-picture" />
                         <div className='text-info'>
                             <h2>{userinfo.name}</h2>
-                            <p>{userinfo.branch}</p>
+                            <p>{userinfo.branch} {userinfo.course}, {userinfo.yearofgrad}</p>
+                            <p>Phone no: {userinfo.phone_no}</p>
+                            <a href={userinfo.githubprofile}>Github</a> | <a href={userinfo.linkedInprofile}>LinkedIn</a> | <a href={userinfo.instagramprofile}>Insta</a>
                         </div>
                         <div className='edit-profile' onClick={handleEdit}>
                             <img src={pencil_image} alt="edit-profile-image" className='edit-profile-image'/>
@@ -114,7 +116,26 @@ const Maincontent = ({ userinfo, courses, projects }) => {
             </div>
             <div className='profile-right'>
                 <div className='card'>
-
+                    <div className='card-heading'>Collaboration Requests</div>
+                    <hr/>
+                    <div className='collaboration-req'>
+                        {/* {collabs.map((collab, index) =>(
+                            <div key={index} className='collab-card'>
+                                <div className='collab-user'>{collab.username} | {collab.projname}</div>
+                                <div classname='collab-desc'>{collab.description}</div>
+                                <div className='buttons'>
+                                    <button class="collab-accept-button">Accept</button>
+                                    <button class="collab-decline-button">Decline</button>
+                                </div>
+                            </div>
+                        ))} */}
+                        <div className='collab-user'>Shobhit | Projname</div>
+                        <div classname='collab-desc'>I have expertise in this field and this project looks fascinating. Please add me as collab</div>
+                        <div className='buttons'>
+                            <button class="collab-accept-button">Accept</button>
+                            <button class="collab-decline-button">Decline</button>
+                        </div>
+                    </div>
                 </div>
                 <div className='card'>
                 </div>

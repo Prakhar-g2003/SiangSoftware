@@ -1,6 +1,7 @@
 
   .profile-container {
     display: flex;
+    gap: 50px;
     flex: 0 0 100px;
     position: relative;
     justify-content: space-between;
@@ -281,6 +282,42 @@
   }
   
   .course-title-author span {
-    margin: 0 10px; /* Adds horizontal space around the vertical bar */
-    color: #666; /* Optional: Sets the color of the bar */
+    margin: 0 10px; 
+    color: #666; 
+  }
+
+  .buttons {
+    margin-top: 5px;
+    display: flex; 
+    justify-content: space-around; 
+  }
+
+  .collaboration-req{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    justify-content: center;
+  }
+  .collab-user{
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  
+  .collab-decline-button,
+  .collab-accept-button {
+    border: none; 
+    padding: 5px 10px; 
+    border-radius: 20px; 
+    color: white; 
+    font-weight: bold;
+    cursor: pointer; 
+  }
+  
+  .collab-decline-button {
+    background-color: #ff6b81; 
+  }
+  
+  .collab-accept-button {
+    background-color: #4caf50;
   }
