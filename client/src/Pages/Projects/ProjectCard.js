@@ -1,56 +1,44 @@
-import * as React from 'react';
-import {useNavigate}  from 'react-router-dom';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import './Project.css'
+import * as React from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function ProjectCard({project}) {
+import "./ProjectCard.css";
+import CommentDropdown from "../../Components/AskHelper/components/DropDownComment";
+
+export default function ProjectCard({ project, user }) {
   let navigate = useNavigate();
-  function handleClick(){
-    console.log('clicked ' + project.id);
-    navigate('/ProjectDisplay', {state: {project: project}});
+  function handleClick() {
+    console.log("clicked " + project.id);
+    navigate("/ProjectDisplay", { state: { project: project } });
   }
+  let projectStatusMessage = "Ongoing";
+  if (project.completed) {
+    projectStatusMessage = "Completed";
+  }
+  console.log(project);
   return (
-    <Card  className='projectCard' onClick = {handleClick}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkmZB67e6esDKyxIUTnQhNmOvexujNJ3pccQ&usqp=CAU"
-          alt="project Image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {project.name}
-          </Typography>
-          <Typography variant="body2" color="text.primary">
-            {project.description}
-          </Typography>
-          <h3 style={{textAlign:"end",color:"purple"}}>{project.reviews} reviews</h3>
-          <div variant="body2" className='projectTechused' color="text.secondary">
-            {project.techstacks.map((tech)=><p key={Math.random()}>&#x2022;  {tech}</p>)}
+    <div className="projectCardOverlay">
+      <img
+        src="https://images.unsplash.com/photo-1682687220777-2c60708d6889?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D"
+        class="projectMedia"
+        onClick={handleClick}
+      />
+      <div className="projectCardInfo">
+        <div className="projectCardInfoHead">
+          <div className="projectCardNameType">
+            <div className="projectCardInfoName">{project.name}</div>
+            <div className="projectCardInfoType">{project.projecttype}</div>
           </div>
-          
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          <div className="projectCardInfoStatus">{projectStatusMessage}</div>
+        </div>
+        <div className="projectCardInfoBody">
+          <div className="projectCardInfoDiscp">{project.description}</div>
+          <ul className="projectTechStack">
+            {project.techstacks.map((tech) => (
+              <li>{tech}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 }
-
-
-
-
-
-
-
-
-// export default function ProjectCard({project}){
-//     return(
-//     <>
-//     <h1>{project.projectName}</h1>
-//     </>
-//     )
-// }
