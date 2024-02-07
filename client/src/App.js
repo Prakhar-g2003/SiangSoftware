@@ -19,6 +19,8 @@ import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 import ProfileForm from "./Components/ProfilePage/ProfileForm";
 import AddProjectForm from "./Components/AddProjectForm/AddProjectForm";
 import CollabForm from "./Pages/collabForm/CollabForm";
+
+//Comment
 function App() {
   return (
     <React.Fragment>
@@ -27,17 +29,21 @@ function App() {
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
-            <Route exact path='/myprofile' element={<ProfilePage/>}></Route>
-            <Route path="/home" element={<Home/>} />
-            <Route exact path='/projects' element={<FinalProject/>}></Route>
-            <Route exact path='/courses' element={<CoursePage />}></Route>
+            <Route exact path="/myprofile" element={<ProfilePage />}></Route>
+            <Route path="/home" element={<Home />} />
+            <Route exact path="/projects" element={<FinalProject />}></Route>
+            <Route exact path="/courses" element={<CoursePage />}></Route>
             <Route
               exact
               path="/ProjectDisplay"
               element={<ProjectDisplay />}
             ></Route>
-            <Route exact path='/ProfileForm' element={<ProfileForm />}></Route>
-            <Route exact path='/AddProjectForm' element={<AddProjectForm />}></Route>
+            <Route exact path="/ProfileForm" element={<ProfileForm />}></Route>
+            <Route
+              exact
+              path="/AddProjectForm"
+              element={<AddProjectForm />}
+            ></Route>
             <Route path="/AskHelper" element={<FinalAskHelperMain />} />
             <Route path="/collabForm" element={<CollabForm />} />
             {/* <Route path="about" element={<About />} /> */}
