@@ -1,5 +1,5 @@
 import React, {useState, useEffect, lazy} from 'react';
-import CoursePage from "./Pages/courses/CoursesPage";
+import CoursesPage from "./Pages/courses/CoursesPage";
 
 function FinalCourses() {
     const [courses, setCourses] = useState([]);
@@ -30,7 +30,7 @@ function FinalCourses() {
     }
   return (
     <div>
-        <CoursePage courses={courses}/>
+        <CoursesPage courses={courses}/>
     </div>
   );
 }
