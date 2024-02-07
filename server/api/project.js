@@ -7,7 +7,7 @@ const usersCollection = collection(db, 'projects');
 
 router.post('/addproject', async(req, res) => {
     const data = req.body;
-    const docRef = await addDoc(usersCollection, data);
+    await addDoc(usersCollection, data);
 })
 
 router.get('/projects', async(req, res) => {

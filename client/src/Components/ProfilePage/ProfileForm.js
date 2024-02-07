@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Navbar from './Navbar'
-import './ProfileForm.css'
+import Navbar from './Navbar';
+import './ProfileForm.css';
 
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +29,7 @@ const ProfileForm = () => {
       })
       response = await response.json();
       console.log(response);
-      navigate('/home');
+      navigate('/myprofile');
     }catch(error){
       console.log(error);
     }

@@ -9,7 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import React, { useState } from 'react';
 import './courses.css'
 
-export default function CoursePage({courses}){
+export default function CoursesPage({courses}){
   const [sortValue, setValue] = React.useState('');
   let [inputValue,setInputValue]=React.useState('');
   let [newCourse,setNewCourse]=React.useState(courses);

@@ -18,6 +18,7 @@ import FinalAskHelperMain from "./Components/AskHelper/FinalAskHelper";
 import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 import ProfileForm from "./Components/ProfilePage/ProfileForm";
 import AddProjectForm from "./Components/AddProjectForm/AddProjectForm";
+import CollabForm from "./Pages/collabForm/CollabForm";
 function App() {
   return (
     <React.Fragment>
@@ -38,6 +39,7 @@ function App() {
             <Route exact path='/ProfileForm' element={<ProfileForm />}></Route>
             <Route exact path='/AddProjectForm' element={<AddProjectForm />}></Route>
             <Route path="/AskHelper" element={<FinalAskHelperMain />} />
+            <Route path="/collabForm" element={<CollabForm />} />
             {/* <Route path="about" element={<About />} /> */}
           </Routes>
         </Router>
