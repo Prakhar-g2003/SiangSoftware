@@ -1,6 +1,25 @@
 import "./DoubtCard.css";
-
+import CommentDropdown from "./DropDownComment";
+import CommentForm from "./DropDownTextArea";
 const DoubtCard = (props) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    var toggleButton = document.getElementById("toggle-comments-button");
+    var commentsList = document.getElementById("comments-list");
+
+    // Hide comments initially
+    commentsList.style.display = "none";
+
+    toggleButton.addEventListener("click", function () {
+      if (commentsList.style.display === "none") {
+        commentsList.style.display = "block";
+        toggleButton.textContent = "Hide Comments";
+      } else {
+        commentsList.style.display = "none";
+        toggleButton.textContent = "Show Comments";
+      }
+    });
+  });
+
   return (
     <div class="doubtCardMain">
       <div class="doubtCardUser">
@@ -18,15 +37,10 @@ const DoubtCard = (props) => {
       <div class="doubtCardPS">{props.prop.discription}</div>
       <hr class="doubtSeperate"></hr>
 
-      <ol class="askHelperAnswers">
-        {props.prop.comments.map((comment) => (
-          <li class="askHelpBullets">{comment}</li>
-        ))}
-      </ol>
-      <hr class="doubtSeperate"></hr>
-      <div class="doubtHelp">
-        <button class="doubtUpvote">Comments</button>
-        <button class="doubtAnswer">Submit</button>
+      <div className="doubtCommentSection">
+        <CommentForm />
+
+        <CommentDropdown comments={props.prop.comments} />
       </div>
     </div>
   );

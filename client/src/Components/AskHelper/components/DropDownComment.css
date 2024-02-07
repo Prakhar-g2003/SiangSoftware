@@ -1,0 +1,30 @@
+.askHelperDropDown {
+  border: 0;
+  height: 25px;
+  background-color: transparent;
+}
+.dropDownTextAreaButton {
+  border: 0;
+  background-color: transparent;
+}
+.dropDownTextArea {
+  height: 30px;
+  width: 50vh;
+  border: 0;
+}
+
+.dropDownSubmit {
+  display: flex;
+}
+#comments-dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.commentdisplay {
+  left: 0;
+  width: 100%;
+  overflow: auto;
+  max-height: 50px;
+}
