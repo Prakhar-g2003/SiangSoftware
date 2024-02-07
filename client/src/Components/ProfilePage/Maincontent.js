@@ -89,7 +89,7 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                     </div>
                 </div>
                 <div className='card'>
-                    <h2>Courses</h2>
+                    <div className='card-heading'>Courses</div>
                     <hr/>
 
                     {courses.map((course, index) => (
