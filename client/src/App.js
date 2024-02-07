@@ -17,6 +17,7 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import FinalAskHelperMain from "./Components/AskHelper/FinalAskHelper";
 import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 import ProfileForm from "./Components/ProfilePage/ProfileForm";
+import AddProjectForm from "./Components/AddProjectForm/AddProjectForm";
 function App() {
   return (
     <React.Fragment>
@@ -35,6 +36,7 @@ function App() {
               element={<ProjectDisplay />}
             ></Route>
             <Route exact path='/ProfileForm' element={<ProfileForm />}></Route>
+            <Route exact path='/AddProjectForm' element={<AddProjectForm />}></Route>
             <Route path="/AskHelper" element={<FinalAskHelperMain />} />
             {/* <Route path="about" element={<About />} /> */}
           </Routes>

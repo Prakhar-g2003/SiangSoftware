@@ -4,6 +4,7 @@ import React from 'react';
 import './profilepage.css';
 import blank_profile_pic from './blank_profile_pic.webp';
 import pencil_image from './pencil_image.jpg';
+import add_image from './add.png';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { useState } from 'react';
 // import 'react-multi-carousel/lib/styles.css';
@@ -17,6 +18,10 @@ const Maincontent = ({ userinfo, courses, projects }) => {
     function handleEdit(){
         // console.log('clicked ' + project.id);
         navigate('/ProfileForm');
+    }
+    function handleAddProject(){
+        // console.log('clicked ' + project.id);
+        navigate('/AddProjectForm');
     }
     const slideLeft = () => {
         var slider = document.getElementById('slider');
@@ -50,6 +55,10 @@ const Maincontent = ({ userinfo, courses, projects }) => {
                 </div>
                 <div className='card'>
                     <div className='card-heading'>Projects</div>
+                    <div className='edit-profile' onClick={handleAddProject}>
+                            <img src={add_image} alt="edit-profile-image" className='add-project-image'/>
+                            <div className='edit-profile-text'>Add Project</div>
+                    </div>
                     <hr/>
                     <div className='slide-container'>
                         <MdChevronLeft className='left' onClick={slideLeft} size={40} />
