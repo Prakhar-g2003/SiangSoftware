@@ -2,7 +2,7 @@ const app = require('express');
 const router = app.Router();
 const { jwtDecode } = require("jwt-decode");
 const {db} = require('../firebase/fireConfig');
-const { collection, doc, getDoc, addDoc, getDocs } = require('firebase/firestore');
+const { collection, doc, getDoc, addDoc, getDocs, updateDoc } = require('firebase/firestore');
 const jwt = require('jsonwebtoken');
 
 const jwtSecret = "thisisajwtsecretforkritisoftwareps";
@@ -33,8 +33,15 @@ router.post('/fullinfo', async(req, res) => {
     console.log(req.body.user_id);
     const docRef = doc(db, 'users', req.body.user_id);
     const docSnap = await getDoc(docRef);
-    console.log(docSnap.data());
+    // console.log(docSnap.data());
     res.json({name: docSnap.data().name, branch: docSnap.data().branch, course: docSnap.data().courses, yearofgrad: docSnap.data().yearofgrad, phone_no: docSnap.data().phone_no, aboutme: docSnap.data().aboutme});
+})
+
+router.post('/update_user_info', async(req, res) => {
+    console.log(req.body);
+    const docRef = doc(db, 'users', req.body.user_id);
+    await updateDoc(docRef, req.body);
+    res.json({});
 })
 
 module.exports = router;

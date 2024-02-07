@@ -10,7 +10,7 @@ router.post('/addproject', async(req, res) => {
     const docRef = await addDoc(usersCollection, data);
 })
 
-router.post('/projects', async(req, res) => {
+router.get('/projects', async(req, res) => {
     const dataArray = [];
     const alldocs = await getDocs(usersCollection);
     alldocs.forEach((doc) => {

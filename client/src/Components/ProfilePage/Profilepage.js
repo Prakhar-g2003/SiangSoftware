@@ -4,10 +4,11 @@ import Maincontent from './Maincontent'
 import Navbar from './Navbar'
 // import './profilepage.css'
 
-const Profilepage = ({ userinfo, courses }) => { 
+const Profilepage = ({}) => { 
   const [user, setUser] = useState();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [courses, setCourses] = useState([]);
   useEffect(() => {
       const getUserinfo = async() => {
           try{
@@ -30,6 +31,16 @@ const Profilepage = ({ userinfo, courses }) => {
               });
               response2 = await response2.json();
               setProjects(response2);
+
+              var response3 = await fetch("http://localhost:3001/api/courses", {
+                  method: "GET",
+                  headers: {
+                  "Content-Type": "application/json",
+                  },
+              });
+              response3 = await response3.json();
+              setCourses(response3);
+              console.log(response3);
               setLoading(false);
           } catch(error){
               console.log(error);
@@ -57,7 +68,7 @@ const Profilepage = ({ userinfo, courses }) => {
       //   { projName: "proj9", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxNcVtGf3MlGjkYPBDyf8Gl_ub7EziBF0aT5L28am1lzDnr6yrzEpjVPWHCl2TiKeGEc&usqp=CAU" },
         
       // ]
-       courses = [
+      const coursess = [
         { courseName: "course1", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
         { courseName: "course2", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
         { courseName: "course3", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
@@ -65,7 +76,7 @@ const Profilepage = ({ userinfo, courses }) => {
     return (
         <>
             <Navbar/>
-            <Maincontent userinfo={user} courses={courses} projects={projects}/>
+            <Maincontent userinfo={user} courses={coursess} projects={projects}/>
             {/* <Footer /> */}
 
         </>

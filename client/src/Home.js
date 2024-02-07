@@ -4,8 +4,9 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import Feed from "./Components/Feed/Feed";
 import "./Home.css"
 
-function Home({projects}) {
+function Home() {
     const [user, setUser] = useState();
+    const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const getUserinfo = async() => {
@@ -30,6 +31,14 @@ function Home({projects}) {
             });
             response2 = await response2.json();
             setUser(response2);
+            var response3 = await fetch("http://localhost:3001/api/projects", {
+                method: "GET",
+                headers: {
+                "Content-Type": "application/json",
+                },
+            });
+            response3 = await response3.json();
+            setProjects(response3);
             setLoading(false);
             } catch(error){
                 console.log(error);

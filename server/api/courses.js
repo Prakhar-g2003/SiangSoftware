@@ -12,7 +12,7 @@ router.post('/addcourse', async(req, res) => {
         id: docRef.id
     }
 })
-router.post('/courses', async(req, res) => {
+router.get('/courses', async(req, res) => {
     const dataArray = [];
     const alldocs = await getDocs(usersCollection);
     alldocs.forEach((doc) => {
