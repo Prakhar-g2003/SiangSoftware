@@ -56,7 +56,7 @@ function Home() {
       <MainNavbar />
       <div class="home_body_mid">
         <TopContributors className="TopContributors"></TopContributors>
-        <Feed className="feed" projects={projects} user={user} />
+        <Feed projects={projects} user={user} />
         <MainProfile />
       </div>
     </div>
