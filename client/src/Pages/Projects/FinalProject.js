@@ -10,7 +10,7 @@ function FinalProject() {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-            },
+            }
           });
           response = await response.json();
           setProjects(response);

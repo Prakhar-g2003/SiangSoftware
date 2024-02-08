@@ -9,16 +9,17 @@ function CommentDropdown(props) {
 
   return (
     <div id="comments-dropdown">
+      {/* {console.log(props)} */}
       <button onClick={toggleComments} class="askHelperDropDown">
         {showComments ? "Less" : "More"}
       </button>
       <div className="commentdisplay">
         {showComments && (
-          <ol class="askHelperAnswers">
+          <ul class="askHelperAnswers">
             {props.comments.map((comment) => (
-              <li class="askHelpBullets">{comment}</li>
+              <li class="askHelpBullets">{comment.ans_info}</li>
             ))}
-          </ol>
+          </ul>
         )}
       </div>
     </div>

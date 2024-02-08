@@ -17,8 +17,8 @@ const AskHelperMain = (props) => {
             <DoubtCard />
             <DoubtCard /> */}
 
-            {props.doubts.map((Doubt) => (
-              <DoubtCard prop={Doubt} />
+            {props.data.map((res) => (
+              <DoubtCard prop={res} />
             ))}
           </div>
         </div>

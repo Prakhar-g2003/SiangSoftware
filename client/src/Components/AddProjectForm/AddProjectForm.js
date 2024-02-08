@@ -1,20 +1,33 @@
 import { useEffect, useState } from "react";
 import Navbar from '../ProfilePage/Navbar'
-import './AddProjectForm.css'
-
-
-
+import './AddProjectForm.css';
+import { useNavigate } from "react-router-dom";
 
 const AddProjectForm = () => {  
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [completed, setCompleted] = useState(false);
   const [projecttype, setProjecttype] = useState('');
   const [techstacks, setTechstacks] = useState('');
   const [github_link, setGithub_link] = useState('');
   const [description, setDescription] = useState('');
-
-  const handleSubmit = ()=>{
-
+  const user_id = localStorage.getItem("user_id");
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    try{
+     var temp= await fetch("http://localhost:3001/api/addproject", {
+          method: 'POST', 
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({userId: user_id, description: description, github_link: github_link, completed: completed, techstacks: techstacks, name: name, projecttype: projecttype})
+      });
+      console.log("hello");
+      navigate('/myprofile');
+      console.log("hi");
+    }catch(error){
+      console.log(error);
+    }
   };
 
   return (
@@ -60,8 +73,8 @@ const AddProjectForm = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 required
                 ></textarea>
-                <label className="AddProjectForm-lable">Github Link</label>
-                <input className="AddProjectForm-input"
+                <label className="AddProjectForm-lable">Repo Link</label>
+                <input className="AddProjectForm-input" placeholder="eg: Github link"
                 type="text" 
                 value={github_link}
                 onChange={(e) => setGithub_link(e.target.value)}

@@ -4,6 +4,7 @@ const user = require('./api/user');
 const projects = require('./api/project');
 const courses = require('./api/courses');
 const collabs = require('./api/collabs');
+const feed = require('./api/feed');
 const port = 3001;
 const app = express();
 const cors = require('cors')
@@ -28,6 +29,7 @@ app.use('/api', user);
 app.use('/api', projects);
 app.use('/api', courses);
 app.use('/api', collabs);
+app.use('/api', feed);
 
 app.get('/', (req, res) => {
   res.send('Welcome to my server!');
