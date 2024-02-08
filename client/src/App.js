@@ -23,6 +23,7 @@ import OthersProfile from './Pages/othersprofile/OthersProfile';
 import MainNavbar from "./Assets/MainNavbar";
 import FinalCourses from "./Pages/courses/FinalCourses";
 import AddCourseForm from "./Components/AddCourseForm/AddCourseForm";
+import Alluser from './Pages/Allusers/App'
 
 //Comment
 function App() {
@@ -38,8 +39,10 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route exact path="/projects" element={<FinalProject />}></Route>
             <Route exact path="/profile" element={<OthersProfile />}></Route>
-            <Route exact path="/courses" element={<CoursePage />}></Route>
+            {/* <Route exact path="/courses" element={<CoursePage />}></Route> */}
             <Route exact path="/courses" element={<FinalCourses />}></Route>
+            <Route exact path="/Allusers" element={<Alluser />}></Route>
+
             <Route
               exact
               path="/ProjectDisplay"

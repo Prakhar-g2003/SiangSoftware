@@ -9,6 +9,7 @@ const Profilepage = ({}) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
+  const [collabs, setCollabs] = useState([]);
   useEffect(() => {
       const getUserinfo = async() => {
           try{
@@ -40,7 +41,18 @@ const Profilepage = ({}) => {
               });
               response3 = await response3.json();
               setCourses(response3);
-              console.log(response3);
+
+              var response4 = await fetch("http://localhost:3001/api/get-collabs", {
+                  method: 'POST', 
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({user_id: localStorage.getItem("user_id")})
+              });
+              response4 = await response4.json();
+              setCollabs(response4);
+            //   setProjects(response2);
+              
               setLoading(false);
           } catch(error){
               console.log(error);
@@ -68,7 +80,7 @@ const Profilepage = ({}) => {
       //   { projName: "proj9", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxNcVtGf3MlGjkYPBDyf8Gl_ub7EziBF0aT5L28am1lzDnr6yrzEpjVPWHCl2TiKeGEc&usqp=CAU" },
         
       // ]
-      const collabs = []
+    //   const collabs = []
       const coursess = [
         { courseName: "course1", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
         { courseName: "course2", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
@@ -76,6 +88,7 @@ const Profilepage = ({}) => {
       ]
     return (
         <>
+            {/* {console.log(collabs)} */}
             <MainNavbar/>
             <Maincontent userinfo={user} courses={coursess} projects={projects} collabs={collabs}/>
             {/* <Footer /> */}
