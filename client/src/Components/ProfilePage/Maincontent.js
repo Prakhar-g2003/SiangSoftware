@@ -110,7 +110,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs}) => {
                         <span className='downvotes'>👎 {course.downvotes}</span>
                         </div>
                     </div>
-        ))}
+                    ))}
                 </div>
                 
             </div>
@@ -135,6 +135,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs}) => {
                             <button class="collab-accept-button">Accept</button>
                             <button class="collab-decline-button">Decline</button>
                         </div>
+                        
                     </div>
                 </div>
                 <div className='card'>
