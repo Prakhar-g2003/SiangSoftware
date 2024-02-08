@@ -7,7 +7,11 @@ import MainNavbar from "../../Assets/MainNavbar";
 const AskHelperMain = (props) => {
   return (
     <div class="askHelperLayout">
+<<<<<<< HEAD
       {/* <MainNavbar /> */}
+=======
+      <MainNavbar />
+>>>>>>> 96c1a1d65d77ce1c5dce66ff1c7efb61fa5a3ece
       <div class="overlayHelper">
         <div class="askHelpMain">
           <AskHelp />
@@ -18,7 +22,7 @@ const AskHelperMain = (props) => {
             <DoubtCard /> */}
 
             {props.data.map((res) => (
-              <DoubtCard prop={res} />
+              <DoubtCard reload={props.reload} prop={res} />
             ))}
           </div>
         </div>

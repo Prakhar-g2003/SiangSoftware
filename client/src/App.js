@@ -19,8 +19,10 @@ import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 import ProfileForm from "./Components/ProfilePage/ProfileForm";
 import AddProjectForm from "./Components/AddProjectForm/AddProjectForm";
 import CollabForm from "./Pages/collabForm/CollabForm";
+import OthersProfile from './Pages/othersprofile/OthersProfile';
 import MainNavbar from "./Assets/MainNavbar";
 import FinalCourses from "./Pages/courses/FinalCourses";
+import Alluser from './Pages/Allusers/App'
 
 //Comment
 function App() {
@@ -38,7 +40,11 @@ function App() {
             <Route exact path="/myprofile" element={<ProfilePage />}></Route>
             <Route path="/home" element={<Home />} />
             <Route exact path="/projects" element={<FinalProject />}></Route>
+            <Route exact path="/profile" element={<OthersProfile />}></Route>
+            {/* <Route exact path="/courses" element={<CoursePage />}></Route> */}
             <Route exact path="/courses" element={<FinalCourses />}></Route>
+            <Route exact path="/Allusers" element={<Alluser />}></Route>
+
             <Route
               exact
               path="/ProjectDisplay"

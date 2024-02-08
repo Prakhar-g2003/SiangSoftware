@@ -20,6 +20,7 @@ const DoubtCard = (props) => {
         response = await response.json();
         setName(response.name);
         setLoading(false);
+        // props.reload = false;
       } catch(error){
         console.log(error);
       }
@@ -54,6 +55,7 @@ const DoubtCard = (props) => {
 
   return (
     <div class="doubtCardMain">
+      {console.log(props.reload)}
       <div class="doubtCardUser">
         <img
           class="doubtCardUserPhoto"

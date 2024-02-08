@@ -1,0 +1,15 @@
+import React from "react";
+import Card from './Card'
+
+function Cardslist({robots}){
+    return(
+        <div style={{display:"flex",flexWrap:"wrap",alignItems:"space-around",justifyContent:"center",margin:"0 auto"}}>
+        {
+            robots.map((user, i) => {
+            return <Card key={robots[i].id} id={robots[i].id} name={robots[i].name} branch={robots[i].branch} />})
+        }
+        </div>
+    );
+}
+
+export default Cardslist
