@@ -19,7 +19,7 @@ router.get('/courses', async(req, res) => {
 
         dataArray.push(doc.data());
     });
-    console.log(dataArray);
+    // console.log(dataArray);
     res.send(dataArray);
 })
 module.exports = router;

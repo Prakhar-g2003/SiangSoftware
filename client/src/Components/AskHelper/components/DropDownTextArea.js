@@ -7,10 +7,12 @@ function CommentForm({data}) {
 
 
   const handleCommentChange = (event) => {
+    // event.preventDefault();
     setCommentText(event.target.value);
   };
 
-  const handleAddComment = async() => {
+  const handleAddComment = async(e) => {
+    // e.preventDefault();
     if (commentText) {
       setComments([...comments, commentText]);
 
@@ -23,8 +25,9 @@ function CommentForm({data}) {
       });
       response = await response.json();
       setCommentText("");
+      console.log({ques_id: data.ques_id, comment: commentText});
     }
-  };
+  }
 
   return (
     <div className="dropDownSubmit">

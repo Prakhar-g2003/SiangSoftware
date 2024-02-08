@@ -5,7 +5,7 @@ import CommentForm from "./DropDownTextArea";
 const DoubtCard = (props) => {
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(true);
-  console.log(props.prop.answers);
+  // console.log(props.prop.answers);
   useEffect(() => {
     const getInfo = async(req, res) => {
       try{
