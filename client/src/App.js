@@ -22,6 +22,7 @@ import CollabForm from "./Pages/collabForm/CollabForm";
 import OthersProfile from './Pages/othersprofile/OthersProfile';
 import MainNavbar from "./Assets/MainNavbar";
 import FinalCourses from "./Pages/courses/FinalCourses";
+import Alluser from './Pages/Allusers/App'
 
 //Comment
 function App() {
@@ -39,6 +40,8 @@ function App() {
             <Route exact path="/profile" element={<OthersProfile />}></Route>
             {/* <Route exact path="/courses" element={<CoursePage />}></Route> */}
             <Route exact path="/courses" element={<FinalCourses />}></Route>
+            <Route exact path="/Allusers" element={<Alluser />}></Route>
+
             <Route
               exact
               path="/ProjectDisplay"
