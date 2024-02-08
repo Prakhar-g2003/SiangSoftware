@@ -7,7 +7,7 @@ const collabsCollection = collection(db, 'collabs');
 
 router.post('/collab-req', async(req, res) => {
     const data = req.body;
-    console.log(data);
+    // console.log(data);
     var response = await addDoc(collabsCollection, data);
     const docRef = doc(db, 'collabs', response.id);
 
@@ -27,8 +27,8 @@ router.post('/get-collabs', async(req, res) => {
             dataArray.push(doc.data());
         }
     });
-    console.log(dataArray);
     // console.log(dataArray);
+    console.log(dataArray);
     res.send(dataArray);
     // console.log(data);
 })
