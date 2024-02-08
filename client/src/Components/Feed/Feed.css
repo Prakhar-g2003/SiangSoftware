@@ -1,29 +1,7 @@
-.feed {
-    display: flex;
-    flex:0.9;
-    flex-direction: column;
-    margin: 10px;
-    /* margin-left:10px; */
-    background-color: white;
-    
+.feed-main-overlay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  height: 70vh;
 }
-
-/* .feed .feed_starting{
-    display: flex;
-    background-color: grey;
-    padding:10px;
-    border-radius: 10px;;
-} */
-.feed_starting{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.projects-section .projectCard.specialCard {
-    /* Additional styles for ProjectCard components with specialCard class */
-    /* Add any unique styles for special cards here */
-    border: 2px solid red;
-    background-color: lightyellow;
-  }
