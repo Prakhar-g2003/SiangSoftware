@@ -38,7 +38,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route exact path="/projects" element={<FinalProject />}></Route>
             <Route exact path="/profile" element={<OthersProfile />}></Route>
-            <Route exact path="/courses" element={<CoursePage />}></Route>
+            {/* <Route exact path="/courses" element={<CoursePage />}></Route> */}
             <Route exact path="/courses" element={<FinalCourses />}></Route>
             <Route exact path="/Allusers" element={<Alluser />}></Route>
 

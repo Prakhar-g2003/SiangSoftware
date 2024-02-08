@@ -1,6 +1,6 @@
 // Maincontent.js
 import {useNavigate}  from 'react-router-dom';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './profilepage.css';
 import blank_profile_pic from './blank_profile_pic.webp';
 import pencil_image from './pencil_image.jpg';
@@ -11,6 +11,9 @@ import { useState } from 'react';
 
 const Maincontent = ({ userinfo, courses, projects, collabs}) => {
     let navigate = useNavigate();
+    useEffect(() => {
+        // const 
+    }, [])
     function handleClick(project){
         console.log('clicked ' + project.id);
         navigate('/ProjectDisplay', {state: {project: project}});
@@ -119,7 +122,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs}) => {
                     <div className='card-heading'>Collaboration Requests</div>
                     <hr/>
                     <div className='collaboration-req'>
-                        {/* {collabs.map((collab, index) =>(
+                        {collabs.map((collab, index) =>(
                             <div key={index} className='collab-card'>
                                 <div className='collab-user'>{collab.username} | {collab.projname}</div>
                                 <div classname='collab-desc'>{collab.description}</div>
@@ -128,14 +131,13 @@ const Maincontent = ({ userinfo, courses, projects, collabs}) => {
                                     <button class="collab-decline-button">Decline</button>
                                 </div>
                             </div>
-                        ))} */}
-                        <div className='collab-user'>Shobhit | Projname</div>
+                        ))}
+                        {/* <div className='collab-user'>Shobhit | Projname</div>
                         <div classname='collab-desc'>I have expertise in this field and this project looks fascinating. Please add me as collab</div>
                         <div className='buttons'>
                             <button class="collab-accept-button">Accept</button>
                             <button class="collab-decline-button">Decline</button>
-                        </div>
-                        
+                        </div> */}
                     </div>
                 </div>
                 <div className='card'>
