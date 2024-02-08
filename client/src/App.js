@@ -22,6 +22,7 @@ import CollabForm from "./Pages/collabForm/CollabForm";
 import OthersProfile from './Pages/othersprofile/OthersProfile';
 import MainNavbar from "./Assets/MainNavbar";
 import FinalCourses from "./Pages/courses/FinalCourses";
+import AddCourseForm from "./Components/AddCourseForm/AddCourseForm";
 import Alluser from './Pages/Allusers/App'
 
 //Comment
@@ -53,6 +54,12 @@ function App() {
               path="/AddProjectForm"
               element={<AddProjectForm />}
             ></Route>
+            <Route
+              exact
+              path="/AddCourseForm"
+              element={<AddCourseForm />}
+            ></Route>
+            
             <Route path="/AskHelper" element={<FinalAskHelperMain />} />
             <Route path="/collabForm" element={<CollabForm />} />
             {/* <Route path="about" element={<About />} /> */}
