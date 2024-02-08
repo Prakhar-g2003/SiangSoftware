@@ -1,5 +1,6 @@
 import React, {useState, useEffect, lazy} from 'react';
-import CoursesPage from "./Pages/courses/CoursesPage";
+import CoursesPage from "./CoursesPage";
+import MainNavbar from '../../Assets/MainNavbar';
 
 function FinalCourses() {
     const [courses, setCourses] = useState([]);
@@ -10,7 +11,7 @@ function FinalCourses() {
             method: "GET",
             headers: {
             "Content-Type": "application/json",
-            },
+            }
         });
         response = await response.json();
         setCourses(response);
@@ -30,6 +31,8 @@ function FinalCourses() {
     }
   return (
     <div>
+        {console.log(courses)}
+        <MainNavbar />
         <CoursesPage courses={courses}/>
     </div>
   );

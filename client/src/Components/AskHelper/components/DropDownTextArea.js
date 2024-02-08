@@ -14,7 +14,7 @@ function CommentForm({data}) {
     if (commentText) {
       setComments([...comments, commentText]);
 
-      var response = await fetch('http://localhost:3001/api/add-feed', {
+      var response = await fetch('http://localhost:3001/api/add-ans', {
         method: 'POST', 
           headers: {
               'Content-Type': 'application/json'

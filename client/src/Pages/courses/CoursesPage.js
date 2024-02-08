@@ -15,12 +15,12 @@ export default function CoursesPage({courses}){
   let [newCourse,setNewCourse]=React.useState(courses);
   let [inputCourses,SetinputCourses]=React.useState([]);
   let courseName=[];
-   const Rendercourse=newCourse.map((course)=>
+   const Rendercourse=(Array.isArray(newCourse) && newCourse.length)? newCourse.map((course)=>
         <CourseCard 
           key={course.id} 
           course={course}
         />
-    )
+    ): "";
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -39,19 +39,26 @@ export default function CoursesPage({courses}){
   // }
 
 },[sortValue]);
-  courses.map((course)=>courseName.push(course.courseName));
-  courseName=[...new Set(courseName)];
+if(Array.isArray(courses) && courses.length){
+  if(courses.length){
+    courses.map((course)=>courseName.push(course.courseName));
+    courseName=[...new Set(courseName)];
+  }
+}
  
   let handleSubmit=(e)=>{
     e.preventDefault();
      let arr=[];
      setValue('');  
     if(inputValue){
-    courses.map((course)=>{
-      if(course.courseName===inputValue){
-        arr.push(course);
-      
-    }})
+
+    if(Array.isArray(courses) && courses.length){
+      courses.map((course)=>{
+        if(course.courseName===inputValue){
+          arr.push(course);
+        
+      }})
+    }
     }
     console.log(arr);
     if(arr.length){
@@ -92,7 +99,6 @@ React.useEffect(()=>{
     return(
       
       <div style={{backgroundColor: "#F7F9FB",padding:"0",marginTop:"-20px",height:"100%"}}>
-        <h1>Navbar</h1>
           <form className="Searchform" onSubmit={handleSubmit}>
             <Autocomplete
               disablePortal

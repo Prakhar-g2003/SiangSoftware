@@ -15,10 +15,9 @@ router.get('/full-feed', async(req, res) => {
     res.send(dataArray);
 })
 
-router.post('/add-feed', async(req, res) => {
+router.post('/add-ans', async(req, res) => {
     // console.log(req.body.ques_id);
     const docRef = doc(db, 'feed', req.body.ques_id);
-    var docSnap = await getDoc(docRef);
     // console.log(docSnap.data());
     const obj = {
         ans_info: req.body.comment,
@@ -32,6 +31,12 @@ router.post('/add-feed', async(req, res) => {
     console.log(req.body);
     // console.log(docSnap.data());
     res.json({hello: "hello"});
+})
+
+router.post('/add-ques', async(req, res) => {
+    console.log(req.body);
+
+    res.json({question: "success"});
 })
 
 module.exports = router;
