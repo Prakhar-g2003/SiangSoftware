@@ -23,6 +23,9 @@ const Maincontent = ({ userinfo, courses, projects, collabs}) => {
         // console.log('clicked ' + project.id);
         navigate('/AddProjectForm');
     }
+    function handleAddCourse(){
+        navigate('/AddCourseForm');
+    }
     const slideLeft = () => {
         var slider = document.getElementById('slider');
         slider.scrollLeft = slider.scrollLeft - 500;
@@ -92,6 +95,10 @@ const Maincontent = ({ userinfo, courses, projects, collabs}) => {
                 </div>
                 <div className='card'>
                     <div className='card-heading'>Courses</div>
+                    <div className='edit-profile' onClick={handleAddCourse}>
+                            <img src={add_image} alt="edit-profile-image" className='add-project-image'/>
+                            <div className='edit-profile-text'>Add Courses</div>
+                    </div>
                     <hr/>
 
                     {courses.map((course, index) => (
