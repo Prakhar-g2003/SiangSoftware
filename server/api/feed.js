@@ -46,8 +46,9 @@ router.post('/add-ques', async(req, res) => {
         ques_id: response.id,
         timestamp: serverTimestamp()
     });
-
-    res.send({question: "success"});
+    const docSnap = await getDoc(docRef);
+    console.log(docSnap.data());
+    res.send({question: "success", data: docSnap.data()});
 })
 
 module.exports = router;
