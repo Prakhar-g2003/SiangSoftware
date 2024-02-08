@@ -9,6 +9,7 @@ const Profilepage = ({}) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
+  const [collabs, setCollabs] = useState([]);
   useEffect(() => {
       const getUserinfo = async() => {
           try{
@@ -40,7 +41,18 @@ const Profilepage = ({}) => {
               });
               response3 = await response3.json();
               setCourses(response3);
-              console.log(response3);
+
+              var response4 = await fetch("http://localhost:3001/api/get-collabs", {
+                  method: 'POST', 
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({user_id: localStorage.getItem("user_id")})
+              });
+              response4 = await response4.json();
+              setCollabs(response4);
+            //   setProjects(response2);
+              
               setLoading(false);
           } catch(error){
               console.log(error);
@@ -75,8 +87,9 @@ const Profilepage = ({}) => {
       ]
     return (
         <>
+            {/* {console.log(collabs)} */}
             <MainNavbar/>
-            <Maincontent userinfo={user} courses={coursess} projects={projects} />
+            <Maincontent userinfo={user} courses={coursess} projects={projects} collabs={collabs}/>
             {/* <Footer /> */}
 
         </>

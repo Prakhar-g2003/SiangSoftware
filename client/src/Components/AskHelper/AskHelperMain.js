@@ -7,7 +7,6 @@ import MainNavbar from "../../Assets/MainNavbar";
 const AskHelperMain = (props) => {
   return (
     <div class="askHelperLayout">
-      {/* {console.log(props.data[0].answers[0])} */}
       <MainNavbar />
       <div class="overlayHelper">
         <div class="askHelpMain">
@@ -19,7 +18,7 @@ const AskHelperMain = (props) => {
             <DoubtCard /> */}
 
             {props.data.map((res) => (
-              <DoubtCard prop={res} />
+              <DoubtCard reload={props.reload} prop={res} />
             ))}
           </div>
         </div>

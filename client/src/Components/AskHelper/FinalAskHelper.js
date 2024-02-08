@@ -30,6 +30,7 @@ const Doubts = [
 const FinalAskHelperMain = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [reload, setReload] = useState(true);
   useEffect(() => {
     const fetchFeed = async(req, res) => {
       try{
@@ -48,7 +49,7 @@ const FinalAskHelperMain = () => {
     }
 
     fetchFeed();
-  }, []);
+  }, [reload]);
 
   if(loading){
     return (
@@ -57,7 +58,7 @@ const FinalAskHelperMain = () => {
       </div>
     )
   }
-  return <AskHelperMain data={data} />;
+  return <AskHelperMain data={data} reload = {reload} />;
 };
 
 export default FinalAskHelperMain;
