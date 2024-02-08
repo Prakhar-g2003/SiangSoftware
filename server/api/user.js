@@ -30,7 +30,7 @@ router.get('/user-info', async(req, res) => {
 })
 
 router.post('/fullinfo', async(req, res) => {
-    console.log(req.body.user_id);
+    // console.log(req.body.user_id);
     const docRef = doc(db, 'users', req.body.user_id);
     const docSnap = await getDoc(docRef);
     // console.log(docSnap.data());
@@ -38,7 +38,7 @@ router.post('/fullinfo', async(req, res) => {
 })
 
 router.post('/update_user_info', async(req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const docRef = doc(db, 'users', req.body.user_id);
     await updateDoc(docRef, req.body);
     res.json({});
