@@ -113,7 +113,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs}) => {
                         <span className='downvotes'>👎 {course.downvotes}</span>
                         </div>
                     </div>
-        ))}
+                    ))}
                 </div>
                 
             </div>
