@@ -53,7 +53,7 @@ function Home() {
   }
   return (
     <div className="home_body">
-      <MainNavbar />
+      {/* <MainNavbar /> */}
       <div class="home_body_mid">
         <TopContributors className="TopContributors"></TopContributors>
         <Feed projects={projects} user={user} />

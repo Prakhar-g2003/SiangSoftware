@@ -17,7 +17,7 @@ const ProjectDisplay = ({ project }) => {
   project = location.state.project;
   return (
     <div class="overlayProjectDisplay">
-      <MainNavbar />
+      {/* <MainNavbar /> */}
 
       <div className="projectDisplayBody">
         <div class="mainContent">

@@ -32,7 +32,7 @@ function FinalCourses() {
   return (
     <div>
         {console.log(courses)}
-        <MainNavbar />
+        {/* <MainNavbar /> */}
         <CoursesPage courses={courses}/>
     </div>
   );

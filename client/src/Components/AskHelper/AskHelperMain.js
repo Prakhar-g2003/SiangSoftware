@@ -7,7 +7,7 @@ import MainNavbar from "../../Assets/MainNavbar";
 const AskHelperMain = (props) => {
   return (
     <div class="askHelperLayout">
-      <MainNavbar />
+      {/* <MainNavbar /> */}
       <div class="overlayHelper">
         <div class="askHelpMain">
           <AskHelp />

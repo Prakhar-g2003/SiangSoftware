@@ -26,9 +26,12 @@ import FinalCourses from "./Pages/courses/FinalCourses";
 function App() {
   return (
     <React.Fragment>
+
       <AuthenticatedTemplate>
+        
+        
         <Router>
-        {/* <MainNavbar /> */}
+        <MainNavbar/>
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
