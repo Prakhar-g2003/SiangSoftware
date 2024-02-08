@@ -13,3 +13,8 @@
 .TopContributors {
   margin: 10px;
 }
+.home_body_mid {
+  display: flex;
+  justify-content: space-between;
+  padding: 10%;
+}

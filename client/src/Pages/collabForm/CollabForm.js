@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import './CollabForm.css';
-import {useLocation} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 function CollabForm({project}) {
     const location = useLocation();
+    const navigate = useNavigate();
     project = location.state.project;
     console.log(project);
     const user_id = localStorage.getItem("user_id");
@@ -27,7 +28,7 @@ function CollabForm({project}) {
             body: JSON.stringify({sender_id: user_id, project_id: project.id, receiver_id: project.userId, info: about})
         });
         response = await response.json();
-        console.log(response);
+        navigate('/home');
     }
   return (
     <div className='collabForm-update'>

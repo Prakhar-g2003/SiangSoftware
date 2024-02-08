@@ -1,30 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-.overlay {
-  opacity: 0.8;
+.overlayProjectDisplay {
   background-color: white;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  margin: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
 }
 
 .mainContent {
   background-color: white;
   width: 40%;
-  height: 90%;
   box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
     rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   border-radius: 5px;
   padding: 0 0 2.5em 0;
   display: flex;
   flex-direction: column;
+  gap: 2vh;
+}
+
+.projectDisplayBody {
+  display: flex;
+  width: 100%;
+  gap: 2vh;
+  justify-content: center;
+}
+.projectDisplayConnect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.projectDisplayCollab {
+  border: 0;
+  background-color: azure;
 }

@@ -1,0 +1,26 @@
+.projectCardOverlay {
+  display: flex;
+  flex-direction: column;
+}
+.projectMedia {
+  height: 30vh;
+  width: 70vh;
+  object-fit: cover;
+}
+.projectCardInfo {
+  padding: 2vh;
+}
+.projectCardInfoHead {
+  display: flex;
+  justify-content: space-between;
+}
+.projectCardNameType {
+  display: flex;
+  gap: 1vh;
+}
+.projectTechStack {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1vh;
+  flex-wrap: wrap;
+}

@@ -1,26 +1,27 @@
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 const MainNavbar = () => {
   return (
     <div class="NavBarOverlay">
       <div class="navbarRoutes">
         <img src="https://i.ibb.co/kX4wfCn/Coolab.png" class="navbarLogo" />
 
-        <a href="/home" class="navBarIcons">
+        <Link to="/home" class="navBarIcons">
           <span class="material-symbols-outlined">home</span>
-        </a>
-        <a href="/projects" class="navBarIcons">
+        </Link>
+        <Link to="/projects" class="navBarIcons">
           <span class="material-symbols-outlined">code_blocks</span>
-        </a>
-        <a href="/courses" class="navBarIcons">
+        </Link>
+        <Link to="/courses" class="navBarIcons">
           <span class="material-symbols-outlined">school</span>
-        </a>
-        <a href="/AskHelper" class="navBarIcons">
+        </Link>
+        <Link to="/AskHelper" class="navBarIcons">
           <span class="material-symbols-outlined">live_help</span>
-        </a>
+        </Link>
       </div>
-      <a href="" class="navBarIcons">
+      <Link to="/myprofile" class="navBarIcons">
         <span class="material-symbols-outlined">account_circle</span>
-      </a>
+      </Link>
     </div>
   );
 };

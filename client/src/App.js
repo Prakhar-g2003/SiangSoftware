@@ -20,6 +20,8 @@ import ProfileForm from "./Components/ProfilePage/ProfileForm";
 import AddProjectForm from "./Components/AddProjectForm/AddProjectForm";
 import CollabForm from "./Pages/collabForm/CollabForm";
 import OthersProfile from './Pages/othersprofile/OthersProfile';
+import MainNavbar from "./Assets/MainNavbar";
+import FinalCourses from "./Pages/courses/FinalCourses";
 
 //Comment
 function App() {
@@ -27,6 +29,7 @@ function App() {
     <React.Fragment>
       <AuthenticatedTemplate>
         <Router>
+        {/* <MainNavbar /> */}
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
@@ -35,6 +38,7 @@ function App() {
             <Route exact path="/projects" element={<FinalProject />}></Route>
             <Route exact path="/profile" element={<OthersProfile />}></Route>
             <Route exact path="/courses" element={<CoursePage />}></Route>
+            <Route exact path="/courses" element={<FinalCourses />}></Route>
             <Route
               exact
               path="/ProjectDisplay"
