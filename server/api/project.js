@@ -18,8 +18,17 @@ router.post('/addproject', async(req, res) => {
         reviews: 4,
         timestamp: serverTimestamp()
     });
-    console.log(data);
+    // console.log(data);
     res.send("success");
+})
+
+router.post('/showproject', async(req, res) => {
+    const id = req.body.id;
+    const docRef = doc(db, 'projects', id);
+
+    const docSnap = await getDoc(docRef);
+
+    res.send(docSnap.data());
 })
 
 router.get('/projects', async(req, res) => {
