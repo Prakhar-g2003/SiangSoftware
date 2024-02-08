@@ -49,3 +49,79 @@ input[type="checkbox"] {
   max-height: 200px;
   padding: 5px 10px;
 }
+
+/* Ensures the content div takes up 100% width of its parent */
+.accordianHeading .content {
+  width: 100%;
+  display: block;
+  /* Adjust as needed, depending on your layout */
+  box-sizing: border-box;
+  /* Ensures padding and border are included in the width */
+}
+
+/* Styles the textarea to take full width of its parent */
+.ProjectDisplay_Review {
+  width: 100%;
+  /* Takes full width */
+  box-sizing: border-box;
+  /* Padding and border are included in the width */
+  margin-bottom: 10px;
+  /* Adds some space between the textarea and the button */
+}
+
+/* Positions the submit button at the bottom right corner */
+.ProjectDisplay_Review_Button {
+  display: block;
+  margin-left: auto;
+  margin-top: 10px;
+  background-color: blue;
+  color: white;
+  padding: 6px 12px;
+  /* Reduced padding for a smaller button */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  /* Keeps the rounded corners */
+}
+
+/* Optional: Improves the overall look of the textarea */
+.ProjectDisplay_Review {
+  padding: 10px;
+  border: 1px solid #ccc;
+  /* Adds a light border */
+  border-radius: 4px;
+  /* Adds rounded corners */
+  resize: vertical;
+  /* Allows the user to resize the textarea vertically */
+}
+
+/* Styles for the review display rectangles */
+.reviewDisplay {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  border-radius: 8px;
+  position: relative;
+  /* Required for absolute positioning of the author label */
+}
+
+/* Updated styles for the author label to make it appear smaller */
+.reviewAuthor {
+  display: block;
+  /* Makes sure the author name is on its own line */
+  margin-bottom: 5px;
+  /* Adds a small space between the author name and the review content */
+  font-size: 0.75em;
+  /* Adjusts the font size to make it smaller */
+  font-weight: bold;
+  /* Makes the text bold */
+  color: #333;
+  /* Sets the text color */
+  /* padding-bottom: 2px; */
+  /* Adds padding at the bottom for visual separation */
+  /*   */
+  /* Adds a subtle line to separate the author name from the review content */
+}

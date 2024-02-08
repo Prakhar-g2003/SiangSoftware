@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Maincontent from './Maincontent'
-import MainNavbar from '../../Assets/MainNavbar'
+// import MainNavbar from '../../Assets/MainNavbar'
 // import './profilepage.css'
 // import Footer from '../Footer/Footer'
 
@@ -75,7 +75,7 @@ const Profilepage = ({}) => {
       ]
     return (
         <>
-            <MainNavbar/>
+            {/* <MainNavbar/> */}
             <Maincontent userinfo={user} courses={coursess} projects={projects} />
             {/* <Footer /> */}
 

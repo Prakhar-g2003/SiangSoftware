@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './AddProjectForm.css'
-import MainNavbar from "../../Assets/MainNavbar";
+// import MainNavbar from "../../Assets/MainNavbar";
 
 
 
@@ -35,7 +35,7 @@ const AddProjectForm = () => {
 
   return (
     <>
-      <MainNavbar />
+      {/* <MainNavbar /> */}
       <div className="AddProjectForm-update">
         <h2 className="AddProjectForm-h2">Add Project</h2>
         <form>

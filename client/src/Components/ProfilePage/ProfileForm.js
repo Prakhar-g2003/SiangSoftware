@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import "./ProfileForm.css";
 
 import { useNavigate } from "react-router-dom";
-import MainNavbar from "../../Assets/MainNavbar";
+// import MainNavbar from "../../Assets/MainNavbar";
 
 const ProfileForm = () => {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const ProfileForm = () => {
 
   return (
     <>
-      <MainNavbar />
+      {/* <MainNavbar /> */}
       <div className="ProfileForm-update">
         <h2 className="ProfileForm-h2">Edit Your Profile</h2>
         <form>

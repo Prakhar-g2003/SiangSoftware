@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import "./ProjectAccordian.css";
 
 const ProjectAccordian = (myproject) => {
@@ -5,6 +6,33 @@ const ProjectAccordian = (myproject) => {
   if (!project.techstacks) project.techstacks = [""];
   if(!project.SkillsReq) project.SkillsReq=[""];
   console.log(project);
+
+    const [isReviewsOpen, setIsReviewsOpen] = useState(false);
+   const [ReviewText, setReviewText] = useState({
+    review: "", 
+  });
+  const [reviews, setReviews] = useState([]);
+
+
+  function handleChange(event) {
+    const { name,value } = event.target;
+
+    setReviewText(prevReviewText => {
+      return {
+        ...prevReviewText,
+        [name]: value
+      };
+    });
+  }
+
+  const handleReviewSubmit = () => {
+    // Add the current review to the reviews state
+    setReviews(prevReviews => [...prevReviews, ReviewText.review]);
+    // Reset the review input
+    setReviewText({ review: "" });
+  };
+
+
   return (
     <ul class="accordian">
       <li class="accordianHeading">
@@ -31,14 +59,38 @@ const ProjectAccordian = (myproject) => {
           </ul>
         </div>
       </li>
-      <li class="accordianHeading">
-        <input type="checkbox" name="accordian" id="third" />
-        <label for="third" class="contentHead">
-          {" "}
+       <li className="accordianHeading">
+        <input
+          type="checkbox"
+          name="accordian"
+          id="third"
+          checked={isReviewsOpen}
+          onChange={() => setIsReviewsOpen(!isReviewsOpen)}
+        />
+        <label htmlFor="third" className="contentHead">
           Reviews
         </label>
-        <div class="content">
-          {project.reviews}
+        <div className="content">
+          {isReviewsOpen && (
+            <>
+              <input
+                className='ProjectDisplay_Review'
+                name="review"
+                value={ReviewText.review}
+                onChange={handleChange}
+                placeholder="Enter your review here"
+              />
+              <button className='ProjectDisplay_Review_Button' onClick={handleReviewSubmit}>Submit</button>
+            </>
+          )}
+          <div>
+ {reviews.map((review, index) => (
+  <div className="reviewDisplay" key={index}>
+    <div className="reviewAuthor">Satvik</div> {/* Author label */}
+    {review}
+  </div>
+))}
+</div>
         </div>
       </li>
 
