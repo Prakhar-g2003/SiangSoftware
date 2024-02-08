@@ -88,14 +88,9 @@ const Profilepage = ({}) => {
       ]
     return (
         <>
-<<<<<<< HEAD
-            {/* <MainNavbar/> */}
-            <Maincontent userinfo={user} courses={coursess} projects={projects} />
-=======
             {/* {console.log(collabs)} */}
             <MainNavbar/>
             <Maincontent userinfo={user} courses={coursess} projects={projects} collabs={collabs}/>
->>>>>>> 96c1a1d65d77ce1c5dce66ff1c7efb61fa5a3ece
             {/* <Footer /> */}
 
         </>
