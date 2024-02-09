@@ -2,7 +2,7 @@ import "./ProjectDisplay.css";
 import ProjectCrousel from "./components/ProjectCrousel";
 import Projecthead from "./components/Projecthead";
 import ProjectAccordian from "./components/ProjectAccordian";
-import MainNavbar from "../../Assets/MainNavbar";
+// import MainNavbar from "../../Assets/MainNavbar";
 import MainProfile from "../../Assets/MainProfile";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const ProjectDisplay = ({ project }) => {
   project = location.state.project;
   return (
     <div class="overlayProjectDisplay">
-      <MainNavbar />
+      {/* <MainNavbar /> */}
 
       <div className="projectDisplayBody">
         <div class="mainContent">

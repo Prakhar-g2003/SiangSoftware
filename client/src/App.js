@@ -29,9 +29,12 @@ import FinalUser from './Pages/Allusers/FinalUser'
 function App() {
   return (
     <React.Fragment>
+
       <AuthenticatedTemplate>
+        
+        
         <Router>
-        {/* <MainNavbar /> */}
+        <MainNavbar/>
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />

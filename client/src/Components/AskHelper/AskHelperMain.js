@@ -8,8 +8,8 @@ const AskHelperMain = (props) => {
   
   return (
     <div class="askHelperLayout">
-      {/* {console.log(props.data[0].answers[0])} */}
       <MainNavbar />
+
       <div class="overlayHelper">
         <div class="askHelpMain">
           <AskHelp data={props.data} setData={props.setData}/>
