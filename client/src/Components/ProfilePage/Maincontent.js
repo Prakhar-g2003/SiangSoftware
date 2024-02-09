@@ -15,26 +15,26 @@ import { FaToggleOn, FaToggleOff } from 'react-icons/fa';
 // import 'react-multi-carousel/lib/styles.css';
 
 const Maincontent = ({ userinfo, courses, projects, collabs }) => {
-    let navigate = useNavigate();
-    function handleClick(project) {
-        console.log('clicked ' + project.id);
-        navigate('/ProjectDisplay', { state: { project: project } });
-    }
-    function handleEdit() {
-        // console.log('clicked ' + project.id);
-        navigate('/ProfileForm');
-    }
-    function handleAddProject() {
-        // console.log('clicked ' + project.id);
-        navigate('/AddProjectForm');
-    }
-    function handleAddCourse(){
-        navigate('/AddCourseForm');
-    }
-    const slideLeft = () => {
-        var slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft - 500;
-    };
+  let navigate = useNavigate();
+  function handleClick(project) {
+    console.log("clicked " + project.id);
+    navigate("/ProjectDisplay", { state: { project: project } });
+  }
+  function handleEdit() {
+    // console.log('clicked ' + project.id);
+    navigate("/ProfileForm");
+  }
+  function handleAddProject() {
+    // console.log('clicked ' + project.id);
+    navigate("/AddProjectForm");
+  }
+  function handleAddCourse() {
+    navigate("/AddCourseForm");
+  }
+  const slideLeft = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft - 500;
+  };
 
     const slideRight = () => {
         var slider = document.getElementById('slider');
@@ -65,73 +65,112 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
         };
       }, []);
 
-    return (
-        <>  
-        <div className='profile-container'>
-            <div className='profile-left'>
-                <div className='card profile-info'>
-                    <img src={blank_profile_pic} alt="Profile Picture" className="profile-picture" />
-                    <div className='text-info'>
-                        <h2>{userinfo.name}</h2>
-                        <p>{userinfo.branch} {userinfo.course}, {userinfo.yearofgrad}</p>
-                        <p>Phone no: {userinfo.phone_no}</p>
-                        <a href={userinfo.githubprofile}><img className = "text-info-image"src = {github_logo}/></a> <a href={userinfo.linkedInprofile}><img className = "text-info-image"src = {linkedIn_logo}/></a> <a href={userinfo.instagramprofile}><img className = "text-info-image"src = {insta_logo}/></a>
+  return (
+    <>
+    <div className="profile-container">
+      <div className="profile-left">
+        <div className="card profile-info">
+          <img
+            src={blank_profile_pic}
+            alt="Profile Picture"
+            className="profile-picture"
+          />
+          <div className="text-info">
+            <div className="userIdentitiy">
+              <div className="userName">{userinfo.name}</div>
+              <div className="userBranch">{userinfo.branch}</div>
+              <div className="userCourse">{userinfo.course} </div>
+              <div className="userGrad">{userinfo.yearofgrad}</div>
+              <div className="userGrad">{userinfo.phone_no}</div>
+            </div>
+            <div className="userContact">
+              <a className="userContactButtons" href={userinfo.githubprofile}>
+                GitHub
+              </a>
+              <a className="userContactButtons" href={userinfo.linkedInprofile}>
+                LinkedIn
+              </a>
+              <a
+                className="userContactButtons"
+                href={userinfo.instagramprofile}
+              >
+                Insta Id
+              </a>
+            </div>
+          </div>
+          <div className="edit-profile" onClick={handleEdit}>
+            <img
+              src={pencil_image}
+              alt="edit-profile-image"
+              className="edit-profile-image"
+            />
+            <div className="edit-profile-text"></div>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-heading">About Me</div>
+          <hr />
+          <p>{userinfo.aboutme}</p>
+        </div>
+        <div className="card">
+          <div className="card-heading">Projects</div>
+          <div className="edit-profile" onClick={handleAddProject}>
+            <img
+              src={add_image}
+              alt="edit-profile-image"
+              className="add-project-image"
+            />
+            <div className="edit-profile-text"></div>
+          </div>
+          <hr />
+          <div className="slide-container">
+            <MdChevronLeft className="left" onClick={slideLeft} size={40} />
+            <div className="slider-container" style={{ maxWidth: "900px" }}>
+              <div className="slider" id="slider">
+                {projects.map((project, index) => (
+                  <div key={index} className="project-card">
+                    <div className="image-content">
+                      <span className="overlay"></span>
+
+                      <div className="card-image">
+                        <img
+                          src={project.projImage}
+                          alt=""
+                          class="card-img"
+                        ></img>
+                      </div>
                     </div>
-                    <div className='edit-profile' onClick={handleEdit}>
-                        <img src={pencil_image} alt="edit-profile-image" className='edit-profile-image' />
-                        <div className='edit-profile-text'>Edit Profile</div>
+
+                    <div className="card-content">
+                      <h2 className="project-name">{project.name}</h2>
+
+                      <button
+                        className="button"
+                        onClick={() => handleClick(project)}
+                      >
+                        View More
+                      </button>
                     </div>
-                </div>
-                <div className='card'>
-                    <div className='card-heading'>About Me</div>
-                    <hr />
-                    <p>{userinfo.aboutme}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <MdChevronRight className="right" onClick={slideRight} size={40} />
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-heading">Courses</div>
+          <div className="edit-profile" onClick={handleAddCourse}>
+            <img
+              src={add_image}
+              alt="edit-profile-image"
+              className="add-project-image"
+            />
+            <div className="edit-profile-text"></div>
+          </div>
+          <hr />
 
-                </div>
-                <div className='card'>
-                    <div className='card-heading'>Projects</div>
-                    <div className='edit-profile' onClick={handleAddProject}>
-                        <img src={add_image} alt="edit-profile-image" className='add-project-image' />
-                        <div className='edit-profile-text'>Add Project</div>
-                    </div>
-                    <hr />
-                    <div className='slide-container'>
-                        <MdChevronLeft className='left' onClick={slideLeft} size={40} />
-                        <div className="slider-container" style={{ maxWidth: '900px' }}>
-                            <div className="slider" id="slider">
-                                {projects.map((project, index) => (
-                                    <div key={index} className='project-card'>
-                                        <div className='image-content'>
-                                            <span className='overlay'></span>
-
-                                            <div className='card-image'>
-                                                <img src={project.projImage} alt="" class="card-img"></img>
-                                            </div>
-                                        </div>
-
-                                        <div className='card-content'>
-                                            <h2 className='project-name'>{project.name}</h2>
-
-                                            <button className='button' onClick={() => handleClick(project)}>View More</button>
-                                        </div>
-                                    </div>
-
-                                ))
-                                }
-                            </div>
-                        </div>
-                        <MdChevronRight className='right' onClick={slideRight} size={40} />
-                    </div>
-                </div>
-                <div className='card'>
-                    <div className='card-heading'>Courses</div>
-                      <div className='edit-profile' onClick={handleAddCourse}>
-                            <img src={add_image} alt="edit-profile-image" className='add-project-image'/>
-                            <div className='edit-profile-text'>Add Courses</div>
-                    </div>
-                    <hr/>
-
-                    <hr />
+          <hr />
 
                     {courses.map((course, index) => (
                         <div key={index} className='course-card'>

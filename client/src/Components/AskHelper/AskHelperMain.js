@@ -8,7 +8,7 @@ const AskHelperMain = (props) => {
   
   return (
     <div class="askHelperLayout">
-      <MainNavbar />
+      {/* <MainNavbar /> */}
 
       <div class="overlayHelper">
         <div class="askHelpMain">
