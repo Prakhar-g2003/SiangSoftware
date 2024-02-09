@@ -24,6 +24,7 @@ import MainNavbar from "./Assets/MainNavbar";
 import FinalCourses from "./Pages/courses/FinalCourses";
 import AddCourseForm from "./Components/AddCourseForm/AddCourseForm";
 import FinalUser from "./Pages/Allusers/FinalUser";
+
 import LoadingAnimation from "./Assets/LoaderAnimation/LoaderAnimation";
 
 //Comment

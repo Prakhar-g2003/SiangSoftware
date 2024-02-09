@@ -1,7 +1,6 @@
 .projectCardOverlay {
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 }
 .projectMedia {
   height: 30vh;

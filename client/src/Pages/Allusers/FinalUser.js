@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AllUsers from './AllUsers';
 
 function FinalUser() {
-
+  
     
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -29,9 +29,9 @@ function FinalUser() {
         )
     }
   return (
-    <div>
+    <div >
       
-      <AllUsers users={users}/>
+      <AllUsers  users={users}/>
     </div>
   );
 }

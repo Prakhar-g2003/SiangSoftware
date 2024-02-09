@@ -98,7 +98,7 @@ React.useEffect(()=>{
 },[inputValue])
     
     return(
-      
+      // backgroundColor: "#F7F9FB",
       <div style={{backgroundColor: "#F7F9FB",height:"100vh",borderTop:"1px solid rgba(0,0,0,0.5)"}}>
           <form className="Searchform" onSubmit={handleSubmit}>
             <Autocomplete
