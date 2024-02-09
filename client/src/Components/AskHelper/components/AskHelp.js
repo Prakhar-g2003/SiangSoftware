@@ -41,7 +41,7 @@ const AskHelp = (props) => {
           onChange={handleQuestionChange}
           placeholder="What's on your mind?"
         ></input>
-        <button class="askHelpInputButton" onClick={handleAddQuestion}>POST</button>
+        <button class="askHelpInputButton" onClick={handleAddQuestion} style={{cursor:"pointer"}}>POST</button>
       </form>
     </div>
   );

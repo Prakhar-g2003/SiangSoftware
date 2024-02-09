@@ -40,7 +40,7 @@
     transition: 90ms ease-in-out;
 }
 .UsernameFromCard:hover{
-    scale: 1.08;
+    scale: 1.04;
     cursor: pointer;
     background-color: #d9dadc
 }

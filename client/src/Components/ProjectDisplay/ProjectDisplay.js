@@ -30,7 +30,7 @@ const ProjectDisplay = ({ project }) => {
         <div className="projectDisplayConnect">
           <MainOtherProfile user_id={project.userId}/>
           {project.userId !== localStorage.getItem("user_id") && project.completed === false?
-            <button onClick={handleClick} className="projectDisplayCollab">
+            <button onClick={handleClick} className="projectDisplayCollab" >
             Collab
           </button>: ""
           }

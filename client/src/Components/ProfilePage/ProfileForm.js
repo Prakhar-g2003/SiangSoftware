@@ -59,6 +59,7 @@ const ProfileForm = () => {
           />
           <label className="ProfileForm-lable">Branch</label>
           <select
+          style={{cursor:"pointer"}}
             className="ProfileForm-select"
             value={branch}
             onChange={(e) => setBranch(e.target.value)}
@@ -97,6 +98,7 @@ const ProfileForm = () => {
           </select>
           <label className="ProfileForm-lable">Courses</label>
           <select
+            style={{cursor:"pointer"}}
             className="ProfileForm-select"
             value={course}
             onChange={(e) => setCourse(e.target.value)}

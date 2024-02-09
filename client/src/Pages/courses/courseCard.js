@@ -6,7 +6,7 @@ import Card from '../../Components/AskHelper/components/DoubtCard'
 export default function CourseCard({course}){
 
     return(
-        <div class="doubtCardMain" style={{width:"46%",borderRadius:"10px"}}>
+        <div class="doubtCardMain" style={{width:"46%",borderRadius:"10px",marginBottom:"14px"}}>
       {console.log(course)}
       <div class="doubtCardUser">
         <img

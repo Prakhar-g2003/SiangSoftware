@@ -25,6 +25,7 @@
   width: 100%;
   gap: 2vh;
   justify-content: center;
+  cursor:default;
 }
 .projectDisplayConnect {
   display: flex;
@@ -34,4 +35,8 @@
 .projectDisplayCollab {
   border: 0;
   background-color: azure;
+}
+
+.projectDisplayCollab:hover{
+  cursor: pointer;
 }
