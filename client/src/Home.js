@@ -5,6 +5,7 @@ import Feed from "./Components/Feed/Feed";
 import "./Home.css";
 import MainNavbar from "./Assets/MainNavbar";
 import MainProfile from "./Assets/MainProfile";
+import LoadingAnimation from "./Assets/LoaderAnimation/LoaderAnimation";
 
 function Home() {
   const [user, setUser] = useState();
@@ -49,7 +50,7 @@ function Home() {
     getUserinfo();
   }, []);
   if (loading) {
-    return <div>Loading....</div>;
+    return <LoadingAnimation />;
   }
   return (
     <div className="home_body">
