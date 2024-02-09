@@ -3,24 +3,54 @@ import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import './courses.css'
 import Card from '../../Components/AskHelper/components/DoubtCard'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function CourseCard({course}){
-
+    let navigate = useNavigate();
+    const [user, setUser] = useState();
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        const getData = async() => {
+            var response = await fetch("http://localhost:3001/api/fullinfo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ user_id: course.user_id }),
+            });
+            response = await response.json();
+            setUser(response);
+            setLoading(false);
+        }
+        getData();
+    }, []);
+    if(loading){
+        return(
+            <div>
+                loading...
+            </div>
+        )
+    }
+    function handleClick() {
+      console.log("clicked " + user.id);
+      navigate("/profile", { state: { user: user } });
+    }
     return(
         <div class="doubtCardMain" style={{width:"46%",borderRadius:"10px"}}>
-      {console.log(course)}
-      <div class="doubtCardUser">
+      {/* {console.log(course.user_id)} */}
+      <div class="doubtCardUser" onClick={handleClick}>
         <img
           class="doubtCardUserPhoto"
           src="https://images.unsplash.com/photo-1706887577952-2c3237ba079e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
         />
         <div class="doubtCardUserInfo">
           <div class="doubtCardUserName" style={{fontSize:"1.8rem",display:"flex",justifyContent:"space-between"}}>
-            Sachin
-            
+            {user.name}
+            {/* Prakhar */}
             </div>
           {/* <div style={{textAlign:"end",width:"70vh",fontSize:"20px"}}>By Udemy</div> */}
           <div style={{marginTop:"0px"}}>
-            C++ full Course</div>
+           {course.instructor}</div>
             
         </div>
       </div>
@@ -28,7 +58,7 @@ export default function CourseCard({course}){
       <hr></hr>
       <div style={{marginBottom:"20px"}}>
         <div style={{fontSize:"1.4rem"}}>{course.courseName}</div>
-        <div>I loved this course very much</div>
+        <div>{course.review}</div>
       </div>
    
 

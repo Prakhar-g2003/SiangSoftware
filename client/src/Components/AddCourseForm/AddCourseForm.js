@@ -10,29 +10,26 @@ const AddCourseForm = () => {
   const [name, setName] = useState('');
   const [instructor, setInstructor] = useState('');
   const [platform, setPlatform] = useState('');
-  const [coursetype, setCoursetype] = useState('');
+  const [online, setOnline] = useState(true);
   const [course_link, setCourse_link] = useState('');
   const [review, setReview] = useState('');
-  const user_id = localStorage.getItem("user_id"); 
 
-//   const handleSubmit = async(e)=>{
-//     e.preventDefault();
-//     try{
-//      var temp= await fetch("http://localhost:3001/api/addproject", {
-//           method: 'POST', 
-//           headers: {
-//               'Content-Type': 'application/json'
-//           },
-//           body: JSON.stringify({userId: user_id, description: description, github_link: github_link, completed: completed, techstacks: techstacks, name: name, projecttype: projecttype})
-//       });
-//       console.log("hello");
-//       navigate('/myprofile');
-//       console.log("hi");
-//     }catch(error){
-//       console.log(error);
-//     }
-//   };
-
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    try{
+      var response = await fetch("http://localhost:3001/api/addcourse", {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({user_id: localStorage.getItem("user_id"), courseName: name, instructor: instructor, from: platform, online: online, link: course_link, review: review})
+        });
+        response = response.json();
+        navigate('/myprofile');
+      }catch(error){
+        console.log(error);
+      }
+  };
   return (
     <>
       {/* <MainNavbar /> */}
@@ -47,7 +44,7 @@ const AddCourseForm = () => {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <label className="AddCourseForm-lable">Istructor</label>
+          <label className="AddCourseForm-lable">Instructor</label>
           <input
             className="AddCourseForm-input"
             type="text"
@@ -68,12 +65,12 @@ const AddCourseForm = () => {
           <label className="AddCourseForm-lable">CourseType</label>
           <select
             className="AddCourseForm-select"
-            value={coursetype}
-            onChange={(e) => setCoursetype(e.target.value)}
+            value={online}
+            onChange={(e) => setOnline(e.target.value)}
             required
           >
-            <option value="Online">Online</option>
-            <option value="Academic">Academic</option>
+            <option value={true}>Online</option>
+            <option value={false}>Academic</option>
           </select>
         
           <label className="AddCourseForm-lable">Course Review</label>
@@ -92,7 +89,7 @@ const AddCourseForm = () => {
             required
           />
 
-          <button className="AddCourseForm-submit" /*onClick={handleSubmit}*/>
+          <button className="AddCourseForm-submit" onClick={handleSubmit}>
             Submit
           </button>
         </form>
