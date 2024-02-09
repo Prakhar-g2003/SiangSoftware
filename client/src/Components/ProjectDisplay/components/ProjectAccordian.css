@@ -32,12 +32,54 @@ input[type="checkbox"] {
 .content {
   line-height: 20px;
   padding: 0 10px;
-  max-height: 0;
+  max-height:  0px;
   overflow: hidden;
   transition: max-height 0.5s, padding 0.5s;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
+
+.review_open{
+  line-height: 20px;
+    padding: 0 10px;
+    max-height: 200px;
+  
+    overflow-y: auto;
+  
+    transition: max-height 0.5s, padding 0.5s;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+}
+
+
+
+.reviewDisplay{
+  display: flex;
+    flex-direction: row;
+    margin: 15px 0px 15px 0px;
+}
+
+.review_image{
+  border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.reviewAuthor{
+  background-color: #F0F2F5;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    padding: 5px 15px 15px 15px;
+    border-radius: 5px;
+}
+
+.review_name{
+  padding-bottom: 5px;
+    font-size: 1.1em;
+}
+
+
 
 .contentHead {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -73,10 +115,11 @@ input[type="checkbox"] {
 .ProjectDisplay_Review_Button {
   display: block;
   margin-left: auto;
-  margin-top: 10px;
+  margin-top: 0 px;
+  margin-bottom: 10px;
   background-color: blue;
   color: white;
-  padding: 6px 12px;
+  padding: 4px 8px;
   /* Reduced padding for a smaller button */
   border: none;
   cursor: pointer;

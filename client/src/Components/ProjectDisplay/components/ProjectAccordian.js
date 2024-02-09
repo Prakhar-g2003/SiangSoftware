@@ -110,6 +110,7 @@ const ProjectAccordian = (myproject) => {
         <div className="content">
           {isReviewsOpen && (
             <>
+        <div className='review_open'> 
               <input
                 className='ProjectDisplay_Review'
                 name="review"
@@ -118,6 +119,28 @@ const ProjectAccordian = (myproject) => {
                 placeholder="Enter your review here"
               />
               <button className='ProjectDisplay_Review_Button' onClick={handleReviewSubmit}>Submit</button>
+<<<<<<< HEAD
+
+              <div>
+            {reviews.map((review, index) => (
+              <div  className="reviewDisplay" key={index}>
+                <div >
+                  <img
+                className='review_image'
+                src="https://images.unsplash.com/photo-1706887577952-2c3237ba079e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
+            />
+                </div>
+
+                <div className="reviewAuthor">
+                  <div className='review_name'>{user.name}</div>
+                  <div className='review_review'>{review}</div>
+                </div> 
+                
+              </div>
+            ))}
+            {project.reviews.map(review => (
+                <OneReview review = {review} />
+=======
             </>
           )}
           <div>
@@ -131,9 +154,18 @@ const ProjectAccordian = (myproject) => {
           <div>
             {project.reviews.map(revieww => (
                 <OneReview revieww = {revieww} />
+>>>>>>> c957b2a73ae55d8f7237c8e5540c51e26d4482f6
               ))}
+            
           </div>
           
+<<<<<<< HEAD
+      </div>
+            </>
+          )}
+          
+=======
+>>>>>>> c957b2a73ae55d8f7237c8e5540c51e26d4482f6
         </div>
       </li>
 
