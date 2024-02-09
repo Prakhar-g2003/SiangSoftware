@@ -21,7 +21,7 @@ const OthersProfile = ({user}) => {
     const [userinfo, setUserinfo] = useState();
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
-    // const [courses, setCourses] = useState([]);
+    const [courses, setCourses] = useState([]);
     const [collabs, setCollabs] = useState([]);
     useEffect(() => {
         const getUserinfo = async () => {
@@ -46,14 +46,16 @@ const OthersProfile = ({user}) => {
                 response2 = await response2.json();
                 setProjects(response2);
 
-                // var response3 = await fetch("http://localhost:3001/api/courses", {
-                //     method: "GET",
-                //     headers: {
-                //         "Content-Type": "application/json",
-                //     },
-                // });
-                // response3 = await response3.json();
-                // setCourses(response3);
+                var response3 = await fetch("http://localhost:3001/api/mycourses", {
+                  method: "POST",
+                  headers: {
+                  "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({user_id: user.id })
+                });
+                response3 = await response3.json();
+                setCourses(response3);
+
                 setLoading(false);
             } catch (error) {
                 console.log(error);
@@ -81,11 +83,11 @@ const OthersProfile = ({user}) => {
         var slider = document.getElementById('slider');
         slider.scrollLeft = slider.scrollLeft + 500;
     };
-    const courses = [
-        { courseName: "course1", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
-        { courseName: "course2", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
-        { courseName: "course3", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
-    ]
+    // const courses = [
+    //     { courseName: "course1", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
+    //     { courseName: "course2", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
+    //     { courseName: "course3", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
+    // ]
     return (
         <>
             <div className='o-profile-container'>
@@ -143,14 +145,9 @@ const OthersProfile = ({user}) => {
                                     <div class='course-title-author'>
                                         <h3>{course.courseName}</h3>
                                         <span>|</span>
-                                        <p>{course.author}</p>
+                                        <p>{course.instructor}</p>
                                     </div>
-                                    <div className='o-tech-stack'>{course.techStack}</div>
-                                    <div className='o-course-review'>{course.courseReview}</div>
-                                </div>
-                                <div className='o-course-stats'>
-                                    <span className='o-upvotes'>👍 {course.upvotes}</span>
-                                    <span className='o-downvotes'>👎 {course.downvotes}</span>
+                                    <div className='o-course-review'>{course.review}</div>
                                 </div>
                             </div>
                         ))}

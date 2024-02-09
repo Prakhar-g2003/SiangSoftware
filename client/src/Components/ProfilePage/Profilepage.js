@@ -33,11 +33,12 @@ const Profilepage = ({}) => {
               response2 = await response2.json();
               setProjects(response2);
 
-              var response3 = await fetch("http://localhost:3001/api/courses", {
-                  method: "GET",
+              var response3 = await fetch("http://localhost:3001/api/mycourses", {
+                  method: "POST",
                   headers: {
                   "Content-Type": "application/json",
                   },
+                  body: JSON.stringify({user_id: localStorage.getItem("user_id")})
               });
               response3 = await response3.json();
               setCourses(response3);
@@ -90,7 +91,7 @@ const Profilepage = ({}) => {
         <>
             {/* {console.log(collabs)} */}
             {/* <MainNavbar/> */}
-            <Maincontent userinfo={user} courses={coursess} projects={projects} collabs={collabs}/>
+            <Maincontent userinfo={user} courses={courses} projects={projects} collabs={collabs}/>
             {/* <Footer /> */}
 
         </>
