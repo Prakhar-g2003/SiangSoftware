@@ -1,10 +1,8 @@
 .home_body {
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
 .home_body_mid {
-  width: 100%;
   display: flex;
 }
 .sidebar {
@@ -17,4 +15,13 @@
   display: flex;
   justify-content: space-between;
   padding: 10%;
+}
+
+@media (max-width: 400px) {
+  .home_body_mid {
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+    gap: 2vh;
+  }
 }

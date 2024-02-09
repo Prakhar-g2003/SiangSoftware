@@ -1,16 +1,16 @@
 .MainProfileOverlay {
   background-color: #fcfdfd;
-  width: 22vh;
-  height: 25vh;
+  width: 15em;
+  height: 14em;
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 25px;
-  padding: 30px;
+  padding: 2em 0;
+  gap: 1em;
 }
 .MainProfileImage {
-  height: 100px;
-  width: 100px;
+  height: 6em;
+  width: 6em;
   border-radius: 50%;
 }
 .ProfileDetails {
@@ -19,11 +19,17 @@
   flex-direction: column;
 }
 .ProfileName {
-  font-size: 25px;
+  font-size: 1em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .ProfileDiscription {
-  font-size: 15px;
+  font-size: 0.7em;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+}
+
+@media (max-width: 400px) {
+  .MainProfileOverlay {
+    display: none;
+  }
 }
