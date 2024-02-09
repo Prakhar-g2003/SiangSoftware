@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./ProjectAccordian.css";
 
-function OneReview({review}) {
+function OneReview({revieww}) {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState();
     useEffect(() => {
@@ -11,7 +11,7 @@ function OneReview({review}) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ user_id: review.ans_user }),
+            body: JSON.stringify({ user_id: revieww.ans_user }),
             });
             response = await response.json();
             setUser(response);
@@ -30,9 +30,9 @@ function OneReview({review}) {
     }
   return (
     <div className="reviewDisplay">
-        {console.log(review)}
+        {console.log(revieww)}
         <div className="reviewAuthor">{user.name}</div> {/* Author label */}
-        {review.ans_info}
+        {revieww.ans_info}
     </div>
   );
 }

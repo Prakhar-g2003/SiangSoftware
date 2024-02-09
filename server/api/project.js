@@ -59,7 +59,7 @@ router.post('/add-review', async(req, res) => {
     console.log(req.body);
     const docRef = doc(db, 'projects', req.body.proj_id);
 
-    const docSnap = await getDoc(docRef);
+    // const docSnap = await getDoc(docRef);
     // console.log(docSnap.data());
     const obj = {
         ans_info: req.body.ans_info,

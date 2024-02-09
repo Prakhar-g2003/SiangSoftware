@@ -35,7 +35,7 @@ const AddCourseForm = () => {
 
   return (
     <>
-      <MainNavbar />
+      {/* <MainNavbar /> */}
       <div className="AddCourseForm-update">
         <h2 className="AddCourseForm-h2">Add Course</h2>
         <form>
