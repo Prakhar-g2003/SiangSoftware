@@ -137,7 +137,7 @@
     background-color: rgba(0,0,0,0.1);
 }
 
-.doubtCardMain {
+.doubtCardMainCourse {
   background-color: white;
   padding: 10px 25px 0px 25px;
   width: 70vh;
@@ -145,19 +145,19 @@
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
-.doubtCardMain:hover{
+.doubtCardMainCourse:hover{
   cursor: default;
 }
-.doubtCardUser {
+.doubtCardUserCourse {
   display: flex;
   gap: 20px;
 }
-.doubtCardUserPhoto {
+.doubtCardUserPhotoCourse {
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
-.doubtCardUserName {
+.doubtCardUserNameCourse{
   font-size: 20px;
 }
 .doubtCardUserType {

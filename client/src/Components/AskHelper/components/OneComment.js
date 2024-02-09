@@ -41,7 +41,7 @@ function OneComment({comment}) {
     }
   return (
     <div className="askHelperCommentanscontainer">
-        <div onClick={handleClick}>
+        <div onClick={handleClick} style={{cursor:"pointer"}}>
             <img
                 class="doubtCardUserPhoto"
                 src="https://images.unsplash.com/photo-1706887577952-2c3237ba079e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
