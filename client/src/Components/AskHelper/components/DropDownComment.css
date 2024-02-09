@@ -15,6 +15,7 @@
 
 .dropDownSubmit {
   display: flex;
+  width: 100%;
 }
 #comments-dropdown {
   display: flex;
