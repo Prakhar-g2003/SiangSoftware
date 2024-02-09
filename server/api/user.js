@@ -34,7 +34,7 @@ router.post('/fullinfo', async(req, res) => {
     const docRef = doc(db, 'users', req.body.user_id);
     const docSnap = await getDoc(docRef);
     // console.log(docSnap.data());
-    res.json({name: docSnap.data().name, branch: docSnap.data().branch, course: docSnap.data().courses, yearofgrad: docSnap.data().yearofgrad, phone_no: docSnap.data().phone_no, aboutme: docSnap.data().aboutme});
+    res.json({name: docSnap.data().name, branch: docSnap.data().branch, course: docSnap.data().courses, yearofgrad: docSnap.data().yearofgrad, phone_no: docSnap.data().phone_no, aboutme: docSnap.data().aboutme, id: docSnap.data().user_id});
 })
 
 router.post('/update_user_info', async(req, res) => {
