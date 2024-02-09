@@ -19,7 +19,7 @@ const AllUsers = ({users}) => {
 
   return (
     <div className='AllusersFinalcss'>
-      <MainNavbar/>
+      {/* <MainNavbar/> */}
       <Searchbox searchChange={onSearchChange}/>
       <Scroll>
         <Cardslist robots={filteredRobots}/>

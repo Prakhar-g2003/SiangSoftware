@@ -89,7 +89,7 @@ const Profilepage = ({}) => {
     return (
         <>
             {/* {console.log(collabs)} */}
-            <MainNavbar/>
+            {/* <MainNavbar/> */}
             <Maincontent userinfo={user} courses={coursess} projects={projects} collabs={collabs}/>
             {/* <Footer /> */}
 

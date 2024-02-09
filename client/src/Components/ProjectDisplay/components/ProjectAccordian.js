@@ -84,12 +84,12 @@ const ProjectAccordian = (myproject) => {
             </>
           )}
           <div>
- {reviews.map((review, index) => (
-  <div className="reviewDisplay" key={index}>
-    <div className="reviewAuthor">Satvik</div> {/* Author label */}
-    {review}
-  </div>
-))}
+            {reviews.map((review, index) => (
+              <div className="reviewDisplay" key={index}>
+                <div className="reviewAuthor">Satvik</div> {/* Author label */}
+                {review}
+        </div>
+    ))}
 </div>
         </div>
       </li>
