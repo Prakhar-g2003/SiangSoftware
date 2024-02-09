@@ -4,10 +4,10 @@
 
   padding: 0;
   margin: 0;
-  background-color: #fdfffc;
+  background-color: #f1faee;
 }
 .overlayHelper {
-  background-color: #eff6fd;
+  background-color: #f1faee;
   display: flex;
   padding: 6% 2% 2% 25%;
   gap: 3vh;
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   gap: 3em;
-  background-color: #eff6fd;
+  background-color: #f1faee;
 }
 
 .doubtMain {
