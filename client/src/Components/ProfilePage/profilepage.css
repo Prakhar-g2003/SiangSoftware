@@ -7,18 +7,19 @@
     justify-content: space-between;
     padding: 20px;
     flex-direction: horizontal;
-    width: 100vw;
+    width: 80vw;
+    margin-left: 10vw;
     background-color: #F7F9FB;
   }
   
   .profile-left {
-    flex:5;
+    flex:2;
     margin-right: 50px;
     margin-left: 30px;
   }
   
   .profile-right {
-    flex: 2;
+    flex: 1;
     margin-right: 100px;
   }
   
@@ -60,9 +61,12 @@
     right: 5px;
     display: flex; 
     align-items: center; 
-    background-color: #e3dbdb; 
+    background-color: #e1dfdf; 
     padding: 5px; 
     /* border-radius: 5px;  */
+  }
+  .edit-profile:hover {
+    background-color: #b6afaf;
   }
   
   .edit-profile-image {
@@ -95,7 +99,7 @@
     margin-bottom: 10px;
     box-sizing: border-box;
     display: inline-block;
-    width: 250px;
+    /* width: 250px; */
     
     margin-right: 5px; 
     margin-left: 5px;
@@ -111,7 +115,7 @@
   
   .slide-container {
     width: 100%;
-    max-width: 100%;
+    max-width: 53vw;
     overflow: hidden;
     position: relative; 
     background-color: #F7F9FB;
@@ -293,6 +297,12 @@
   }
 
   .collaboration-req{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .collab-card{
     border: 1px solid black;
     padding: 5px;
     border-radius: 10px;

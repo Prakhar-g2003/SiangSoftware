@@ -17,10 +17,6 @@
     flex:5;
   }
   
-  .o-profile-right {
-    flex: 2;
-    margin-right: 100px;
-  }
   
   .o-card {
     background-color: #fff;
@@ -95,7 +91,7 @@
     margin-bottom: 10px;
     box-sizing: border-box;
     display: inline-block;
-    width: 250px;
+    /* width: 250px; */
     
     margin-right: 5px; 
     margin-left: 5px;
@@ -111,7 +107,7 @@
   
   .o-slide-container {
     width: 100%;
-    max-width: 100%;
+    max-width: 60vw;
     overflow: hidden;
     position: relative; 
     background-color: #F7F9FB;

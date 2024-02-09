@@ -81,30 +81,6 @@ const OthersProfile = ({user}) => {
         var slider = document.getElementById('slider');
         slider.scrollLeft = slider.scrollLeft + 500;
     };
-
-    // const userinfo = {
-    //     name: "Shobhit",
-    //     branch: "Computer Science Engineering",
-    //     course: "B.tech",
-    //     yearofgrad: 2025,
-    //     phone_no: 8342374898,
-    //     aboutme: "Hi this is me!",
-    //     githubprofile: "https://github.com/shobyy25",
-    //     linkedInprofile: "https://github.com/shobyy25",
-    //     instagramprofile: "https://github.com/shobyy25"
-    // }
-    // const projects = [
-    //     { name: "proj1", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://thumbs.dreamstime.com/z/bridge-over-mississippi-river-2483015.jpg?ct=jpeg" },
-    //     { name: "proj2", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxNcVtGf3MlGjkYPBDyf8Gl_ub7EziBF0aT5L28am1lzDnr6yrzEpjVPWHCl2TiKeGEc&usqp=CAU" },
-    //     { name: "proj3", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://thumbs.dreamstime.com/z/bridge-over-mississippi-river-2483015.jpg?ct=jpeg" },
-    //     { name: "proj4", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxNcVtGf3MlGjkYPBDyf8Gl_ub7EziBF0aT5L28am1lzDnr6yrzEpjVPWHCl2TiKeGEc&usqp=CAU" },
-    //     { name: "proj5", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://thumbs.dreamstime.com/z/bridge-over-mississippi-river-2483015.jpg?ct=jpeg" },
-    //     { name: "proj6", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxNcVtGf3MlGjkYPBDyf8Gl_ub7EziBF0aT5L28am1lzDnr6yrzEpjVPWHCl2TiKeGEc&usqp=CAU" },
-    //     { name: "proj7", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxNcVtGf3MlGjkYPBDyf8Gl_ub7EziBF0aT5L28am1lzDnr6yrzEpjVPWHCl2TiKeGEc&usqp=CAU" },
-    //     { name: "proj8", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxNcVtGf3MlGjkYPBDyf8Gl_ub7EziBF0aT5L28am1lzDnr6yrzEpjVPWHCl2TiKeGEc&usqp=CAU" },
-    //     { name: "proj9", projInfo: ["Lorem ipsum dolor sit amet", "consectetur adipiscing elit. Sed euismod mauris vel urna ultrices"], projImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHxNcVtGf3MlGjkYPBDyf8Gl_ub7EziBF0aT5L28am1lzDnr6yrzEpjVPWHCl2TiKeGEc&usqp=CAU" },
-
-    // ]
     const courses = [
         { courseName: "course1", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
         { courseName: "course2", author: "NetNinja", techStack: "HTML", upvotes: 3, downvotes: 3, courseReview: "This is a very good course. It has helped me a lot." },
@@ -127,7 +103,6 @@ const OthersProfile = ({user}) => {
                         <div className='o-card-heading'>About Me</div>
                         <hr />
                         <p>{userinfo.aboutme}</p>
-
                     </div>
                     <div className='o-card'>
                         <div className='o-card-heading'>Projects</div>
