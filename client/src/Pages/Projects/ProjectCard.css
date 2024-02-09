@@ -1,10 +1,12 @@
 .projectCardOverlay {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  align-items: center;
 }
 .projectMedia {
   height: 30vh;
-  width: 70vh;
+  width: 40vw;
   object-fit: cover;
 }
 .projectCardInfo {
