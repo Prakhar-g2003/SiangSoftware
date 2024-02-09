@@ -1,7 +1,4 @@
 
-body{
-    background-color: #F7F9FB;   
-}
 .courseCard{
     
     margin: 0 10px;
@@ -27,7 +24,7 @@ body{
         height:30px !important;
         width:400px !important;
         border:none;
-        border-bottom: 1px solid black;
+        border: 1px solid rgba(0, 0, 0,0.3);
         outline: none;
         padding-left: 15px;
         font-size: medium;
@@ -35,9 +32,15 @@ body{
 
 @media (max-width: 912px){
   .courseSearch input{
-    width: 150px !important;
+    width: 250px !important;
+    margin-left: 10px;
   }
-  
+  .Searchform{
+    margin-left: -70px;
+  }
+  .doubtCardMain{
+    width: 250px !important;
+  }
 }
 .rating{
     display: flex;
@@ -51,8 +54,8 @@ body{
     display: flex;
     align-items: flex-end;
     margin-left: 17%;
-    background-color: white;
     height: 45px;
+    justify-content: center;
     /*justify-content: space-between;
     flex-wrap: nowrap; */
     
@@ -65,13 +68,10 @@ body{
 
 
 .Searchform button{
-     border:none;
-    height: 2.6rem;
-    width: 76px;
-    border-radius: 2px;
-    background-color:  #076FA6;
-    border:0.5px solid rgba(0,0,0,0.1);
-    color:white;
+     background-color: white;
+    height: 2.1rem;
+     border: 1px solid rgba(0,0,0,0.3);
+
 }
 
 .Searchform button:hover{
@@ -86,9 +86,19 @@ body{
     flex: 1;
     margin-left: 80px;
 }
+@media (max-width: 912px){
+  .filtercourse button{
+    width:100px !important;
+    height: 2.2rem !important;
+  }
+  .filtercourse{
+    margin-left: 0;
+  }
+  
+}
 .filtercourse button{
     border:none;
-    height: 2.7rem;
+    height: 2.3rem;
     width: 140px;
     background-color: white;
     border-left:0.5px solid rgba(0,0,0,0.2);
@@ -135,7 +145,9 @@ body{
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
-
+.doubtCardMain:hover{
+  cursor: pointer;
+}
 .doubtCardUser {
   display: flex;
   gap: 20px;
