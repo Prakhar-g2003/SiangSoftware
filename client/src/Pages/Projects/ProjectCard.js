@@ -31,7 +31,6 @@ export default function ProjectCard({ project, user }) {
           <div className="projectCardInfoStatus">{projectStatusMessage}</div>
         </div>
         <div className="projectCardInfoBody">
-          <div className="projectCardInfoDiscp">{project.description}</div>
           <ul className="projectTechStack">
             {project.techstacks.map((tech) => (
               <li>{tech}</li>
