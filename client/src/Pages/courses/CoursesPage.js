@@ -98,7 +98,7 @@ React.useEffect(()=>{
     
     return(
       
-      <div style={{backgroundColor: "#F7F9FB",padding:"0",marginTop:"-20px",height:"100%"}}>
+      <div style={{backgroundColor: "#F7F9FB",height:"100%",borderTop:"1px solid rgba(0,0,0,0.5)"}}>
           <form className="Searchform" onSubmit={handleSubmit}>
             <Autocomplete
               disablePortal
@@ -120,7 +120,7 @@ React.useEffect(()=>{
             <div className="filtercourse">
           <button onClick={filterProject1}>Online Courses</button>
           <button onClick={filterProject2} >College Courses</button>
-
+        
         </div>
           </form>
           
