@@ -1,16 +1,32 @@
 import React, { useState } from "react";
 import "./Feed.css";
 import ProjectCard from "../../Pages/Projects/ProjectCard";
+import { useMemo, useRef, useState } from "react";
 
 function Feed({ projects, user }) {
   let [newProjects,SetNewProject]=useState([]);
   
+  const [items, setItems] = useState(projects);
+  const [query, setQuery] = useState("");
+
+  const filteredItems = useMemo(() => {
+    return items.filter((item) => {
+      return item.projecttype.toLowerCase().includes(query.toLowerCase());
+    });
+  }, [items, query]);
+
   return (
     <div class="feed-main-overlay">
-      <form>
-        <input type="text" />
-      </form>
-      {projects.map((project) => (
+      <div className="feedFormOverlay">
+        <div className="feedSearchHeading">Filter Projects:</div>
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          type="search"
+          className="searchBarFeed"
+        />
+      </div>
+      {filteredItems.map((project) => (
         <ProjectCard project={project} user={user} />
       ))}
     </div>
