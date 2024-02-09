@@ -1,10 +1,8 @@
-
 import "./Feed.css";
 import ProjectCard from "../../Pages/Projects/ProjectCard";
 import { useMemo, useRef, useState } from "react";
 
 function Feed({ projects, user }) {
-  
   const [items, setItems] = useState(projects);
   const [query, setQuery] = useState("");
 
@@ -23,6 +21,7 @@ function Feed({ projects, user }) {
           onChange={(e) => setQuery(e.target.value)}
           type="search"
           className="searchBarFeed"
+          placeholder="Filter Projects on domain!"
         />
       </div>
       {filteredItems.map((project) => (

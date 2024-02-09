@@ -5,7 +5,7 @@
 }
 .projectMedia {
   height: 30vh;
-  width: 70vh;
+  width: 40vw;
   object-fit: cover;
 }
 .projectCardInfo {
