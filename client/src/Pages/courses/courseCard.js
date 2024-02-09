@@ -2,26 +2,68 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import './courses.css'
+import Card from '../../Components/AskHelper/components/DoubtCard'
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function CourseCard({course}){
+    let navigate = useNavigate();
+    const [user, setUser] = useState();
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        const getData = async() => {
+            var response = await fetch("http://localhost:3001/api/fullinfo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ user_id: course.user_id }),
+            });
+            response = await response.json();
+            setUser(response);
+            setLoading(false);
+        }
+        getData();
+    }, []);
+    if(loading){
+        return(
+            <div>
+                loading...
+            </div>
+        )
+    }
+    function handleClick() {
+      console.log("clicked " + user.id);
+      navigate("/profile", { state: { user: user } });
+    }
     return(
-        <div className='courseCard'>
-            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                <Typography >By {course.from}</Typography>
-                <div style={{marginRight:"90px"}}>
-                <Typography sx={{color:"purple"}}component="legend">&nbsp;Course Rating </Typography>
-                <div className='rating'>{course.rating}<Rating defaultValue={course.rating} precision={0.5} readOnly/></div>
+        <div class="doubtCardMain" style={{width:"46%",borderRadius:"10px",marginBottom:"14px"}}>
+      {console.log(course)}
+      <div class="doubtCardUser">
+        <img
+          class="doubtCardUserPhoto"
+          src="https://images.unsplash.com/photo-1706887577952-2c3237ba079e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
+        />
+        <div class="doubtCardUserInfo">
+          <div class="doubtCardUserName" style={{fontSize:"1.2rem",display:"flex",justifyContent:"space-between"}}>
+            {user.name}
+            {/* Prakhar */}
             </div>
-                
-            </div>
-            <div >
+          {/* <div style={{textAlign:"end",width:"70vh",fontSize:"20px"}}>By Udemy</div> */}
+          <div style={{marginTop:"0px"}}>
+           {course.instructor}</div>
             
-            <div className='cardBtn'>
-                < h4 style={{marginLeft:"30%"}} >{course.courseName}</h4>
-                <a href='#' style={{textDecorationLine:"none"}}><button style={{color:"blue"}}>Click to view Course</button></a>
-            </div>
-            </div>
-
         </div>
+      </div>
+      <div style={{marginLeft:"80%",marginTop:"-20px"}}>By Udemy</div>
+      <hr></hr>
+      <div style={{marginBottom:"20px"}}>
+        <div style={{fontSize:"1.2rem"}}>{course.courseName}</div>
+        <div>{course.review}</div>
+      </div>
+   
+
+      
+    </div>
 
     )
 }

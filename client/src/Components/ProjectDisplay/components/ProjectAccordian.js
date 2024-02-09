@@ -119,6 +119,7 @@ const ProjectAccordian = (myproject) => {
                 placeholder="Enter your review here"
               />
               <button className='ProjectDisplay_Review_Button' onClick={handleReviewSubmit}>Submit</button>
+<<<<<<< HEAD
 
               <div>
             {reviews.map((review, index) => (
@@ -139,14 +140,32 @@ const ProjectAccordian = (myproject) => {
             ))}
             {project.reviews.map(review => (
                 <OneReview review = {review} />
+=======
+            </>
+          )}
+          <div>
+            {reviews.length ? reviews.map((review, index) => (
+              <div className="reviewDisplay" key={index}>
+                <div className="reviewAuthor">{user.name}</div> {/* Author label */}
+                {review}
+              </div>
+            )): ""}
+          </div>
+          <div>
+            {project.reviews.map(revieww => (
+                <OneReview revieww = {revieww} />
+>>>>>>> c957b2a73ae55d8f7237c8e5540c51e26d4482f6
               ))}
             
           </div>
           
+<<<<<<< HEAD
       </div>
             </>
           )}
           
+=======
+>>>>>>> c957b2a73ae55d8f7237c8e5540c51e26d4482f6
         </div>
       </li>
 

@@ -11,7 +11,7 @@ function CommentDropdown(props) {
   return (
     <div id="comments-dropdown">
       {/* {console.log(props)} */}
-      <button onClick={toggleComments} class="askHelperDropDown">
+      <button onClick={toggleComments} style={{cursor:"pointer"}}class="askHelperDropDown">
         {showComments ? "Less" : "More"}
       </button>
       <div className="commentdisplay">

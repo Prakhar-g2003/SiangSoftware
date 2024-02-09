@@ -41,7 +41,7 @@ const rows = [
 
 export default function TopContributors() {
   return (
-    <TableContainer component={Paper} sx={{ width: '250px' ,height:'100%'}}> 
+    <TableContainer component={Paper} sx={{ width: '250px' ,height:'100%',cursor:"default"}}> 
       <Table sx={{ minWidth: 100 }} aria-label="customized table">
         <TableHead>
           <TableRow>
