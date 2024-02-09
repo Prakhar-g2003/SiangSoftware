@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {db} = require('../firebase/fireConfig')
-const { collection, doc, getDoc, addDoc, getDocs } = require('firebase/firestore');
+const { collection, doc, getDoc, addDoc, getDocs, updateDoc } = require('firebase/firestore');
 const jwt = require('jsonwebtoken');
 
 const jwtSecret = "thisisajwtsecretforkritisoftwareps";
@@ -25,18 +25,22 @@ router.post('/storeuser', async (req, res) => {
         }
       });
     if(!found){
-        dataFromFrontend.contributions = 0;
-        dataFromFrontend.branch = "";
-        dataFromFrontend.course = "";
-        dataFromFrontend.yearofgrad = "";
-        dataFromFrontend.phone_no = "";
-        dataFromFrontend.aboutme = "";
-        dataFromFrontend.linkedInprofile = "";
-        dataFromFrontend.instaprofile = "";
-        dataFromFrontend.githubprofile = "";
-
-        const docRef = await addDoc(usersCollection, dataFromFrontend);
+        const response = await addDoc(usersCollection, dataFromFrontend);
+        const docRef = doc(db, 'users', response.id);
+        await updateDoc(docRef, {
+            user_id: response.id, 
+            contributions: 0,
+            branch: "",
+            course: "",
+            yearofgrad: "",
+            phone_no: "", 
+            aboutme: "", 
+            linkedInprofile: "", 
+            instaprofile: "", 
+            githubprofile: ""
+        });
         doc_id = docRef.id;
+        console.log(doc_id);
     }
     // console.log(doc_id);
     const data = {
@@ -49,6 +53,16 @@ router.post('/storeuser', async (req, res) => {
     // console.log('Data received:', dataFromFrontend);
     // console.log(token);
     res.json({token});
+})
+
+router.get('/allusers', async(req, res) => {
+    const dataArray = [];
+    const alldocs = await getDocs(usersCollection);
+    alldocs.forEach((doc) => {
+        dataArray.push(doc.data());
+    });
+    // console.log(dataArray);
+    res.send(dataArray);
 })
 
 module.exports = router;

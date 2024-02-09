@@ -29,12 +29,8 @@ router.post('/add-ans', async(req, res) => {
     await updateDoc(docRef, {
         answers: arrayUnion(obj)
     });
-    const obj2 = {
-        ...obj,
-        ques_id: req.body.ques_id
-    }
-    // console.log(obj2);
-    res.json({status:"success", obj});
+    
+    res.json({status: "success", data: obj});
 })
 
 router.post('/add-ques', async(req, res) => {
@@ -50,9 +46,9 @@ router.post('/add-ques', async(req, res) => {
         ques_id: response.id,
         timestamp: serverTimestamp()
     });
-    const docSnap = await getDoc(docRef);
-    // console.log(docSnap.data());
-    res.send({question: "success", data: docSnap.data()});
+
+    const docs= await getDoc(docRef);
+    res.send({question: "success", data: docs.data()});
 })
 
 module.exports = router;

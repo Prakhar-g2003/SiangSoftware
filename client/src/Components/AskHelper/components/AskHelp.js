@@ -1,6 +1,6 @@
 import "./AskHelp.css";
 import React, { useState } from "react";
-const AskHelp = () => {
+const AskHelp = (props) => {
   const [questionText, setQuestionText] = useState("");
 
   const handleQuestionChange = (event) => {
@@ -20,7 +20,12 @@ const AskHelp = () => {
           body: JSON.stringify({ques_user:localStorage.getItem("user_id"), ques_info: questionText})
       });
       response = await response.json();
-      console.log(response);
+      
+      
+      props.setData(props.data.concat(response.data));
+      
+      
+      // console.log(props.data);
       setQuestionText("");
     }
   };
