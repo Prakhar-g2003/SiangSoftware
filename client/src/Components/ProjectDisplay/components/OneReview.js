@@ -29,9 +29,8 @@ function OneReview({revieww}) {
         )
     }
   return (
-<<<<<<< HEAD
     < div className="reviewDisplay">
-        {console.log(review)}
+        {console.log(revieww)}
         <div>
              <img
                 className='review_image'
@@ -40,16 +39,10 @@ function OneReview({revieww}) {
         </div>
             <div className="reviewAuthor">
                   <div className='review_name'>{user.name}</div>
-                  <div className='review_review'>{review.ans_info}</div>
+                  <div className='review_review'>{revieww.ans_info}</div>
             </div> 
         
         
-=======
-    <div className="reviewDisplay">
-        {console.log(revieww)}
-        <div className="reviewAuthor">{user.name}</div> {/* Author label */}
-        {revieww.ans_info}
->>>>>>> c957b2a73ae55d8f7237c8e5540c51e26d4482f6
     </div>
   );
 }
