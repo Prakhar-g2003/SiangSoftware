@@ -178,14 +178,9 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
                                 <div class='course-title-author'>
                                     <h3>{course.courseName}</h3>
                                     <span>|</span>
-                                    <p>{course.author}</p>
+                                    <p>{course.instructor}</p>
                                 </div>
-                                <div className='tech-stack'>{course.techStack}</div>
-                                <div className='course-review'>{course.courseReview}</div>
-                            </div>
-                            <div className='course-stats'>
-                                <span className='upvotes'>👍 {course.upvotes}</span>
-                                <span className='downvotes'>👎 {course.downvotes}</span>
+                                <div className='course-review'>{course.review}</div>
                             </div>
                         </div>
                     ))}

@@ -27,4 +27,17 @@ router.get('/courses', async(req, res) => {
     // console.log(dataArray);
     res.send(dataArray);
 })
+
+router.post('/mycourses', async(req, res) => {
+    const user_id = req.body.user_id;
+    const dataArray = [];
+    const alldocs = await getDocs(usersCollection);
+    alldocs.forEach((doc) => {
+        if(user_id === doc.data().user_id){
+            dataArray.push(doc.data());
+        }
+    });
+    // console.log(dataArray);
+    res.send(dataArray);
+})
 module.exports = router;
