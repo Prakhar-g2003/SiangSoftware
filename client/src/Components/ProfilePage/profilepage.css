@@ -1,32 +1,34 @@
 
   .profile-container {
     display: flex;
-    gap: 50px;
-    flex: 0 0 100px;
+    /* gap: 50px; */
+    /* flex: 0 0 100px; */
     position: relative;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
     flex-direction: horizontal;
-    width: 80vw;
-    margin-left: 10vw;
+    /* width: 80vw; */
+    /* margin-left: 10vw; */
     background-color: #F7F9FB;
   }
   
   .profile-left {
-    flex:2;
-    margin-right: 50px;
-    margin-left: 30px;
+    flex:2; 
+    margin-right: 2%;
+    margin-left: 2%;
   }
   
   .profile-right {
     flex: 1;
-    margin-right: 100px;
+    padding: 5%;
+    /* margin-right: 100px; */
+    margin:5%;
   }
   
   .card {
     background-color: #fff;
     /* border: 1px solid #ddd; */
-    padding: 20px;
+    padding: 2%;
     margin-bottom: 20px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     position: relative;
@@ -38,17 +40,21 @@
     border-radius: 50%;
     max-width: 100px;
     margin-bottom: 10px;
-    margin-left: 30px;
+    margin-left: 2%;
   }
 
   .profile-info {
     display: flex;
     align-items: center;
   }
-  
+
   .text-info {
     flex-grow: 1;
-    margin-left: 20px;
+    margin-left: 2%;
+  }
+  .text-info-image{
+    width: 25px;
+    margin: 4px;
   }
   
   .text-info h2 {
@@ -63,7 +69,8 @@
     align-items: center; 
     background-color: #e1dfdf; 
     padding: 5px; 
-    /* border-radius: 5px;  */
+    border-radius: 5px; 
+    width: 19%;
   }
   .edit-profile:hover {
     background-color: #b6afaf;
@@ -71,11 +78,11 @@
   
   .edit-profile-image {
     width: 50px;
-    height: auto;
+    /* height: auto; */
   }
   .add-project-image {
     width: 30px;
-    height: auto;
+    /* height: auto; */
     margin: 2px;
   }
   /* .edit-profile:hover{
@@ -330,4 +337,37 @@
   
   .collab-accept-button {
     background-color: #4caf50;
+  }
+
+  .Maincontent-button-toggle{
+    visibility: hidden;
+    /* display: block; */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #F7F9FB; /* Set background color as needed */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .Maincontent-sidebar{
+    flex:1;
+  }
+  @media only screen and (max-width: 900px) {
+    .Maincontent-sidebar {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      background-color: #f0f0f0;
+      transition: transform 0.3s ease-in-out;
+      z-index: 2;
+      overflow: scroll;
+    }
+    .Maincontent-button-toggle{
+      visibility: visible;
+      z-index: 3;
+    }
   }

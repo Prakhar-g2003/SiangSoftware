@@ -4,10 +4,14 @@ import React, { useEffect } from 'react';
 import './profilepage.css';
 import blank_profile_pic from './blank_profile_pic.webp';
 import pencil_image from './pencil_image.jpg';
+import github_logo from './github_logo.png'
+import insta_logo from './insta_logo.png'
+import linkedIn_logo from './linkedIn_logo.png'
 import add_image from './add.png';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { useState } from 'react';
 import CollabCard from './CollabCard';
+import { FaToggleOn, FaToggleOff } from 'react-icons/fa';
 // import 'react-multi-carousel/lib/styles.css';
 
 const Maincontent = ({ userinfo, courses, projects, collabs }) => {
@@ -36,8 +40,33 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
         var slider = document.getElementById('slider');
         slider.scrollLeft = slider.scrollLeft + 500;
     };
+    const [isToggled, setToggled] = useState(false);
+
+    const handleToggle = () => {
+        setToggled(!isToggled);
+    };
+    const getWindowWidth = () => {
+        return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      };
+    
+      // State to track window width
+      const [windowWidth, setWindowWidth] = useState(getWindowWidth);
+    
+      // Update window width when the component mounts or when the window is resized
+      useEffect(() => {
+        const handleResize = () => {
+          setWindowWidth(getWindowWidth());
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     return (
+        <>  
         <div className='profile-container'>
             <div className='profile-left'>
                 <div className='card profile-info'>
@@ -46,7 +75,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
                         <h2>{userinfo.name}</h2>
                         <p>{userinfo.branch} {userinfo.course}, {userinfo.yearofgrad}</p>
                         <p>Phone no: {userinfo.phone_no}</p>
-                        <a href={userinfo.githubprofile}>Github</a> | <a href={userinfo.linkedInprofile}>LinkedIn</a> | <a href={userinfo.instagramprofile}>Insta</a>
+                        <a href={userinfo.githubprofile}><img className = "text-info-image"src = {github_logo}/></a> <a href={userinfo.linkedInprofile}><img className = "text-info-image"src = {linkedIn_logo}/></a> <a href={userinfo.instagramprofile}><img className = "text-info-image"src = {insta_logo}/></a>
                     </div>
                     <div className='edit-profile' onClick={handleEdit}>
                         <img src={pencil_image} alt="edit-profile-image" className='edit-profile-image' />
@@ -124,6 +153,10 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
                 </div>
 
             </div>
+            <div className={`Maincontent-sidebar`} style={{
+            transition: 'transform 0.3s ease-in-out',
+            transform: windowWidth < 900 ? (isToggled ? 'translateX(-2%)' : 'translateX(100%)') : 'none',
+            }} >
             <div className='profile-right'>
                 <div className='card'>
                     <div className='card-heading'>Collaboration Requests</div>
@@ -143,7 +176,12 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
                 <div className='card'>
                 </div>
             </div>
+            </div>
         </div>
+        <button className = "Maincontent-button-toggle" onClick={handleToggle}>
+        {isToggled ? <FaToggleOn /> : <FaToggleOff />}
+        </button>
+        </>
     );
 }
 
