@@ -1,21 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./ProjectAccordian.css";
+import OneReview from './OneReview';
 
 const ProjectAccordian = (myproject) => {
+  const [reviews, setReviews] = useState([]);
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
+  const [isReviewsOpen, setIsReviewsOpen] = useState(false);
+  const [ReviewText, setReviewText] = useState({
+    review: "", 
+  });
+  const [rev, setRev] = useState("");
+  useEffect(() => {
+    const getUserinfo = async(req, res) => {
+      var response = await fetch("http://localhost:3001/api/fullinfo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user_id: localStorage.getItem("user_id") }),
+        });
+        response = await response.json();
+        setUser(response);
+        setLoading(false);
+    }
+
+    getUserinfo();
+  },[]);
+  if(loading){
+    return (
+      <div>
+        loading...
+      </div>
+    )
+  }
   let project = JSON.parse(JSON.stringify(myproject));
   if (!project.techstacks) project.techstacks = [""];
   if(!project.SkillsReq) project.SkillsReq=[""];
-  console.log(project);
+  console.log(project.reviews);
 
-    const [isReviewsOpen, setIsReviewsOpen] = useState(false);
-   const [ReviewText, setReviewText] = useState({
-    review: "", 
-  });
-  const [reviews, setReviews] = useState([]);
 
 
   function handleChange(event) {
     const { name,value } = event.target;
+    setRev(event.target.value);
 
     setReviewText(prevReviewText => {
       return {
@@ -25,10 +53,19 @@ const ProjectAccordian = (myproject) => {
     });
   }
 
-  const handleReviewSubmit = () => {
+  const handleReviewSubmit = async () => {
     // Add the current review to the reviews state
     setReviews(prevReviews => [...prevReviews, ReviewText.review]);
     // Reset the review input
+    
+  var response = await fetch("http://localhost:3001/api/add-review", {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ans_user:localStorage.getItem("user_id"), proj_id: project.id, ans_info: rev})
+    });
+    response = await response.json();
     setReviewText({ review: "" });
   };
 
@@ -86,11 +123,16 @@ const ProjectAccordian = (myproject) => {
           <div>
             {reviews.map((review, index) => (
               <div className="reviewDisplay" key={index}>
-                <div className="reviewAuthor">Satvik</div> {/* Author label */}
+                <div className="reviewAuthor">{user.name}</div> {/* Author label */}
                 {review}
-        </div>
-    ))}
-</div>
+              </div>
+            ))}
+          </div>
+          <div>
+            {project.reviews.map(revieww => (
+                <OneReview review = {revieww} />
+              ))}
+          </div>
         </div>
       </li>
 
