@@ -48,7 +48,7 @@ function CommentForm({prop, data, setData}) {
         placeholder="Enter your comment..."
         class="dropDownTextArea"
       />
-      <button onClick={handleAddComment} class="dropDownTextAreaButton">
+      <button onClick={handleAddComment} style={{cursor:"pointer"}}class="dropDownTextAreaButton">
         Submit
       </button>
     </div>

@@ -7,6 +7,7 @@
   flex-direction: column;
   padding: 2em 0;
   gap: 1em;
+  cursor:default;
 }
 .MainProfileImage {
   height: 6em;

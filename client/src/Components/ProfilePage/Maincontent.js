@@ -98,7 +98,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
               </a>
             </div>
           </div>
-          <div className="edit-profile" onClick={handleEdit}>
+          <div className="edit-profile" onClick={handleEdit} style={{cursor:"pointer"}}>
             <img
               src={pencil_image}
               alt="edit-profile-image"
@@ -114,13 +114,13 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
         </div>
         <div className="card">
           <div className="card-heading">Projects</div>
-          <div className="edit-profile" onClick={handleAddProject}>
+          <div className="edit-profile" onClick={handleAddProject} style={{cursor:"pointer"}}>
             <img
               src={add_image}
               alt="edit-profile-image"
               className="add-project-image"
             />
-            <div className="edit-profile-text"></div>
+            <div className="edit-profile-text" ></div>
           </div>
           <hr />
           <div className="slide-container">
@@ -160,7 +160,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
         </div>
         <div className="card">
           <div className="card-heading">Courses</div>
-          <div className="edit-profile" onClick={handleAddCourse}>
+          <div className="edit-profile" onClick={handleAddCourse} style={{cursor:"pointer"}}>
             <img
               src={add_image}
               alt="edit-profile-image"

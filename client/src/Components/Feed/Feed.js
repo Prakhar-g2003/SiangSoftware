@@ -1,9 +1,10 @@
-import React from "react";
+
 import "./Feed.css";
 import ProjectCard from "../../Pages/Projects/ProjectCard";
 import { useMemo, useRef, useState } from "react";
 
 function Feed({ projects, user }) {
+  
   const [items, setItems] = useState(projects);
   const [query, setQuery] = useState("");
 

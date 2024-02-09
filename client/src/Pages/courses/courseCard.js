@@ -36,15 +36,15 @@ export default function CourseCard({course}){
       navigate("/profile", { state: { user: user } });
     }
     return(
-        <div class="doubtCardMain" style={{width:"46%",borderRadius:"10px"}}>
-      {/* {console.log(course.user_id)} */}
-      <div class="doubtCardUser" onClick={handleClick}>
+        <div class="doubtCardMain" style={{width:"46%",borderRadius:"10px",marginBottom:"14px"}}>
+      {console.log(course)}
+      <div class="doubtCardUser">
         <img
           class="doubtCardUserPhoto"
           src="https://images.unsplash.com/photo-1706887577952-2c3237ba079e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
         />
         <div class="doubtCardUserInfo">
-          <div class="doubtCardUserName" style={{fontSize:"1.8rem",display:"flex",justifyContent:"space-between"}}>
+          <div class="doubtCardUserName" style={{fontSize:"1.2rem",display:"flex",justifyContent:"space-between"}}>
             {user.name}
             {/* Prakhar */}
             </div>
@@ -57,7 +57,7 @@ export default function CourseCard({course}){
       <div style={{marginLeft:"80%",marginTop:"-20px"}}>By Udemy</div>
       <hr></hr>
       <div style={{marginBottom:"20px"}}>
-        <div style={{fontSize:"1.4rem"}}>{course.courseName}</div>
+        <div style={{fontSize:"1.2rem"}}>{course.courseName}</div>
         <div>{course.review}</div>
       </div>
    
