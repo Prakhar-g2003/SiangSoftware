@@ -19,22 +19,20 @@ import ProjectDisplay from "./Components/ProjectDisplay/ProjectDisplay";
 import ProfileForm from "./Components/ProfilePage/ProfileForm";
 import AddProjectForm from "./Components/AddProjectForm/AddProjectForm";
 import CollabForm from "./Pages/collabForm/CollabForm";
-import OthersProfile from './Pages/othersprofile/OthersProfile';
+import OthersProfile from "./Pages/othersprofile/OthersProfile";
 import MainNavbar from "./Assets/MainNavbar";
 import FinalCourses from "./Pages/courses/FinalCourses";
 import AddCourseForm from "./Components/AddCourseForm/AddCourseForm";
-import FinalUser from './Pages/Allusers/FinalUser'
+import FinalUser from "./Pages/Allusers/FinalUser";
+import LoadingAnimation from "./Assets/LoaderAnimation/LoaderAnimation";
 
 //Comment
 function App() {
   return (
     <React.Fragment>
-
       <AuthenticatedTemplate>
-        
-        
         <Router>
-        <MainNavbar/>
+          <MainNavbar />
           <Routes>
             {/* <Route index element={<Home />} /> */}
             <Route path="/" element={<Callback />} />
@@ -62,9 +60,10 @@ function App() {
               path="/AddCourseForm"
               element={<AddCourseForm />}
             ></Route>
-            
+
             <Route path="/AskHelper" element={<FinalAskHelperMain />} />
             <Route path="/collabForm" element={<CollabForm />} />
+
             {/* <Route path="about" element={<About />} /> */}
           </Routes>
         </Router>
