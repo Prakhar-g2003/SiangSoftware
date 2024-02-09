@@ -84,17 +84,17 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
               <div className="userGrad">{userinfo.phone_no}</div>
             </div>
             <div className="userContact">
-              <a className="userContactButtons" href={userinfo.githubprofile}>
-                GitHub
+              <a  href={userinfo.githubprofile}>
+                <img className="userContactButtons" src={github_logo} alt="" />
               </a>
-              <a className="userContactButtons" href={userinfo.linkedInprofile}>
-                LinkedIn
+              <a  href={userinfo.linkedInprofile}>
+              <img className="userContactButtons" src={linkedIn_logo} alt="" />
               </a>
               <a
-                className="userContactButtons"
+                
                 href={userinfo.instagramprofile}
               >
-                Insta Id
+                <img className="userContactButtons" src={insta_logo} alt="" />
               </a>
             </div>
           </div>

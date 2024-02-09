@@ -25,11 +25,7 @@
   gap: 1em;
 }
 .userContactButtons {
-  width: 3.5em;
-  height: 1em;
-  background-color: #e8e8e8;
-  display: flex;
-  justify-content: center;
+  width: 30px;
 }
 
 .profile-right {
@@ -476,13 +472,14 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #F7F9FB; /* Set background color as needed */
+    background-color: transparent; 
     border: none;
     padding: 10px;
     cursor: pointer;
   }
   .Maincontent-sidebar{
     flex:1;
+    padding-right: 4%;
   }
   @media only screen and (max-width: 900px) {
     .Maincontent-sidebar {
