@@ -5,16 +5,14 @@ import MainProfile from "../../Assets/MainProfile";
 import MainNavbar from "../../Assets/MainNavbar";
 
 const AskHelperMain = (props) => {
+  
   return (
     <div class="askHelperLayout">
-<<<<<<< HEAD
-      {/* <MainNavbar /> */}
-=======
       <MainNavbar />
->>>>>>> 96c1a1d65d77ce1c5dce66ff1c7efb61fa5a3ece
+
       <div class="overlayHelper">
         <div class="askHelpMain">
-          <AskHelp />
+          <AskHelp data={props.data} setData={props.setData}/>
           <div class="doubtMain">
             {/* <DoubtCard />
             <DoubtCard />
@@ -22,7 +20,7 @@ const AskHelperMain = (props) => {
             <DoubtCard /> */}
 
             {props.data.map((res) => (
-              <DoubtCard reload={props.reload} prop={res} />
+              <DoubtCard prop={res} data={props.data} setData={props.setData} />
             ))}
           </div>
         </div>

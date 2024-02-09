@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./DropDownComment.css";
 
-function CommentForm({data}) {
+function CommentForm({prop, data, setData}) {
   const [commentText, setCommentText] = useState(""); // State to store comment text
   const [comments, setComments] = useState([]); // State to store added comments
 
-
+   
   const handleCommentChange = (event) => {
     // event.preventDefault();
     setCommentText(event.target.value);
@@ -21,11 +21,21 @@ function CommentForm({data}) {
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ans_user:localStorage.getItem("user_id"), ques_id: data.ques_id, comment: commentText})
+          body: JSON.stringify({ans_user:localStorage.getItem("user_id"), ques_id: prop.ques_id, comment: commentText})
       });
       response = await response.json();
+      var data2= [...data];
+      data2.forEach((ele)=>{
+        if(ele.ques_id===prop.ques_id){
+          
+          ele.answers=ele.answers.concat(response.data);
+          
+        }
+      });
+      
+      setData(data2);
       setCommentText("");
-      console.log({ques_id: data.ques_id, comment: commentText});
+      console.log({ques_id: prop.ques_id, comment: commentText});
     }
   }
 

@@ -9,7 +9,7 @@ const MainNavbar = () => {
         <Link to="/home" class="navBarIcons">
           <span class="material-symbols-outlined">home</span>
         </Link>
-        <Link to="/projects" class="navBarIcons">
+        <Link to="/Allusers" class="navBarIcons">
           <span class="material-symbols-outlined">code_blocks</span>
         </Link>
         <Link to="/courses" class="navBarIcons">

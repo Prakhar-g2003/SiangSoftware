@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import "./DoubtCard.css";
 import CommentDropdown from "./DropDownComment";
 import CommentForm from "./DropDownTextArea";
+import { useNavigate } from "react-router-dom";
 const DoubtCard = (props) => {
-  const [name, setName] = useState('');
+  
+  const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   // console.log(props.prop.answers);
+  const navigate = useNavigate();
   useEffect(() => {
     const getInfo = async(req, res) => {
       try{
@@ -18,9 +21,8 @@ const DoubtCard = (props) => {
         })
 
         response = await response.json();
-        setName(response.name);
+        setUser(response);
         setLoading(false);
-        // props.reload = false;
       } catch(error){
         console.log(error);
       }
@@ -53,16 +55,22 @@ const DoubtCard = (props) => {
     });
   });
 
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("clicked " + user.id);
+    navigate("/profile", { state: { user: user } });
+    // console.log(user);
+  }
+
   return (
     <div class="doubtCardMain">
-      {console.log(props.reload)}
-      <div class="doubtCardUser">
+      <div class="doubtCardUser" onClick={handleClick}>
         <img
           class="doubtCardUserPhoto"
           src="https://images.unsplash.com/photo-1706887577952-2c3237ba079e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
         />
         <div class="doubtCardUserInfo">
-          <div class="doubtCardUserName">{name}</div>
+          <div class="doubtCardUserName">{user.name}</div>
         </div>
       </div>
       <hr></hr>
@@ -71,7 +79,7 @@ const DoubtCard = (props) => {
       <hr class="doubtSeperate"></hr>
 
       <div className="doubtCommentSection">
-        <CommentForm data={props.prop}/>
+        <CommentForm prop={props.prop} data={props.data} setData={props.setData}/>
 
         <CommentDropdown comments={props.prop.answers} />
       </div>
