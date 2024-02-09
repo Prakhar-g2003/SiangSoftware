@@ -24,9 +24,11 @@ function Feed({ projects, user }) {
           placeholder="Filter Projects on domain!"
         />
       </div>
-      {filteredItems.map((project) => (
-        <ProjectCard project={project} user={user} />
-      ))}
+      <div className="feedMainProjectList">
+        {filteredItems.map((project) => (
+          <ProjectCard project={project} user={user} />
+        ))}
+      </div>
     </div>
   );
 }
