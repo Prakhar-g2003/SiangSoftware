@@ -65,7 +65,6 @@ function App() {
             <Route path="/collabForm" element={<CollabForm />} />
             {/* <Route path="about" element={<About />} /> */}
           </Routes>
-          <Footer />
         </Router>
       </AuthenticatedTemplate>
       <UnauthenticatedTemplate>

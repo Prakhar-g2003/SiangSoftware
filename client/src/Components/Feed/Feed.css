@@ -5,3 +5,21 @@
   gap: 1vh;
   height: 70vh;
 }
+.feedSearchHeading {
+  width: 10em;
+}
+.searchBarFeed {
+  width: 5em;
+}
+.feedFormOverlay {
+  display: flex;
+  gap: 2em;
+  padding: 0 4em;
+  height: 4em;
+  align-items: center;
+}
+.searchBarFeed {
+  width: 25em;
+  height: 3em;
+  border: 0;
+}
