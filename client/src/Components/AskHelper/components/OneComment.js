@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3001');
 
 function OneComment({comment}) {
     const [user, setUser] = useState();
