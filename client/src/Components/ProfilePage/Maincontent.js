@@ -134,7 +134,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
 
                       <div className="card-image">
                         <img
-                          src={project.projImage}
+                          src={project.projectImage}
                           alt=""
                           class="card-img"
                         ></img>

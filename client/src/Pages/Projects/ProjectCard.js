@@ -18,7 +18,7 @@ export default function ProjectCard({ project, user }) {
   return (
     <div className="projectCardOverlay" style={{backgroundColor:"white",color:"#1D3557"}}>
       <img
-        src="https://images.unsplash.com/photo-1682687220777-2c60708d6889?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D"
+        src={project.projectImage}
         class="projectMedia"
         onClick={handleClick}
       />

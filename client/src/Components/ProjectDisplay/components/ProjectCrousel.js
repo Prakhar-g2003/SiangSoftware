@@ -31,13 +31,7 @@ const ProjectCrousel = (project) => {
       </button>
       <ul data-slides>
         <li class="slide" data-active>
-          <img src="https://source.unsplash.com/78A265wPiO4" alt="Nature  #1" />
-        </li>
-        <li class="slide">
-          <img src="https://source.unsplash.com/eOpewngf68w" alt="Nature  #2" />
-        </li>
-        <li class="slide">
-          <img src="https://source.unsplash.com/ndN00KmbJ1c" alt="Nature  #3" />
+          <img src={project.projectImage} alt="Nature  #1" />
         </li>
       </ul>
     </div>
