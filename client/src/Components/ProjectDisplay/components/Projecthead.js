@@ -14,7 +14,9 @@ const Projecthead = (project) => {
         <span class="projectType"> {"- " + project.projecttype}</span>
       </div>
       <div class="projectStatus">
+        
         {project.completed ? "Completed": "Ongoing"}
+        
       </div>
     </div>
   );
