@@ -141,10 +141,6 @@ const ProjectAccordian = (myproject) => {
                     <OneReview revieww={revieww} />
                   ))}
                 </div>
-                <div className="reviewAuthor">
-                  <div className='review_name'>{user.name}</div>
-                  <div className='review_review'>{review}</div>
-                </div> 
               </div>
             </>
           )}

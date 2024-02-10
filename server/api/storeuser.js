@@ -98,7 +98,7 @@ router.get('/top-contributors', async(req, res) => {
         }
         // console.log(contri_array[user]);
     }
-    console.log(final_array);
+    // console.log(final_array);
     // console.log(contri_array);
     
     res.send(final_array);
