@@ -36,15 +36,15 @@ export default function CourseCard({course}){
       navigate("/profile", { state: { user: user } });
     }
     return(
-        <div class="doubtCardMain" style={{width:"46%",borderRadius:"10px",marginBottom:"14px"}}>
+        <div class="doubtCardMainCourse " style={{borderRadius:"10px",marginBottom:"19px"}}>
       {console.log(course)}
-      <div class="doubtCardUser">
+      <div class="doubtCardUserCourse ">
         <img
-          class="doubtCardUserPhoto"
+          class="doubtCardUserPhotoCourse"
           src="https://images.unsplash.com/photo-1706887577952-2c3237ba079e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
         />
-        <div class="doubtCardUserInfo">
-          <div class="doubtCardUserName" style={{fontSize:"1.2rem",display:"flex",justifyContent:"space-between"}}>
+        <div class="doubtCardUserInfoCourse">
+          <div class="doubtCardUserNameCourse" style={{fontSize:"1.2rem",display:"flex",justifyContent:"space-between"}}>
             {user.name}
             {/* Prakhar */}
             </div>

@@ -87,13 +87,14 @@ function CommentForm({prop, data, setData}) {
     <div className="dropDownSubmit">
       <input
         type="text"
+        style={{border:"1px solid rgba(0,0,0,0.1)",outline:"none"}}
         value={commentText}
         onChange={handleCommentChange}
         disabled={isCooldown || isSpamDetected}
         placeholder="Enter your comment..."
         class="dropDownTextArea"
       />
-      <button style={{cursor:"pointer"}} class="dropDownTextAreaButton" disabled={isCooldown || isSpamDetected} onClick={handleAddComment} >
+      <button style={{cursor:"pointer",marginLeft:"3px"}} class="dropDownTextAreaButton" disabled={isCooldown || isSpamDetected} onClick={handleAddComment} >
         Submit
       </button>
     </div>

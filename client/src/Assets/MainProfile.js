@@ -28,7 +28,7 @@ const MainProfile = () => {
     )
   }
   return (
-    <div class="MainProfileOverlay" style={{cursor:"default"}}>
+    <div class="MainProfileOverlay" style={{cursor:"default",border:"1px solid rgba(0,0,0,0.4)"}}>
       <img
         class="MainProfileImage"
         src={user.profileImage}

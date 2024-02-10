@@ -30,7 +30,7 @@ const AskHelp = (props) => {
     }
   };
   return (
-    <div class="askHelpInputMain">
+    <div class="askHelpInputMain"> 
       <div class="newHelpTtile">NEW POST</div>
       <hr class="askHelpInputSeperate"></hr>
 
