@@ -100,7 +100,7 @@ React.useEffect(()=>{
     
     return(
       // backgroundColor: "#F7F9FB",
-      <div style={{backgroundColor:"#F1FAEE",height:"100vh",width:"100vw",borderTop:"1px solid rgba(0,0,0,0.5)"}}>
+      <div style={{height:"100vh",width:"100vw",borderTop:"1px solid rgba(0,0,0,0.5)"}}>
           <form className="Searchform" onSubmit={handleSubmit}>
             <Autocomplete
               disablePortal
