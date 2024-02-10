@@ -23,7 +23,7 @@ function Card(user) {
       {console.log(user)}
       <img
         alt="robots"
-        src={`https://robohash.org/${user.id}`}
+        src={user.profileImage}
         style={{
           marginLeft: "3rem",
           backgroundColor: "black",

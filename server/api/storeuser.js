@@ -37,7 +37,8 @@ router.post('/storeuser', async (req, res) => {
             aboutme: "", 
             linkedInprofile: "", 
             instaprofile: "", 
-            githubprofile: ""
+            githubprofile: "", 
+            profileImage: "https://static-00.iconduck.com/assets.00/avatar-default-icon-2048x2048-h6w375ur.png"
         });
         doc_id = docRef.id;
         console.log(doc_id);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './AddProjectForm.css'
+import './AddProjectForm.css';
+import axios from 'axios';
 // import MainNavbar from "../../Assets/MainNavbar";
 
 
@@ -13,21 +14,43 @@ const AddProjectForm = () => {
   const [techstacks, setTechstacks] = useState('');
   const [github_link, setGithub_link] = useState('');
   const [description, setDescription] = useState('');
+  const [projectImage, setProjectImage] = useState();
   const user_id = localStorage.getItem("user_id");
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-     var temp= await fetch("http://localhost:3001/api/addproject", {
-          method: 'POST', 
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({userId: user_id, description: description, github_link: github_link, completed: completed, techstacks: techstacks, name: name, projecttype: projecttype})
-      });
-      console.log("hello");
-      navigate('/myprofile');
-      console.log("hi");
+      let bodyContent ={
+        user_id: user_id,
+        description: description,
+        github_link: github_link,
+        completed: completed,
+        techstacks: techstacks,
+        name: name,
+        projecttype: projecttype,
+        image: projectImage
+    }
+    //  var temp= await fetch("http://localhost:3001/api/addproject", {
+    //       method: 'POST', 
+    //       headers: {
+    //           'Content-Type': 'application/json'
+    //       },
+    //       body: JSON.stringify({userId: user_id, description: description, github_link: github_link, completed: completed, techstacks: techstacks, name: name, projecttype: projecttype})
+    //   });
+    //   console.log("hello");
+    //   navigate('/myprofile');
+    //   console.log("hi");
+    axios.post("http://localhost:3001/api/addproject", bodyContent,{
+          headers:{
+            "Content-type": "multipart/form-data" 
+          }
+        }
+      ).then((res)=>{
+        console.log(res);
+        navigate("/myprofile");
+      }).catch((e)=>{
+        console.log(e);
+      })
     }catch(error){
       console.log(error);
     }
@@ -90,7 +113,16 @@ const AddProjectForm = () => {
             onChange={(e) => setGithub_link(e.target.value)}
             required
           />
-
+          <label className="ProfileForm-lable">Project Image</label>
+          <input
+            type="file"
+            name="projectImage"
+            id="projectImage"
+            onChange={(e)=> {
+              console.log(e.target.files)
+              setProjectImage(e.target.files[0])}
+              }
+          />
           <button className="AddProjectForm-submit" onClick={handleSubmit}>
             Submit
           </button>

@@ -1,23 +1,56 @@
 const express = require('express');
 const router = express.Router();
-const {db} = require('../firebase/fireConfig')
+const {db, storage} = require('../firebase/fireConfig');
 const { collection, doc, getDoc, addDoc, getDocs, updateDoc, serverTimestamp, arrayUnion } = require('firebase/firestore');
+const {
+    ref,
+    getDownloadURL,
+    uploadBytesResumable,
+  } = require("firebase/storage");
+const uploadImage = require('../middleware/image_upload');
 
 const ProjectsCollection = collection(db, 'projects');
 
-router.post('/addproject', async(req, res) => {
+router.post('/addproject', uploadImage, async(req, res) => {
     const data = req.body;
     // console.log(data);
     const wordsArray = data.techstacks.split(", ");
     data.techstacks = wordsArray;
     var response = await addDoc(ProjectsCollection, data);
     const docRef = doc(db, 'projects', response.id);
+
+    const timestamp = Date.now();
+    let fileURL="https://static-00.iconduck.com/assets.00/avatar-default-icon-2048x2048-h6w375ur.png";
+    // if (req.file) {
+    //     console.log(req.file);
+    //     const fileName = `${req.file.originalname.split(".")[0]}_${timestamp}.${req.file.originalname.split(".")[1]
+    //     }`;
+    //     const fileRef = ref(storage, fileName);
+
+    //     try {
+    //     const fileSnapshot = await uploadBytesResumable(
+    //         fileRef,
+    //         req.file.buffer,
+    //         {
+    //         contentType: req.file.mimetype, 
+    //         }
+    //     );
+    //     fileURL = await getDownloadURL(fileSnapshot.ref);
+    //     }
+    //     catch(err){
+    //         res.status(500).json({message: "Error uploading file"});
+    //     }
+    // }
+    // console.log(fileURL);
     
     await updateDoc(docRef, {
         id: response.id,
         reviews: [],
         timestamp: serverTimestamp()
     });
+
+
+
 
     const docSnap = await getDoc(docRef);
     var user_id = docSnap.data().userId;
