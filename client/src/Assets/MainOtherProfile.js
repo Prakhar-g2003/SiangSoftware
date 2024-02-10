@@ -41,6 +41,7 @@ function MainOtherProfile({user_id}) {
       />
       <div class="ProfileDetails">
         <div class="ProfileName">{user.name}</div>
+        <div class="ProfileName">Contributions: {user.contributions}</div>
       </div>
     </div>
   );
