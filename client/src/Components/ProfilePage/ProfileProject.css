@@ -2,15 +2,16 @@
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 6em;
-  height: 7em;
+  width: 9em;
+  height: 10em;
+  padding: 0;
+  gap: 0.5em;
 }
 
 .profileProjectImage {
-  height: 4em;
-  width: 4em;
+  height: 6em;
+  width: 100%;
 }
 
 .profileProjectName {
