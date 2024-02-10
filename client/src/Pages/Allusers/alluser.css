@@ -1,49 +1,58 @@
-.AllusersFinalcss{
-    background-color: #F7F9FB;
+.searchBoxAllusers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.searchBoxAllusers{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.AllusersFinalcss {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8em;
+  background-color: #f7f9fb;
+  padding: 2em;
+  font-family: "Work Sans", sans-serif;
 }
-.searchBoxAllusers input{
-    width:70vh;
-    font-size: 15px;
-    height: 35px;
-    margin-bottom: 40px;
-    padding-left: 10px;
-    margin-top: 23px;
-    border-radius: 14px;
-    border: 1px solid rgba(0,0,0,0.3);
-    outline: none;
+.allUsersMainProfile {
+  padding: 5em 0 0 2em;
+}
+.allUsersOverlay {
+  width: 50vw;
+  background-color: white;
+}
+.searchBoxAllusers input {
+  width: 70vh;
+  font-size: 1em;
+  height: 2em;
+  margin-bottom: 2.3em;
+  padding-left: 1.2em;
+  margin-top: 2em;
+  outline: none;
+  font-family: "Work Sans", sans-serif;
 }
 
 @media (max-width: 912px) {
-    .searchBoxAllusers input{
-  /* Your CSS styles for viewports that are less than 768 pixels wide */
-  width: 350px !important;
-    }
+  .searchBoxAllusers input {
+    width: 350px !important;
+  }
 }
 
-
-.UserhoverCard{
-    transition: 80ms ease-in-out;
-    margin: 10px;
-    padding:0 12px ;
-    
+.UserhoverCard {
+  transition: 80ms ease-in-out;
+  margin: 1em;
+  padding: 0 1.1em;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: 0;
 }
-.UsernameFromCard{
-    background-color: #F7F9FB;
-    font-size: 1.3rem;
-    font-weight: 500;
-    transition: 90ms ease-in-out;
+.UsernameFromCard {
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: 90ms ease-in-out;
 }
-.UsernameFromCard:hover{
-    scale: 1.04;
-    cursor: pointer;
-    background-color: #d9dadc
+.UsernameFromCard:hover {
+  scale: 1.04;
+  cursor: pointer;
 }
-.UserhoverCard:hover{
-    box-shadow: 1px 1px 4px black;
+.UserhoverCard:hover {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
 }
