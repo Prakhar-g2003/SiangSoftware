@@ -15,7 +15,7 @@ function Feed({ projects, user }) {
   return (
     <div class="feed-main-overlay">
       <div className="feedFormOverlay">
-        <div className="feedSearchHeading">Filter Projects:</div>
+        <div className="feedSearchHeading" style={{fontWeight:"600"}}>Filter Projects</div>
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}

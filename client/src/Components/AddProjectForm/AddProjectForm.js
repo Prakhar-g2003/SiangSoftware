@@ -74,6 +74,7 @@ const AddProjectForm = () => {
           <select
             className="AddProjectForm-select"
             value={completed}
+            style={{cursor:"pointer"}}
             onChange={(e) => setCompleted(e.target.value)}
             required
           >

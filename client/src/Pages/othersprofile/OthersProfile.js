@@ -98,7 +98,7 @@ const OthersProfile = ({user}) => {
                             <h2>{userinfo.name}</h2>
                             <p>{userinfo.branch} {userinfo.course}, {userinfo.yearofgrad}</p>
                             <p>Phone no: {userinfo.phone_no}</p>
-                            <a href={userinfo.githubprofile}>Github</a> | <a href={userinfo.linkedInprofile}>LinkedIn</a> | <a href={userinfo.instagramprofile}>Insta</a>
+                            <a href={userinfo.githubprofile} style={{cursor:"pointer"}}>Github</a> | <a href={userinfo.linkedInprofile} style={{cursor:"pointer"}}>LinkedIn</a> | <a href={userinfo.instagramprofile} style={{cursor:"pointer"}}>Insta</a>
                         </div>
                     </div>
                     <div className='o-card'>
@@ -125,7 +125,7 @@ const OthersProfile = ({user}) => {
                                             <div className='o-card-content'>
                                                 <h2 className='o-project-name'>{project.name}</h2>
 
-                                                <button className='o-button' onClick={() => handleClick(project)}>View More</button>
+                                                <button className='o-button' onClick={() => handleClick(project)} style={{cursor:"pointer"}}>View More</button>
                                             </div>
                                         </div>
                                     ))

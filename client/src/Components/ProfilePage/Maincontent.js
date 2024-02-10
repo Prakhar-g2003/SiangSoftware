@@ -84,14 +84,14 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
               <div className="userGrad">{userinfo.phone_no}</div>
             </div>
             <div className="userContact">
-              <a  href={userinfo.githubprofile}>
+              <a  href={userinfo.githubprofile} style={{cursor:"pointer"}}>
                 <img className="userContactButtons" src={github_logo} alt="" />
               </a>
-              <a  href={userinfo.linkedInprofile}>
+              <a  href={userinfo.linkedInprofile} style={{cursor:"pointer"}}>
               <img className="userContactButtons" src={linkedIn_logo} alt="" />
               </a>
               <a
-                
+                style={{cursor:"pointer"}}
                 href={userinfo.instagramprofile}
               >
                 <img className="userContactButtons" src={insta_logo} alt="" />
