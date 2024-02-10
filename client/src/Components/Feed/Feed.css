@@ -11,6 +11,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 500;
+  font-size: 1.3em;
 }
 .searchBarFeed {
   width: 5em;
@@ -21,12 +23,14 @@
   padding: 0 4em;
   height: 4em;
   align-items: center;
+  font-family: "Work Sans", sans-serif;
 }
 .searchBarFeed {
   width: 25em;
   height: 3em;
   border: 0;
   padding: 0 2em;
+  font-family: "Work Sans", sans-serif;
 }
 .feedMainProjectList {
   display: flex;

@@ -17,23 +17,22 @@ const ProjectDisplay = ({ project }) => {
   project = location.state.project;
   return (
     <div class="overlayProjectDisplay">
-      {/* <MainNavbar /> */}
-      {console.log(project)}
-
       <div className="projectDisplayBody">
-        <div class="mainContent">
+        <div class="mainContentProjectDisplay">
           <Projecthead {...project} />
-
           <ProjectCrousel {...project} />
           <ProjectAccordian {...project} />
         </div>
         <div className="projectDisplayConnect">
-          <MainOtherProfile user_id={project.userId}/>
-          {project.userId !== localStorage.getItem("user_id") && project.completed === false?
-            <button onClick={handleClick} className="projectDisplayCollab" >
-            Collab
-          </button>: ""
-          }
+          <MainOtherProfile user_id={project.userId} />
+          {project.userId !== localStorage.getItem("user_id") &&
+          project.completed === false ? (
+            <button onClick={handleClick} className="projectDisplayCollab">
+              Collab
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
