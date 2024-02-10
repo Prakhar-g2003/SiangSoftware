@@ -1,9 +1,9 @@
 .ProfileCourseOverlay {
   border: 1px solid black;
   padding: 1em;
-  width: 31.5%;
   overflow: scroll;
-  height: 10em;
+  max-width: 100%;
+  min-height: 10em;
 }
 
 .courseHeading {
