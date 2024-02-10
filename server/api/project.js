@@ -18,6 +18,19 @@ router.post('/addproject', async(req, res) => {
         reviews: [],
         timestamp: serverTimestamp()
     });
+
+    const docSnap = await getDoc(docRef);
+    var user_id = docSnap.data().userId;
+
+    const docRef2 = doc(db, 'users', user_id);
+    const docSnap2 = await getDoc(docRef2);
+
+    var contri = docSnap2.data().contributions;
+
+    await updateDoc(docRef2, {
+        contributions: contri+10
+    })
+
     // console.log(data);
     res.send("success");
 })

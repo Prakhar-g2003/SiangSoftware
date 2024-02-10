@@ -137,7 +137,6 @@ const ProjectAccordian = (myproject) => {
                   <div className='review_name'>{user.name}</div>
                   <div className='review_review'>{review}</div>
                 </div> 
-                
               </div>
             ))}
             {project.reviews.map(revieww => (

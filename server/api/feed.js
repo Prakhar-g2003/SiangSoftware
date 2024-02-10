@@ -29,7 +29,16 @@ router.post('/add-ans', async(req, res) => {
     await updateDoc(docRef, {
         answers: arrayUnion(obj)
     });
-    
+    var user_id = req.body.ans_user;
+
+    const docRef2 = doc(db, 'users', user_id);
+    const docSnap2 = await getDoc(docRef2);
+
+    var contri = docSnap2.data().contributions;
+
+    await updateDoc(docRef2, {
+        contributions: contri+1
+    })
     res.json({status: "success", data: obj});
 })
 
