@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 
-const socket = io('https://coolab-server.onrender.com');
+// const socket = io('https://coolab-server.onrender.com');
 
 function OneComment({comment}) {
     const [user, setUser] = useState();
