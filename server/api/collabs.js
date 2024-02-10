@@ -46,6 +46,8 @@ router.post('/collab-accept', async(req, res) => {
         contributions: contri+5
     })
 
+    
+
     await deleteDoc(doc(db, "collabs", collab_id));
 
     res.json({success: "success"});

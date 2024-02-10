@@ -49,13 +49,14 @@ router.post('/addproject', uploadImage, async(req, res) => {
             res.status(500).json({message: "Error uploading file"});
         }
     }
-    console.log(fileURL);
+    // console.log(fileURL);
     
     const docRef = doc(db, 'projects', response.id);
     await updateDoc(docRef, {
         id: response.id,
         reviews: [],
         timestamp: serverTimestamp(),
+        contributors: [],
         projectImage: fileURL
     });
 
