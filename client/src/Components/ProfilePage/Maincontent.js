@@ -71,7 +71,7 @@ const Maincontent = ({ userinfo, courses, projects, collabs }) => {
       <div className="profile-left">
         <div className="card profile-info">
           <img
-            src={blank_profile_pic}
+            src={userinfo.profileImage}
             alt="Profile Picture"
             className="profile-picture"
           />

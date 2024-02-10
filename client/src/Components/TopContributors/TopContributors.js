@@ -40,6 +40,30 @@ const rows = [
 ];
 
 export default function TopContributors() {
+  const [data, setData] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  React.useEffect(() => {
+    const getContri = async() => {
+      var response = await fetch('http://localhost:3001/api/top-contributors', {
+        method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          }
+        });
+        response = await response.json();
+        setData(response);
+        setLoading(false);
+    }
+    getContri();
+  }, []);
+
+  if(loading){
+    return (
+      <div>
+        loading...
+      </div>
+    )
+  }
   return (
     <TableContainer component={Paper} sx={{ width: '250px' ,height:'100%',cursor:"default",backgroundColor:"#A8DADC"}}> 
       <Table sx={{ minWidth: 100  }} aria-label="customized table">
@@ -49,13 +73,13 @@ export default function TopContributors() {
             <StyledTableCell style={{backgroundColor:"white"}}align="right"></StyledTableCell>
           </TableRow>
         </TableHead>
-        <TableBody >
-          {rows.map((row) => (
+        <TableBody>
+          {data.map((row) => (
             <StyledTableRow key={row.name}>
               <StyledTableCell component="th" scope="row" style={{color:"#1D3557",fontWeight:"600"}}>
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right" style={{color:"#1D3557"}}>{row.calories}</StyledTableCell>
+              <StyledTableCell align="right">{row.contributions}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
 import "./ProfileForm.css";
+import axios from 'axios';
 
 import { useNavigate } from "react-router-dom";
 // import MainNavbar from "../../Assets/MainNavbar";
@@ -15,16 +16,12 @@ const ProfileForm = () => {
   const [linkedIn, setLinkedIn] = useState("");
   const [instagram, setInstagram] = useState("");
   const [about, setAbout] = useState("");
+  const [profileImage, setProfileImage] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      var response = await fetch("http://localhost:3001/api/update_user_info", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      let bodyContent ={
           user_id: localStorage.getItem("user_id"),
           phone_no: phone_no,
           branch: branch,
@@ -34,11 +31,29 @@ const ProfileForm = () => {
           linkedInprofile: linkedIn,
           instagramprofile: instagram,
           aboutme: about,
-        }),
-      });
-      response = await response.json();
-      console.log(response);
-      navigate("/myprofile");
+          image: profileImage
+      }
+      axios.post("http://localhost:3001/api/update_user_info", bodyContent,{
+          headers:{
+            "Content-type": "multipart/form-data" 
+          }
+        }
+      ).then((res)=>{
+        console.log(res);
+        navigate("/myprofile");
+      }).catch((e)=>{
+        console.log(e);
+      })
+      // var response = await fetch("http://localhost:3001/api/update_user_info", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      //   body: bodyContent,
+      // });
+      // response = await response.json();
+      // console.log(response);
+      // navigate("/myprofile");
     } catch (error) {
       console.log(error);
     }
@@ -140,6 +155,16 @@ const ProfileForm = () => {
             value={about}
             onChange={(e) => setAbout(e.target.value)}
           ></textarea>
+          <label className="ProfileForm-lable">Profile Image</label>
+          <input
+            type="file"
+            name="profileImage"
+            id="profileImage"
+            onChange={(e)=> {
+              console.log(e.target.files)
+              setProfileImage(e.target.files[0])}
+              }
+          />
           <button className="ProfileForm-submit" onClick={handleSubmit}>
             Submit
           </button>

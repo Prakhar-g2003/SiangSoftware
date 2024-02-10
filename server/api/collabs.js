@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {db} = require('../firebase/fireConfig')
-const { collection, doc, getDoc, addDoc, getDocs, updateDoc, serverTimestamp } = require('firebase/firestore');
+const { collection, doc, getDoc, addDoc, getDocs, updateDoc, serverTimestamp, deleteDoc } = require('firebase/firestore');
 
 const collabsCollection = collection(db, 'collabs');
 
@@ -32,4 +32,33 @@ router.post('/get-collabs', async(req, res) => {
     res.send(dataArray);
     // console.log(data);
 })
+
+router.post('/collab-accept', async(req, res) => {
+    const user_id = req.body.user_id;
+    const collab_id = req.body.collab_id;
+
+    const docRef2 = doc(db, 'users', user_id);
+    const docSnap2 = await getDoc(docRef2);
+
+    var contri = docSnap2.data().contributions;
+
+    await updateDoc(docRef2, {
+        contributions: contri+5
+    })
+
+    await deleteDoc(doc(db, "collabs", collab_id));
+
+    res.json({success: "success"});
+})
+
+router.post('/collab-reject', async(req, res) => {
+   
+    const collab_id = req.body.collab_id;
+
+    await deleteDoc(doc(db, "collabs", collab_id));
+
+    res.json({success: "success"});
+})
+
+
 module.exports = router;

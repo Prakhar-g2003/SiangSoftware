@@ -65,4 +65,43 @@ router.get('/allusers', async(req, res) => {
     res.send(dataArray);
 })
 
+
+router.get('/top-contributors', async(req, res) => {
+    const snapshot = await getDocs(usersCollection);
+    const contri_array = [];
+
+    snapshot.forEach((doc) => {
+        contri_array.push(doc.data());
+    })
+    contri_array.sort((a, b) => b.contributions - a.contributions);
+    
+    const final_array = [];
+    
+    // contri_array.forEach((user) => {
+    //     final_array.push({
+    //         name: user.name,
+    //         contributions: user.contributions
+    //     })
+    //     if(final_array.length === 5){
+    //         return ;
+    //     }
+    // })
+
+    for(let ind in contri_array){
+        final_array.push({
+            name: contri_array[ind].name,
+            contributions: contri_array[ind].contributions
+        })
+
+        if(final_array.length === 5){
+            break;
+        }
+        // console.log(contri_array[user]);
+    }
+    // console.log(final_array);
+    // console.log(contri_array);
+    
+    res.send(final_array);
+})
+
 module.exports = router;

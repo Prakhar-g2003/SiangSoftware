@@ -10,9 +10,11 @@
   background-color: #f1faee;
   display: flex;
   padding: 6% 2% 2% 25%;
-  gap: 3vh;
+  gap: 6vw;
 }
-
+.askHelperMainProfile {
+  padding: 2em 0;
+}
 .askHelpMain {
   display: flex;
   flex-direction: column;
