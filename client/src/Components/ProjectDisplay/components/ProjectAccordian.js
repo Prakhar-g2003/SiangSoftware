@@ -15,7 +15,7 @@ const ProjectAccordian = (myproject) => {
   const [rev, setRev] = useState("");
   useEffect(() => {
     const getUserinfo = async (req, res) => {
-      var response = await fetch("http://localhost:3001/api/fullinfo", {
+      var response = await fetch("https://coolab-server.onrender.com/api/fullinfo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const ProjectAccordian = (myproject) => {
   const handleReviewSubmit = async () => {
     setReviews((prevReviews) => [...prevReviews, ReviewText.review]);
 
-    var response = await fetch("http://localhost:3001/api/add-review", {
+    var response = await fetch("https://coolab-server.onrender.com/api/add-review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

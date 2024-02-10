@@ -33,7 +33,7 @@ const ProfileForm = () => {
           aboutme: about,
           image: profileImage
       }
-      axios.post("http://localhost:3001/api/update_user_info", bodyContent,{
+      axios.post("https://coolab-server.onrender.com/api/update_user_info", bodyContent,{
           headers:{
             "Content-type": "multipart/form-data" 
           }
@@ -44,7 +44,7 @@ const ProfileForm = () => {
       }).catch((e)=>{
         console.log(e);
       })
-      // var response = await fetch("http://localhost:3001/api/update_user_info", {
+      // var response = await fetch("https://coolab-server.onrender.com/api/update_user_info", {
       //   method: "POST",
       //   headers: {
       //     "Content-Type": "multipart/form-data",

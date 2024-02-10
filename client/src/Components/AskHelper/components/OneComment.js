@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3001');
+const socket = io('https://coolab-server.onrender.com');
 
 function OneComment({comment}) {
     const [user, setUser] = useState();
@@ -12,7 +12,7 @@ function OneComment({comment}) {
     useEffect(() => {
         const getUserinfo = async () => {
             try {
-                var response = await fetch("http://localhost:3001/api/fullinfo", {
+                var response = await fetch("https://coolab-server.onrender.com/api/fullinfo", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

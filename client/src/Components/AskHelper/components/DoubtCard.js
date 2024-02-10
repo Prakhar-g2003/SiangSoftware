@@ -12,7 +12,7 @@ const DoubtCard = (props) => {
   useEffect(() => {
     const getInfo = async(req, res) => {
       try{
-        var response = await fetch("http://localhost:3001/api/fullinfo", {
+        var response = await fetch("https://coolab-server.onrender.com/api/fullinfo", {
           method: 'POST', 
           headers: {
               'Content-Type': 'application/json'

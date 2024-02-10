@@ -8,7 +8,7 @@ function CollabCard({ collab }) {
 
     useEffect(() => {
         const getcollabs = async () => {
-            var response = await fetch("http://localhost:3001/api/fullinfo", {
+            var response = await fetch("https://coolab-server.onrender.com/api/fullinfo", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -18,7 +18,7 @@ function CollabCard({ collab }) {
             response = await response.json();
             setSender(response.name);
 
-            var response2 = await fetch("http://localhost:3001/api/showproject", {
+            var response2 = await fetch("https://coolab-server.onrender.com/api/showproject", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function CollabCard({ collab }) {
         getcollabs();
     }, []);
     const handleAccept = async() => {
-        var response = await fetch("http://localhost:3001/api/collab-accept", {
+        var response = await fetch("https://coolab-server.onrender.com/api/collab-accept", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function CollabCard({ collab }) {
     }
 
     const handleReject = async() => {
-        var response = await fetch("http://localhost:3001/api/collab-reject", {
+        var response = await fetch("https://coolab-server.onrender.com/api/collab-reject", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

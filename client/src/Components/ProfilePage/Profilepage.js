@@ -13,7 +13,7 @@ const Profilepage = ({}) => {
   useEffect(() => {
       const getUserinfo = async() => {
           try{
-              var response = await fetch("http://localhost:3001/api/fullinfo", {
+              var response = await fetch("https://coolab-server.onrender.com/api/fullinfo", {
                   method: 'POST', 
                   headers: {
                       'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ const Profilepage = ({}) => {
               response = await response.json();
               setUser(response);
 
-              var response2 = await fetch("http://localhost:3001/api/my-projects", {
+              var response2 = await fetch("https://coolab-server.onrender.com/api/my-projects", {
                   method: 'POST', 
                   headers: {
                       'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ const Profilepage = ({}) => {
               response2 = await response2.json();
               setProjects(response2);
 
-              var response3 = await fetch("http://localhost:3001/api/mycourses", {
+              var response3 = await fetch("https://coolab-server.onrender.com/api/mycourses", {
                   method: "POST",
                   headers: {
                   "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const Profilepage = ({}) => {
               response3 = await response3.json();
               setCourses(response3);
 
-              var response4 = await fetch("http://localhost:3001/api/get-collabs", {
+              var response4 = await fetch("https://coolab-server.onrender.com/api/get-collabs", {
                   method: 'POST', 
                   headers: {
                       'Content-Type': 'application/json'

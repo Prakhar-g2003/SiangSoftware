@@ -30,7 +30,7 @@ const AddProjectForm = () => {
         projecttype: projecttype,
         image: projectImage
     }
-    //  var temp= await fetch("http://localhost:3001/api/addproject", {
+    //  var temp= await fetch("https://coolab-server.onrender.com/api/addproject", {
     //       method: 'POST', 
     //       headers: {
     //           'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ const AddProjectForm = () => {
     //   console.log("hello");
     //   navigate('/myprofile');
     //   console.log("hi");
-    axios.post("http://localhost:3001/api/addproject", bodyContent,{
+    axios.post("https://coolab-server.onrender.com/api/addproject", bodyContent,{
           headers:{
             "Content-type": "multipart/form-data" 
           }

@@ -6,7 +6,7 @@ function FinalProject() {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const allprojects = async () => {
-          var response = await fetch("http://localhost:3001/api/projects", {
+          var response = await fetch("https://coolab-server.onrender.com/api/projects", {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

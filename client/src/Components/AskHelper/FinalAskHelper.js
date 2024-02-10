@@ -7,7 +7,7 @@ const FinalAskHelperMain = () => {
   useEffect(() => {
     const fetchFeed = async(req, res) => {
       try{
-        var responses = await fetch('http://localhost:3001/api/full-feed', {
+        var responses = await fetch('https://coolab-server.onrender.com/api/full-feed', {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

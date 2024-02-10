@@ -8,7 +8,7 @@ function FinalUser() {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const allusers = async () => {
-          var response = await fetch("http://localhost:3001/api/allusers", {
+          var response = await fetch("https://coolab-server.onrender.com/api/allusers", {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

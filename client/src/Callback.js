@@ -8,7 +8,7 @@ function Callback() {
     const obj = instance.getActiveAccount();  
     useEffect(() => {
         const sendData = async() => {
-            var response = await fetch("http://localhost:3001/api/storeuser", {
+            var response = await fetch("https://coolab-server.onrender.com/api/storeuser", {
                 method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json'

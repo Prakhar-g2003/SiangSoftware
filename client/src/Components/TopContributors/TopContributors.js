@@ -44,7 +44,7 @@ export default function TopContributors() {
   const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
     const getContri = async() => {
-      var response = await fetch('http://localhost:3001/api/top-contributors', {
+      var response = await fetch('https://coolab-server.onrender.com/api/top-contributors', {
         method: "GET",
           headers: {
             "Content-Type": "application/json",

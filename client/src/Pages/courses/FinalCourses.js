@@ -7,7 +7,7 @@ function FinalCourses() {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const allcourses = async () => {
-        var response = await fetch("http://localhost:3001/api/courses", {
+        var response = await fetch("https://coolab-server.onrender.com/api/courses", {
             method: "GET",
             headers: {
             "Content-Type": "application/json",

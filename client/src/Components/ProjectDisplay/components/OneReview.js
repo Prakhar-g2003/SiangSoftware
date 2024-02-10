@@ -6,7 +6,7 @@ function OneReview({revieww}) {
     const [user, setUser] = useState();
     useEffect(() => {
         const getUserinfo = async(req, res) => {
-        var response = await fetch("http://localhost:3001/api/fullinfo", {
+        var response = await fetch("https://coolab-server.onrender.com/api/fullinfo", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

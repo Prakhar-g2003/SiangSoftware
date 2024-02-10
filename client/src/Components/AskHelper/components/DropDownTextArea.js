@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./DropDownComment.css";
 import io from 'socket.io-client';
 
-const socket = io("http://localhost:3001", {
+const socket = io("https://coolab-server.onrender.com", {
   reconnection: false
 });
 
@@ -60,7 +60,7 @@ function CommentForm({prop, data, setData}) {
     if (commentText) {
       setComments([...comments, commentText]);
 
-      var response = await fetch('http://localhost:3001/api/add-ans', {
+      var response = await fetch('https://coolab-server.onrender.com/api/add-ans', {
         method: 'POST', 
           headers: {
               'Content-Type': 'application/json'

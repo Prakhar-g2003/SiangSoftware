@@ -15,7 +15,7 @@ function Home() {
     const getUserinfo = async () => {
       try {
         const token = localStorage.getItem("token");
-        var response = await fetch("http://localhost:3001/api/user-info", {
+        var response = await fetch("https://coolab-server.onrender.com/api/user-info", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -25,7 +25,7 @@ function Home() {
         response = await response.json();
         localStorage.setItem("user_id", response.id);
 
-        var response2 = await fetch("http://localhost:3001/api/fullinfo", {
+        var response2 = await fetch("https://coolab-server.onrender.com/api/fullinfo", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function Home() {
         });
         response2 = await response2.json();
         setUser(response2);
-        var response3 = await fetch("http://localhost:3001/api/projects", {
+        var response3 = await fetch("https://coolab-server.onrender.com/api/projects", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

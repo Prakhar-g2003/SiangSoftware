@@ -12,7 +12,7 @@ const AskHelp = (props) => {
     e.preventDefault();
     if (questionText) {
 
-      var response = await fetch('http://localhost:3001/api/add-ques', {
+      var response = await fetch('https://coolab-server.onrender.com/api/add-ques', {
         method: 'POST', 
           headers: {
               'Content-Type': 'application/json'

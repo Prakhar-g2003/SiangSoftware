@@ -20,7 +20,7 @@ function CollabForm({project}) {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        var response = await fetch("http://localhost:3001/api/collab-req", {
+        var response = await fetch("https://coolab-server.onrender.com/api/collab-req", {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
