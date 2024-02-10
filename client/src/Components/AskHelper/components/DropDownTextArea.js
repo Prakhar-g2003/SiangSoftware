@@ -42,7 +42,7 @@ function CommentForm({prop, data, setData}) {
     setTimeout(() => {
       setIsCooldown(false);
       setIsSpamDetected(false);
-    }, 5000); // 5 second cooldown
+    }, 10000); // 5 second cooldown
   };
    
   const handleCommentChange = (event) => {
@@ -70,10 +70,17 @@ function CommentForm({prop, data, setData}) {
       response = await response.json();
       var data2= [...data];
       data2.forEach((ele)=>{
+        const found = 0;
         if(ele.ques_id===prop.ques_id){
-          
-          ele.answers=ele.answers.concat(response.data);
-          
+          ele.answers.forEach((ans) => {
+            if(ans === response.data){
+              found = 1;
+            }
+          })
+
+          if(!found){
+            ele.answers = ele.answers.concat(response.data);
+          }
         }
       });
       

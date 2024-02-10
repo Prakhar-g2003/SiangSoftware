@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {db} = require('../firebase/fireConfig')
-const { collection, doc, getDoc, addDoc, getDocs, updateDoc, serverTimestamp, deleteDoc } = require('firebase/firestore');
+const { collection, doc, getDoc, addDoc, arrayUnion, getDocs, updateDoc, serverTimestamp, deleteDoc } = require('firebase/firestore');
 
 const collabsCollection = collection(db, 'collabs');
 
@@ -41,24 +41,27 @@ router.post('/collab-accept', async(req, res) => {
     const docSnap2 = await getDoc(docRef2);
 
     var contri = docSnap2.data().contributions;
-
     await updateDoc(docRef2, {
         contributions: contri+5
     })
 
-    
+    const docRef = doc(db, 'collabs', response.id);
+    const docSnap = await getDoc(docRef);
+
+    const project_id = docSnap.data().project_id;
+    const docRef3 = doc(db, 'users', project_id);
+
+    await updateDoc(docRef3, {
+        contributors: arrayUnion(docSnap.data().sender_id)
+    });
 
     await deleteDoc(doc(db, "collabs", collab_id));
-
     res.json({success: "success"});
 })
 
-router.post('/collab-reject', async(req, res) => {
-   
+router.post('/collab-reject', async(req, res) => { 
     const collab_id = req.body.collab_id;
-
     await deleteDoc(doc(db, "collabs", collab_id));
-
     res.json({success: "success"});
 })
 
