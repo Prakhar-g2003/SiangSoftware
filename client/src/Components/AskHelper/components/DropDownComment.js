@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./DropDownComment.css";
 import OneComment from "./OneComment";
+
+
 function CommentDropdown(props) {
   const [showComments, setShowComments] = useState(false);
 

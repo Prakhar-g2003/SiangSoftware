@@ -1,10 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./DropDownComment.css";
+import io from 'socket.io-client';
+
+const socket = io("http://localhost:3001", {
+  reconnection: false
+});
+
+localStorage.debug = '*';
 
 function CommentForm({prop, data, setData}) {
   const [commentText, setCommentText] = useState(""); // State to store comment text
   const [comments, setComments] = useState([]); // State to store added comments
+  
+  const [isCooldown, setIsCooldown] = useState(false);
+  const [isSpamDetected, setIsSpamDetected] = useState(false);
+  
+  useEffect(() => {
+    socket.io.on("reconnect_error", (error) => {
+      socket.disconnect()
+    })
+    socket.on('chat message', (msg) => {
+      setComments((prevMessages) => [...prevMessages, msg]);
+    });
 
+    socket.on('spam detected', () => {
+      setIsSpamDetected(true);
+      startCooldown();
+    });
+    socket.on("connect_error", () => {
+      // revert to classic upgrade
+      socket.io.opts.transports = ["polling", "websocket"];
+    });
+    return () => {
+      socket.off('chat message');
+      socket.off('spam detected');
+    };
+  }, []);
+
+  const startCooldown = () => {
+    setIsCooldown(true);
+    setTimeout(() => {
+      setIsCooldown(false);
+      setIsSpamDetected(false);
+    }, 5000); // 5 second cooldown
+  };
    
   const handleCommentChange = (event) => {
     // event.preventDefault();
@@ -13,6 +52,11 @@ function CommentForm({prop, data, setData}) {
 
   const handleAddComment = async(e) => {
     // e.preventDefault();
+    if (!commentText.trim() || isCooldown || isSpamDetected) return;
+
+    socket.emit('chat message', commentText);
+    startCooldown();
+    console.log("spam check");
     if (commentText) {
       setComments([...comments, commentText]);
 
@@ -35,7 +79,7 @@ function CommentForm({prop, data, setData}) {
       
       setData(data2);
       setCommentText("");
-      console.log({ques_id: prop.ques_id, comment: commentText});
+      // console.log({ques_id: prop.ques_id, comment: commentText});
     }
   }
 
@@ -45,10 +89,11 @@ function CommentForm({prop, data, setData}) {
         type="text"
         value={commentText}
         onChange={handleCommentChange}
+        disabled={isCooldown || isSpamDetected}
         placeholder="Enter your comment..."
         class="dropDownTextArea"
       />
-      <button onClick={handleAddComment} style={{cursor:"pointer"}}class="dropDownTextAreaButton">
+      <button onClick={handleAddComment} style={{cursor:"pointer"}} class="dropDownTextAreaButton" disabled={isCooldown || isSpamDetected}>
         Submit
       </button>
     </div>
