@@ -15,6 +15,7 @@ An buisness and employement focused webapp built with Firebase, Node.js and Reac
 
 - bugs:
 - several similar comments can be seen on frontend in Askhelper page
+- Since the server is deployed on render the cors error occurs for fetching some APIs but can be removed after refreshing the page.
 
 - features:
   - Node provides the backend environment for this application
