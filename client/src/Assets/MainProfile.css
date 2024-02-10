@@ -1,13 +1,14 @@
 .MainProfileOverlay {
   background-color: #fcfdfd;
-  width: 15em;
-  height: 14em;
+  width: 18em;
+  height: 18em;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 2em 0;
   gap: 1em;
-  cursor:default;
+  cursor: default;
+  font-family: "Work Sans", sans-serif;
 }
 .MainProfileImage {
   height: 6em;
@@ -20,8 +21,8 @@
   flex-direction: column;
 }
 .ProfileName {
-  font-size: 1em;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.3em;
+  font-weight: 500;
 }
 .ProfileDiscription {
   font-size: 0.7em;
