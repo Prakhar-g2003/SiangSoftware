@@ -74,9 +74,10 @@ const ProjectAccordian = (myproject) => {
     <ul class="accordian">
       <li class="accordianHeading">
         <input type="checkbox" name="accordian" id="first" />
-        <label for="first" class="contentHead">
+        <label for="first" className="contentHead">
           {" "}
-          Description
+          <p className='accordian_heading_text'> Description</p>
+         
         </label>
         <div class="content">
           <p>{project.description}</p>
@@ -86,7 +87,8 @@ const ProjectAccordian = (myproject) => {
         <input type="checkbox" name="accordian" id="second" />
         <label for="second" class="contentHead">
           {" "}
-          Tech Stack
+          <p className='accordian_heading_text'> Tech Stack</p>
+          
         </label>
         <div class="content">
           <ul>
@@ -105,7 +107,8 @@ const ProjectAccordian = (myproject) => {
           onChange={() => setIsReviewsOpen(!isReviewsOpen)}
         />
         <label htmlFor="third" className="contentHead">
-          Reviews
+          <p className='accordian_heading_text'> Reviews</p>
+          
         </label>
         <div className="content">
           {isReviewsOpen && (
@@ -152,7 +155,10 @@ const ProjectAccordian = (myproject) => {
 
       <li class="accordianHeading" projectStatus>
         <input type="checkbox" name="accordian" id="fourth" />
-        <label for="fourth"> Skills Required</label>
+        <label for="fourth">
+          <p className='accordian_heading_text'> Skills Required</p>
+           
+           </label>
         <div class="content">
           <ul>
             {project.SkillsReq.map((skills) => (
