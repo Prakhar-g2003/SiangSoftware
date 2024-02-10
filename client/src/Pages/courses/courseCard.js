@@ -36,7 +36,7 @@ export default function CourseCard({course}){
       navigate("/profile", { state: { user: user } });
     }
     return(
-        <div class="doubtCardMainCourse " style={{width:"46%",borderRadius:"10px",marginBottom:"14px"}}>
+        <div class="doubtCardMainCourse " style={{borderRadius:"10px",marginBottom:"19px"}}>
       {console.log(course)}
       <div class="doubtCardUserCourse ">
         <img

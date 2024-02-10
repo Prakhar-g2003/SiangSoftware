@@ -8,6 +8,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import FormControl from '@mui/material/FormControl';
 import React, { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
+import MainProfile from "../../Assets/MainProfile";
 import './courses.css'
 
 export default function CoursesPage({courses}){
@@ -99,7 +100,7 @@ React.useEffect(()=>{
     
     return(
       // backgroundColor: "#F7F9FB",
-      <div style={{backgroundColor: "#F7F9FB",height:"100vh",borderTop:"1px solid rgba(0,0,0,0.5)"}}>
+      <div style={{backgroundColor:"#F1FAEE",height:"100vh",width:"100vw",borderTop:"1px solid rgba(0,0,0,0.5)"}}>
           <form className="Searchform" onSubmit={handleSubmit}>
             <Autocomplete
               disablePortal
@@ -112,12 +113,13 @@ React.useEffect(()=>{
               renderInput={(params) => (
                   <div className="courseSearch" ref={params.InputProps.ref}>
                     <input placeholder="Search Courses " type="text" {...params.inputProps} />
+                    
+            <button style={{fontSize:"1rem"}} className="searchButn"><SearchIcon></SearchIcon></button>
+            
                   </div>
                 )}
             />
-            <div >
-            <button style={{fontSize:"1rem"}}><SearchIcon></SearchIcon></button>
-            </div>
+            
             <div className="filtercourse">
           <button onClick={filterProject1}>Online Courses</button>
           <button onClick={filterProject2} >College Courses</button>
@@ -127,7 +129,7 @@ React.useEffect(()=>{
           
         
           <Box >
-            <FormControl fullWidth sx={{backgroundColor:"white", maxWidth: 120 ,marginLeft:"15%",marginTop:"30px",borderRadius:"6px"}}>
+            <FormControl fullWidth sx={{backgroundColor:"white", maxWidth: 120 ,marginLeft:"5%",marginTop:"30px",borderRadius:"6px"}}>
               <InputLabel sx={{height:"20px"}} id="demo-simple-select-label">Sort By</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -142,6 +144,7 @@ React.useEffect(()=>{
             </Box>
         
         <div className="Allcourses">{Rendercourse}</div>
+        
       </div>
     )
 }

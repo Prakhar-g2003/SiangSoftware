@@ -1,7 +1,7 @@
 import React, {useState, useEffect, lazy} from 'react';
 import CoursesPage from "./CoursesPage";
 import MainNavbar from '../../Assets/MainNavbar';
-
+import MainProfile from '../../Assets/MainProfile';
 function FinalCourses() {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -30,10 +30,11 @@ function FinalCourses() {
         )
     }
   return (
-    <div>
+    <div    >
         {console.log(courses)}
         {/* <MainNavbar /> */}
-        <CoursesPage courses={courses}/>
+        <CoursesPage courses={courses} />
+        <div style={{position:"relative",marginTop:"-30%",marginLeft:"70%"}} className='MainProfileCoursePAge'><MainProfile/></div>
     </div>
   );
 }

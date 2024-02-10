@@ -1,6 +1,7 @@
 .home_body {
   display: flex;
   flex-direction: column;
+  background-color: #F1FAEE;
 }
 .home_body_mid {
   display: flex;

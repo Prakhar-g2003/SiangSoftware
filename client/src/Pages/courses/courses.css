@@ -1,6 +1,6 @@
 
-.courseCard{
-    
+/* .courseCard{
+    width: 80vw;
     margin: 0 10px;
     background-color: white;
     height: max-content;
@@ -9,12 +9,12 @@
     padding: 0 19px;
     border-radius: 7px;
     box-shadow: 0px 2px 5px rgb(148, 148, 148);
-}
+} */
 
 
 .Allcourses{
     margin-top:60px;
-    margin-left: 14.8%;
+    padding: 0 4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -30,41 +30,30 @@
         font-size: medium;
 }
 
-@media (max-width: 912px){
-  .courseSearch input{
-    width: 250px !important;
-    margin-left: 10px;
-  }
-  .Searchform{
-    margin-left: -70px;
-  }
-  .doubtCardMain{
-    width: 250px !important;
-  }
-}
+
+
+
 .rating{
     display: flex;
     align-items: center;
 }
 
 
-.Searchform{
+ .Searchform{
 
     margin-top: 40px;
     display: flex;
-    align-items: flex-end;
-    margin-left: 17%;
-    height: 45px;
-    justify-content: center;
-    /*justify-content: space-between;
-    flex-wrap: nowrap; */
     
-}
-@media (min-width: 912px){
-  .Searchform{
-    width:70%;
-  }
-}
+    margin-left: 0;
+    padding: 0 7rem;
+    width: 100vw;
+    
+    height: 45px;
+    justify-content: flex-start;
+    
+    
+} 
+
 
 
 .Searchform button{
@@ -75,7 +64,7 @@
 }
 
 .Searchform button:hover{
-    color: #FFF ;
+    color: #bfbaba ;
     cursor: pointer;
 }
 
@@ -83,23 +72,27 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    flex-wrap: nowrap;
     flex: 1;
-    margin-left: 80px;
+    position: absolute;
+    margin-left: 62%;
 }
 @media (max-width: 912px){
   .filtercourse button{
-    width:100px !important;
-    height: 2.2rem !important;
+    font-size: 0.7rem !important;
+  
+    height: 2rem !important;
   }
   .filtercourse{
     margin-left: 0;
+    
   }
   
 }
 .filtercourse button{
     border:none;
-    height: 2.3rem;
-    width: 140px;
+    height: 2rem;
+    padding: 0 2rem;
     background-color: white;
     border-left:0.5px solid rgba(0,0,0,0.2);
     border-right:0.5px solid rgba(0,0,0,0.2);
@@ -140,7 +133,7 @@
 .doubtCardMainCourse {
   background-color: white;
   padding: 10px 25px 0px 25px;
-  width: 70vh;
+  width: 490px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
@@ -193,6 +186,11 @@
   padding: 0;
   margin: 0px;
 }
+@media (max-width: 760px){
+.MainProfileCoursePAge{
+  display: none;
+}
+}
 
 
 
@@ -204,4 +202,42 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+
+@media (max-width: 676px)
+{
+  .Searchform{
+    
+    display: inline;
+   
+  }
+
+  .Allcourses{
+    margin-left: -40px;
+    padding-right: 3rem;
+    
+  }
+  .doubtCardMainCourse{
+    width: 400px !important;
+  }
+  .searchButn{
+    position: absolute;
+    margin-left: 95%;
+  }
+  
+  
+ 
+
+}
+.courseSearch{
+  display: flex;
+  align-items: center;
+}
+.searchButn{
+  height: 1.9rem !important;
+  border-radius: 0 9px 9px 0;
+}
+.courseSearch input{
+  border-radius: 8px 0 0 8px;
 }

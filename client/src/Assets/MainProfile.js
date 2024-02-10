@@ -28,13 +28,13 @@ const MainProfile = () => {
     )
   }
   return (
-    <div class="MainProfileOverlay" style={{cursor:"default"}}>
+    <div class="MainProfileOverlay" style={{cursor:"default",border:"1px solid rgba(0,0,0,0.4)"}}>
       <img
         class="MainProfileImage"
         src="https://images.unsplash.com/photo-1706806594968-06036c7c8064?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8fA%3D%3D"
       />
       <div class="ProfileDetails">
-        <div class="ProfileName">{user.name}</div>
+        <div class="ProfileName" style={{fontWeight:"600"}}>{user.name}</div>
       </div>
     </div>
   );
