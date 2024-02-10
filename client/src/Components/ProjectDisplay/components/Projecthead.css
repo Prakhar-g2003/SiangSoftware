@@ -6,6 +6,15 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 2em;
+  
+}
+
+@media (max-width: 650px) {
+  .projectHead {
+    flex-direction: column;
+    align-items: center;
+    /* Center align the flex items if needed */
+  }
 }
 
 .projectAuthor {
@@ -13,12 +22,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* width: 50%; */
 }
 
 .projectName {
   font-family: "Kanit", sans-serif;
   font-size: 30px;
   padding: 0;
+  
 }
 .projectType {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -29,4 +40,5 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 600;
   padding: 8px;
+  /* width: 40%; */
 }

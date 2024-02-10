@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   margin: 3.5em 0;
+
 }
 .accordianHeading {
   list-style: none;
@@ -13,6 +14,7 @@
   padding: 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-left: 10%;
 }
 
 .accordian li label {
@@ -21,6 +23,7 @@
   padding: 0.5em;
   font-size: 1.2em;
   cursor: pointer;
+  
 }
 
 label::before {
@@ -42,10 +45,35 @@ input[type="checkbox"] {
     "Lucida Sans", Arial, sans-serif;
 }
 
-.review_open {
-  line-height: 1em;
-  padding: 0 2em;
-  max-height: 200px;
+
+@media (max-width: 408px) {
+  .contentHead {
+    font-size: 18px; 
+  }
+  .accordianHeading {
+    padding: 1px;   
+  }
+  .accordian li label {
+    font-size: 16px; 
+  }
+}
+
+.accordian_heading_text{
+overflow: hidden;
+}
+
+.review_open{
+  line-height: 20px;
+    padding: 0 10px;
+    max-height: 200px;
+  
+    overflow-y: auto;
+  
+    transition: max-height 0.5s, padding 0.5s;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+}
+
 
   overflow-y: auto;
 
