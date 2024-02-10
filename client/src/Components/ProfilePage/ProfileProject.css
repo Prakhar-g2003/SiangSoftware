@@ -1,0 +1,26 @@
+.ProfileProjectOverlay {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 6em;
+  height: 7em;
+}
+
+.profileProjectImage {
+  height: 4em;
+  width: 4em;
+}
+
+.profileProjectName {
+  font-family: "Work Sans", sans-serif;
+}
+
+.profileProjectDisplay {
+  border: 0;
+  background-color: black;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  padding: 0.2em;
+}
