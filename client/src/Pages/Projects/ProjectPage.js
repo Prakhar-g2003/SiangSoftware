@@ -91,11 +91,11 @@ let handleSubmit=(e)=>{
 
 let filterProject1=()=>{
   if(inputProjects){
-  let collProjects=inputProjects.filter((project)=>project.completed===false);
+  let collProjects=inputProjects.filter((project)=>project.completed==="false");
   setNewProject(collProjects);
   }
   if(!inputValue){
-    let collProjects=projects.filter((project)=>project.completed===false);
+    let collProjects=projects.filter((project)=>project.completed==="false");
   setNewProject(collProjects);
   }
   setValue('');
@@ -103,11 +103,11 @@ let filterProject1=()=>{
 }
 let filterProject2=()=>{
  if(inputProjects){
-  let collProjects=inputProjects.filter((project)=>project.completed===true);
+  let collProjects=inputProjects.filter((project)=>project.completed==="true");
   setNewProject(collProjects);
   }
   if(!inputValue){
-    let collProjects=projects.filter((project)=>project.completed===true);
+    let collProjects=projects.filter((project)=>project.completed==="true");
   setNewProject(collProjects);
   }
   setValue('');

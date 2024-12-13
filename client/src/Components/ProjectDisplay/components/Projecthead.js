@@ -15,7 +15,7 @@ const Projecthead = (project) => {
       </div>
       <div class="projectStatus">
         
-        {project.completed ? "Completed": "Ongoing"}
+        {project.completed === "true"? "Completed": "Ongoing"}
         
       </div>
     </div>

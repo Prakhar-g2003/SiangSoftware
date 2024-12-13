@@ -2,7 +2,7 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./ProjectCard.css";
-import CommentDropdown from "../../Components/AskHelper/components/DropDownComment";
+// import CommentDropdown from "../../Components/AskHelper/components/DropDownComment";
 
 export default function ProjectCard({ project, user }) {
   let navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function ProjectCard({ project, user }) {
     navigate("/ProjectDisplay", { state: { project: project } });
   }
   let projectStatusMessage = "Ongoing";
-  if (project.completed) {
+  if (project.completed==="true") {
     projectStatusMessage = "Completed";
   }
   console.log(project);
@@ -28,7 +28,14 @@ export default function ProjectCard({ project, user }) {
             <div className="projectCardInfoName">{project.name}</div>
             <div className="projectCardInfoType">{project.projecttype}</div>
           </div>
-          <div className="projectCardInfoStatus" style={{color:"#E63946"}}>{projectStatusMessage}</div>
+          <div
+          className="projectCardInfoStatus"
+          style={{
+            color: projectStatusMessage === "Completed" ? "#E63946" : "#28A745"
+          }}
+        >
+          {projectStatusMessage}
+        </div>
         </div>
         <div className="projectCardInfoBody">
           <ul className="projectTechStack">

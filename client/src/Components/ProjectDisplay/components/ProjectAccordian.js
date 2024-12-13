@@ -166,7 +166,7 @@ const ProjectAccordian = (myproject) => {
           </ul>
         </div>
       </li>
-      {myproject.completed && (
+      {myproject.completed === "true" && (
         <li class="accordianHeading" projectStatus>
           <input type="checkbox" name="accordian" id="fifth" />
           <label for="fifth"> Contributors</label>
